@@ -1,3 +1,5 @@
+import { Layout } from "@components/layout"
+
 const TermsOfService = () => {
   return (
     <>
@@ -216,6 +218,10 @@ const TermsOfService = () => {
       </div>
     </>
   )
+}
+
+TermsOfService.getLayout = (page: any) => {
+  return <Layout>{page}</Layout>
 }
 
 export default TermsOfService
