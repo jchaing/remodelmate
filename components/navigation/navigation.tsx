@@ -142,7 +142,9 @@ function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ')
 }
 
-export const Navigation: FunctionComponent<NavigationProps> = ({ children }) => {
+export const Navigation: FunctionComponent<NavigationProps> = ({
+  children,
+}) => {
   const [open, setOpen] = useState(false)
 
   return (
@@ -544,11 +546,11 @@ export const Navigation: FunctionComponent<NavigationProps> = ({ children }) => 
             </div>
           </div>
         </nav>
+
+        {children}
+
+        <Footer />
       </header>
-
-      {children}
-
-      <Footer />
     </div>
   )
 }

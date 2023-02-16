@@ -2,9 +2,7 @@
 import { Fragment } from 'react'
 import { Popover, Transition } from '@headlessui/react'
 import { ChevronRightIcon, GlobeAltIcon, InboxIcon, LightningBoltIcon, MenuIcon, ScaleIcon, SparklesIcon, XIcon } from '@heroicons/react/outline'
-import { Footer } from '@components/footer'
-// import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-// import { ChevronRightIcon } from '@heroicons/react/20/solid'
+import { Layout } from '@components/layout'
 
 const navigation = [
   { name: 'Product', href: '#' },
@@ -753,10 +751,12 @@ const Contractors = () => {
           </div>
         </div>
       </section>
-
-     <Footer /> 
     </>
   )
+}
+
+Contractors.getLayout = (page: any) => {
+  return <Layout>{page}</Layout>
 }
 
 export default Contractors
