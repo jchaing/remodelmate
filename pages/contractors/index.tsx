@@ -1,7 +1,16 @@
 /* eslint-disable react/no-unescaped-entities */
 import { Fragment } from 'react'
 import { Popover, Transition } from '@headlessui/react'
-import { ChevronRightIcon, GlobeAltIcon, InboxIcon, LightningBoltIcon, MenuIcon, ScaleIcon, SparklesIcon, XIcon } from '@heroicons/react/outline'
+import {
+  ChevronRightIcon,
+  GlobeAltIcon,
+  InboxIcon,
+  LightningBoltIcon,
+  MenuIcon,
+  ScaleIcon,
+  SparklesIcon,
+  XIcon,
+} from '@heroicons/react/outline'
 import { Layout } from '@components/layout'
 
 const navigation = [
