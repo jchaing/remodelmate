@@ -356,7 +356,7 @@ export const Navigation: FunctionComponent<NavigationProps> = ({
                   </div>
                   <div className="flow-root">
                     <Link
-                      href="https://staging.remodelmate.com"
+                      href="https://staging.homeowner.remodelmate.com/estimate/1"
                       className="-m-2 block p-2 font-medium text-gray-900"
                     >
                       Get quote
@@ -402,7 +402,7 @@ export const Navigation: FunctionComponent<NavigationProps> = ({
 
               {/* Logo */}
               <div className="ml-4 flex lg:ml-0">
-                <Link href="/">
+                <Link href={ROUTE_MAP.app.entry}>
                   <span className="sr-only">Your Company</span>
                   <img
                     className="h-8 w-auto"
@@ -566,7 +566,7 @@ export const Navigation: FunctionComponent<NavigationProps> = ({
                   </Link>
                   <span className="h-6 w-px bg-gray-200" aria-hidden="true" />
                   <Link
-                    href="https://staging.remodelmate.com"
+                    href="https://staging.homeowner.remodelmate.com/estimate/1"
                     className="text-sm font-medium text-gray-700 hover:text-gray-800"
                   >
                     Get quote

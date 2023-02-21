@@ -5,7 +5,7 @@ export const ROUTE_MAP = {
     contractors: '/contractors',
     transformations: '/transformations',
     aboutUs: '/about-us',
-    faq: '/faq',
+    faq: '/faqs',
     blogs: '/blogs',
     press: '/press',
     tos: '/terms-of-service',
