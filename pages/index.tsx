@@ -1,5 +1,6 @@
 import { Layout } from '@components/layout'
 import { InboxIcon, SparklesIcon } from '@heroicons/react/outline'
+import { getStoryblokApi, StoryblokComponent, useStoryblokState } from '@storyblok/react'
 // import { Bars3Icon, MagnifyingGlassIcon, ShoppingBagIcon, XIcon } from '@heroicons/react/outline'
 
 // https://tailwindui.com/components/ecommerce/page-examples/storefront-pages#component-738c2f255a1993e2224c28c461972844
@@ -8,21 +9,26 @@ const collections = [
   {
     name: 'Desk and Office',
     description: 'Work from home accessories',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/home-page-02-edition-01.jpg',
-    imageAlt: 'Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug.',
+    imageSrc:
+      'https://tailwindui.com/img/ecommerce-images/home-page-02-edition-01.jpg',
+    imageAlt:
+      'Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug.',
     href: '#',
   },
   {
     name: 'Self-Improvement',
     description: 'Journals and note-taking',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/home-page-02-edition-02.jpg',
-    imageAlt: 'Wood table with porcelain mug, leather journal, brass pen, leather key ring, and a houseplant.',
+    imageSrc:
+      'https://tailwindui.com/img/ecommerce-images/home-page-02-edition-02.jpg',
+    imageAlt:
+      'Wood table with porcelain mug, leather journal, brass pen, leather key ring, and a houseplant.',
     href: '#',
   },
   {
     name: 'Travel',
     description: 'Daily commute essentials',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/home-page-02-edition-03.jpg',
+    imageSrc:
+      'https://tailwindui.com/img/ecommerce-images/home-page-02-edition-03.jpg',
     imageAlt: 'Collection of four insulated travel bottles on wooden shelf.',
     href: '#',
   },
@@ -85,104 +91,12 @@ const posts = [
   },
 ]
 
-const Home = () => {
-  return (
-    <main>
-      {/* Hero section */}
-      <section>
-        <div className="relative overflow-hidden bg-white">
-          <div className="pt-16 pb-80 sm:pt-24 sm:pb-40 lg:pt-40 lg:pb-48">
-            <div className="relative mx-auto max-w-7xl px-4 sm:static sm:px-6 lg:px-8">
-              <div className="sm:max-w-lg">
-                <h1 className="font text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-                  Summer styles are finally here
-                </h1>
-                <p className="mt-4 text-xl text-gray-500">
-                  This year, our new summer collection will shelter you from the
-                  harsh elements of a world that does not care if you live or
-                  die.
-                </p>
-              </div>
-              <div>
-                <div className="mt-10">
-                  {/* Decorative image grid */}
-                  <div
-                    aria-hidden="true"
-                    className="pointer-events-none lg:absolute lg:inset-y-0 lg:mx-auto lg:w-full lg:max-w-7xl"
-                  >
-                    <div className="absolute transform sm:left-1/2 sm:top-0 sm:translate-x-8 lg:left-1/2 lg:top-1/2 lg:-translate-y-1/2 lg:translate-x-8">
-                      <div className="flex items-center space-x-6 lg:space-x-8">
-                        <div className="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
-                          <div className="h-64 w-44 overflow-hidden rounded-lg sm:opacity-0 lg:opacity-100">
-                            <img
-                              src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-01.jpg"
-                              alt=""
-                              className="h-full w-full object-cover object-center"
-                            />
-                          </div>
-                          <div className="h-64 w-44 overflow-hidden rounded-lg">
-                            <img
-                              src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-02.jpg"
-                              alt=""
-                              className="h-full w-full object-cover object-center"
-                            />
-                          </div>
-                        </div>
-                        <div className="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
-                          <div className="h-64 w-44 overflow-hidden rounded-lg">
-                            <img
-                              src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-03.jpg"
-                              alt=""
-                              className="h-full w-full object-cover object-center"
-                            />
-                          </div>
-                          <div className="h-64 w-44 overflow-hidden rounded-lg">
-                            <img
-                              src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-04.jpg"
-                              alt=""
-                              className="h-full w-full object-cover object-center"
-                            />
-                          </div>
-                          <div className="h-64 w-44 overflow-hidden rounded-lg">
-                            <img
-                              src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-05.jpg"
-                              alt=""
-                              className="h-full w-full object-cover object-center"
-                            />
-                          </div>
-                        </div>
-                        <div className="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
-                          <div className="h-64 w-44 overflow-hidden rounded-lg">
-                            <img
-                              src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-06.jpg"
-                              alt=""
-                              className="h-full w-full object-cover object-center"
-                            />
-                          </div>
-                          <div className="h-64 w-44 overflow-hidden rounded-lg">
-                            <img
-                              src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-07.jpg"
-                              alt=""
-                              className="h-full w-full object-cover object-center"
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+const Home = ({ story }: any) => {
+  story = useStoryblokState(story)
 
-                  <a
-                    href="#"
-                    className="inline-block rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-center font-medium text-white hover:bg-indigo-700"
-                  >
-                    Shop Collection
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+  return (
+    <>
+      <StoryblokComponent blok={story.content} />
 
       {/* Collections */}
       <section aria-labelledby="collections-heading" className="bg-gray-100">
@@ -450,8 +364,27 @@ const Home = () => {
           </div>
         </div>
       </section>
-    </main>
+    </>
   )
+}
+
+export async function getStaticProps() {
+  const slug = 'home'
+
+  // TODO: env var for sbParams "draft" - preview | "published" - production
+  const sbParams: any = {
+    version: process.env.NEXT_PUBLIC_STORYBLOK_VERSION,
+  }
+
+  const storyblokApi = getStoryblokApi()
+  const { data } = await storyblokApi.get(`cdn/stories/${slug}`, sbParams)
+
+  return {
+    props: {
+      story: data ? data.story : false,
+    },
+    revalidate: 3600,
+  }
 }
 
 Home.getLayout = (page: any) => {
