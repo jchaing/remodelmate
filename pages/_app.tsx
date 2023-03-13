@@ -4,14 +4,32 @@ import { ReactElement, ReactNode } from 'react'
 import Head from 'next/head'
 import { NextPage } from 'next'
 import { storyblokInit, apiPlugin } from '@storyblok/react'
-import { HomeBlog, HomeCollections, HomeCta, HomeFeature, HomeHero } from '@components/storyblok/home'
+import {
+  HomeBlog,
+  HomeCollections,
+  HomeCta,
+  HomeFeature,
+  HomeHero,
+} from '@components/storyblok/home'
 import { ComingSoon, Page } from '@components/storyblok'
 import { BlogArticle, BlogPage } from '@components/storyblok/blog'
 import {
   CollectionsGrid,
   CollectionsHeader,
 } from '@components/storyblok/collections'
-import { Collection, CollectionBenefits, CollectionMaterials, CollectionRecommendations } from '@components/storyblok/collections/collection-detail'
+import {
+  Collection,
+  CollectionBenefits,
+  CollectionMaterials,
+  CollectionRecommendations,
+} from '@components/storyblok/collections/collection-detail'
+import {
+  ContractorsBenefits,
+  ContractorsCta,
+  ContractorsFaq,
+  ContractorsFeatures,
+  ContractorsHero,
+} from '@components/storyblok/contractors'
 
 const components = {
   page: Page,
@@ -29,6 +47,11 @@ const components = {
   'collection-recommendations': CollectionRecommendations,
   'blog-page': BlogPage,
   'blog-article': BlogArticle,
+  'contractors-hero': ContractorsHero,
+  'contractors-benefits': ContractorsBenefits,
+  'contractors-features': ContractorsFeatures,
+  'contractors-faq': ContractorsFaq,
+  'contractors-cta': ContractorsCta,
 }
 
 storyblokInit({
