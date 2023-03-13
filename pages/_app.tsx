@@ -6,7 +6,7 @@ import { NextPage } from 'next'
 import { storyblokInit, apiPlugin } from '@storyblok/react'
 import { HomeBlog, HomeCollections, HomeCta, HomeFeature, HomeHero } from '@components/storyblok/home'
 import { ComingSoon, Page } from '@components/storyblok'
-import { BlogArticle } from '@components/storyblok/blog'
+import { BlogArticle, BlogPage } from '@components/storyblok/blog'
 import {
   CollectionsGrid,
   CollectionsHeader,
@@ -27,6 +27,7 @@ const components = {
   'collection-benefits': CollectionBenefits,
   'collection-materials': CollectionMaterials,
   'collection-recommendations': CollectionRecommendations,
+  'blog-page': BlogPage,
   'blog-article': BlogArticle,
 }
 
