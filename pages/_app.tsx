@@ -30,6 +30,7 @@ import {
   ContractorsFeatures,
   ContractorsHero,
 } from '@components/storyblok/contractors'
+import { TOSBody, TOSHeader } from '@components/storyblok/terms-of-service'
 
 const components = {
   page: Page,
@@ -52,6 +53,8 @@ const components = {
   'contractors-features': ContractorsFeatures,
   'contractors-faq': ContractorsFaq,
   'contractors-cta': ContractorsCta,
+  'tos-header': TOSHeader,
+  'tos-body': TOSBody,
 }
 
 storyblokInit({
