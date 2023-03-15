@@ -169,7 +169,6 @@ const navigation = {
     // },
   ],
   pages: [
-    { name: 'Transformations', href: ROUTE_MAP.app.transformations },
     { name: 'Contractors', href: ROUTE_MAP.app.contractors },
     { name: 'About us', href: ROUTE_MAP.app.aboutUs },
   ],
@@ -364,7 +363,7 @@ export const Navigation: FunctionComponent<NavigationProps> = ({
                   </div>
                 </div>
 
-                <div className="border-t border-gray-200 py-6 px-4">
+                {/* <div className="border-t border-gray-200 py-6 px-4">
                   <a href="#" className="-m-2 flex items-center p-2">
                     <img
                       src="https://tailwindui.com/img/flags/flag-canada.svg"
@@ -376,7 +375,7 @@ export const Navigation: FunctionComponent<NavigationProps> = ({
                     </span>
                     <span className="sr-only">, change currency</span>
                   </a>
-                </div>
+                </div> */}
               </Dialog.Panel>
             </Transition.Child>
           </div>
@@ -573,7 +572,7 @@ export const Navigation: FunctionComponent<NavigationProps> = ({
                   </Link>
                 </div>
 
-                <div className="hidden lg:ml-8 lg:flex">
+                {/* <div className="hidden lg:ml-8 lg:flex">
                   <a
                     href="#"
                     className="flex items-center text-gray-700 hover:text-gray-800"
@@ -586,7 +585,7 @@ export const Navigation: FunctionComponent<NavigationProps> = ({
                     <span className="ml-3 block text-sm font-medium">CAD</span>
                     <span className="sr-only">, change currency</span>
                   </a>
-                </div>
+                </div> */}
 
                 {/* Search */}
                 <div className="flex lg:ml-6">

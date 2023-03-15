@@ -19,8 +19,8 @@ export const ContractorsCta = ({ blok }: any) => {
                 <div className="aspect-w-10 aspect-h-6 sm:aspect-w-2 sm:aspect-h-1 lg:aspect-w-1">
                   <img
                     className="rounded-3xl object-cover object-center shadow-2xl"
-                    src="https://images.unsplash.com/photo-1507207611509-ec012433ff52?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=934&q=80"
-                    alt=""
+                    src={blok.cta_image.filename}
+                    alt={blok.cta_image.alt}
                   />
                 </div>
               </div>
@@ -103,18 +103,16 @@ export const ContractorsCta = ({ blok }: any) => {
                   className="text-3xl font-bold tracking-tight text-white"
                   id="join-heading"
                 >
-                  Join our team
+                  {blok.cta_heading}
                 </h2>
                 <p className="text-lg text-white">
-                  Varius facilisi mauris sed sit. Non sed et duis dui leo,
-                  vulputate id malesuada non. Cras aliquet purus dui laoreet
-                  diam sed lacus, fames.
+                  {blok.cta_sub_heading}
                 </p>
                 <a
                   className="block w-full rounded-md border border-transparent bg-white py-3 px-5 text-center text-base font-medium text-indigo-700 shadow-md hover:bg-gray-50 sm:inline-block sm:w-auto"
                   href="#"
                 >
-                  Explore open positions
+                  {blok.cta_button_text}
                 </a>
               </div>
             </div>

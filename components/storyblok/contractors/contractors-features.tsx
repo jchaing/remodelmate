@@ -22,32 +22,26 @@ export const ContractorsFeatures = ({ blok }: any) => {
                 </div>
                 <div className="mt-6">
                   <h2 className="text-3xl font-bold tracking-tight text-gray-900">
-                    Stay on top of customer support
+                    {blok.feature_1_name}
                   </h2>
                   <p className="mt-4 text-lg text-gray-500">
-                    Semper curabitur ullamcorper posuere nunc sed. Ornare
-                    iaculis bibendum malesuada faucibus lacinia porttitor.
-                    Pulvinar laoreet sagittis viverra duis. In venenatis sem
-                    arcu pretium pharetra at. Lectus viverra dui tellus ornare
-                    pharetra.
+                    {blok.feature_1_description}
                   </p>
                   <div className="mt-6">
                     <a
                       href="#"
                       className="inline-flex rounded-lg bg-indigo-600 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-indigo-600 hover:bg-indigo-700 hover:ring-indigo-700"
                     >
-                      Get started
+                      {blok.feature_1_button_text}
                     </a>
                   </div>
                 </div>
               </div>
-              {/* <div className="mt-8 border-t border-gray-200 pt-6">
+              <div className="mt-8 border-t border-gray-200 pt-6">
                   <blockquote>
                     <div>
                       <p className="text-base text-gray-500">
-                        &ldquo;Cras velit quis eros eget rhoncus lacus ultrices
-                        sed diam. Sit orci risus aenean curabitur donec aliquet.
-                        Mi venenatis in euismod ut.&rdquo;
+                        {blok.testimonial_heading}
                       </p>
                     </div>
                     <footer className="mt-3">
@@ -60,12 +54,12 @@ export const ContractorsFeatures = ({ blok }: any) => {
                           />
                         </div>
                         <div className="text-base font-medium text-gray-700">
-                          Marcia Hill, Digital Marketing Manager
+                          {blok.testimonial_sub_heading}
                         </div>
                       </div>
                     </footer>
                   </blockquote>
-                </div> */}
+                </div>
             </div>
             <div className="mt-12 sm:mt-16 lg:mt-0">
               <div className="-mr-48 pl-6 md:-mr-16 lg:relative lg:m-0 lg:h-full lg:px-0">
@@ -92,21 +86,17 @@ export const ContractorsFeatures = ({ blok }: any) => {
                 </div>
                 <div className="mt-6">
                   <h2 className="text-3xl font-bold tracking-tight text-gray-900">
-                    Better understand your customers
+                    {blok.feature_2_name}
                   </h2>
                   <p className="mt-4 text-lg text-gray-500">
-                    Semper curabitur ullamcorper posuere nunc sed. Ornare
-                    iaculis bibendum malesuada faucibus lacinia porttitor.
-                    Pulvinar laoreet sagittis viverra duis. In venenatis sem
-                    arcu pretium pharetra at. Lectus viverra dui tellus ornare
-                    pharetra.
+                    {blok.feature_2_description}
                   </p>
                   <div className="mt-6">
                     <a
                       href="#"
                       className="inline-flex rounded-lg bg-indigo-600 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-indigo-600 hover:bg-indigo-700 hover:ring-indigo-700"
                     >
-                      Get started
+                      {blok.feature_2_button_text}
                     </a>
                   </div>
                 </div>

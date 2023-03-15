@@ -5,8 +5,6 @@ const footerNavigation = {
   company: [
     { name: 'About us', href: ROUTE_MAP.app.aboutUs },
     { name: 'Blog', href: 'https://blog.remodelmate.com/' },
-    { name: 'Press', href: ROUTE_MAP.app.press },
-    { name: 'New City Launch', href: ROUTE_MAP.app.newCityLaunch },
     { name: 'Help', href: ROUTE_MAP.app.help },
   ],
   homeowners: [
@@ -15,7 +13,6 @@ const footerNavigation = {
       href: 'https://staging.homeowner.remodelmate.com/estimate/1',
     },
     { name: 'Collections', href: ROUTE_MAP.app.collections },
-    { name: 'Transformations', href: ROUTE_MAP.app.transformations },
     { name: 'FAQ', href: ROUTE_MAP.app.faq },
   ],
   contractors: [
