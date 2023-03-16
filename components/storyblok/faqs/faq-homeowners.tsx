@@ -1,5 +1,6 @@
 import { Disclosure } from '@headlessui/react'
 import { MinusSmIcon, PlusSmIcon } from '@heroicons/react/outline'
+import { storyblokEditable } from '@storyblok/react'
 
 export const FaqHomeowners = ({ blok }: any) => {
   const faqs: any[] = []
@@ -16,7 +17,7 @@ export const FaqHomeowners = ({ blok }: any) => {
   }
 
   return (
-    <div className="bg-white">
+    <section className="bg-white" {...storyblokEditable(blok)}>
       <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:py-40 lg:px-8">
         <div className="mx-auto max-w-4xl divide-y divide-gray-900/10">
           <h2 className="text-2xl font-bold leading-10 tracking-tight text-gray-900">
@@ -59,6 +60,6 @@ export const FaqHomeowners = ({ blok }: any) => {
           </dl>
         </div>
       </div>
-    </div>
+    </section>
   )
 }
