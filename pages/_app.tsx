@@ -31,6 +31,7 @@ import {
   ContractorsHero,
 } from '@components/storyblok/contractors'
 import { TOSBody, TOSHeader } from '@components/storyblok/terms-of-service'
+import { PrivacyPolicyBody, PrivacyPolicyHeader } from '@components/storyblok/privacy-policy'
 
 const components = {
   page: Page,
@@ -55,6 +56,8 @@ const components = {
   'contractors-cta': ContractorsCta,
   'tos-header': TOSHeader,
   'tos-body': TOSBody,
+  'privacy-policy-header': PrivacyPolicyHeader,
+  'privacy-policy-body': PrivacyPolicyBody,
 }
 
 storyblokInit({
