@@ -31,7 +31,11 @@ import {
   ContractorsHero,
 } from '@components/storyblok/contractors'
 import { TOSBody, TOSHeader } from '@components/storyblok/terms-of-service'
-import { PrivacyPolicyBody, PrivacyPolicyHeader } from '@components/storyblok/privacy-policy'
+import {
+  PrivacyPolicyBody,
+  PrivacyPolicyHeader,
+} from '@components/storyblok/privacy-policy'
+import { FaqContractors, FaqHomeowners } from '@components/storyblok/faqs'
 
 const components = {
   page: Page,
@@ -58,6 +62,8 @@ const components = {
   'tos-body': TOSBody,
   'privacy-policy-header': PrivacyPolicyHeader,
   'privacy-policy-body': PrivacyPolicyBody,
+  'faq-homeowners': FaqHomeowners,
+  'faq-contractors': FaqContractors,
 }
 
 storyblokInit({
