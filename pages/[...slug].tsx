@@ -12,7 +12,7 @@ export async function getStaticProps({ params }: any) {
 
   let sbParams: any = {
     version: process.env.NEXT_PUBLIC_STORYBLOK_VERSION,
-    resolve_relations: ['collection-recommendations.collections', 'collection-benefits.benefits'],
+    resolve_relations: ['collection-recommendations.collections', 'collection-benefits.benefits', 'about-us-team.team_members'],
   }
 
   const storyblokApi = getStoryblokApi()

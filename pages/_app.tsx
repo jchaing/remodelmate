@@ -36,6 +36,7 @@ import {
   PrivacyPolicyHeader,
 } from '@components/storyblok/privacy-policy'
 import { FaqContractors, FaqHomeowners } from '@components/storyblok/faqs'
+import { AboutUsCta, AboutUsFunding, AboutUsHero, AboutUsStory, AboutUsTeam } from '@components/storyblok/about-us'
 
 const components = {
   page: Page,
@@ -64,6 +65,11 @@ const components = {
   'privacy-policy-body': PrivacyPolicyBody,
   'faq-homeowners': FaqHomeowners,
   'faq-contractors': FaqContractors,
+  'about-us-hero': AboutUsHero,
+  'about-us-story': AboutUsStory,
+  'about-us-funding': AboutUsFunding,
+  'about-us-team': AboutUsTeam,
+  'about-us-cta': AboutUsCta,
 }
 
 storyblokInit({

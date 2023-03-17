@@ -1,0 +1,5 @@
+export * from './about-us-hero'
+export * from './about-us-story'
+export * from './about-us-funding'
+export * from './about-us-team'
+export * from './about-us-cta'
