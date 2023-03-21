@@ -100,7 +100,7 @@ export const Footer = () => {
             <Link href={ROUTE_MAP.app.entry}>
               <img
                 className="h-7"
-                src="https://tailwindui.com/img/logos/mark.svg?color=sky&shade=600"
+                src="https://remodelmate-v2-local.s3.us-east-2.amazonaws.com/branding/logos/abstractmark/svg/remodelmate-symbol-black.svg"
                 alt="Company name"
               />
             </Link>
