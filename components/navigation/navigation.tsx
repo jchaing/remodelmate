@@ -34,9 +34,7 @@ export const Navigation: FunctionComponent<NavigationProps> = ({
       {
         id: 'collections',
         name: 'Collections',
-        featured: [
-          ...collections,
-        ],
+        featured: [...collections],
       },
     ],
     pages: [
@@ -117,7 +115,7 @@ export const Navigation: FunctionComponent<NavigationProps> = ({
                           className={({ selected }) =>
                             classNames(
                               selected
-                                ? 'border-indigo-600 text-indigo-600'
+                                ? 'border-blue-600 text-blue-600'
                                 : 'border-transparent text-gray-900',
                               'flex-1 whitespace-nowrap border-b-2 py-4 px-1 text-base font-medium'
                             )
@@ -134,16 +132,6 @@ export const Navigation: FunctionComponent<NavigationProps> = ({
                         key={category.name}
                         className="space-y-10 px-4 pt-10 pb-8"
                       >
-                        <div className="flex items-center justify-center">
-                          <Link
-                            href={ROUTE_MAP.app.collections}
-                            onClick={() => setOpen(false)}
-                          >
-                            <span className="text-md">
-                              Go to Collections Page
-                            </span>
-                          </Link>
-                        </div>
                         <div className="grid grid-cols-2 gap-8">
                           {category.featured.map((item) => (
                             <div
@@ -175,6 +163,16 @@ export const Navigation: FunctionComponent<NavigationProps> = ({
                               </p> */}
                             </div>
                           ))}
+                        </div>
+                        <div className="flex items-center justify-center pb-4">
+                          <Link
+                            href={ROUTE_MAP.app.collections}
+                            onClick={() => setOpen(false)}
+                          >
+                            <span className="text-md">
+                              View all collections
+                            </span>
+                          </Link>
                         </div>
                       </Tab.Panel>
                     ))}
@@ -256,7 +254,7 @@ export const Navigation: FunctionComponent<NavigationProps> = ({
                   <span className="sr-only">Your Company</span>
                   <img
                     className="h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                    src="https://tailwindui.com/img/logos/mark.svg?color=blue&shade=600"
                     alt=""
                   />
                 </Link>
@@ -273,7 +271,7 @@ export const Navigation: FunctionComponent<NavigationProps> = ({
                             <Popover.Button
                               className={classNames(
                                 open
-                                  ? 'border-indigo-600 text-indigo-600'
+                                  ? 'border-blue-600 text-blue-600'
                                   : 'border-transparent text-gray-700 hover:text-gray-800',
                                 'relative z-10 -mb-px flex items-center border-b-2 pt-px text-sm font-medium transition-colors duration-200 ease-out'
                               )}
@@ -312,16 +310,6 @@ export const Navigation: FunctionComponent<NavigationProps> = ({
 
                               <div className="relative">
                                 <div className="mx-auto max-w-7xl px-8">
-                                  <div className="flex items-center justify-center pt-8">
-                                    <Link
-                                      href={ROUTE_MAP.app.collections}
-                                      onClick={() => close()}
-                                    >
-                                      <span className="text-lg">
-                                        Go to Collections Page
-                                      </span>
-                                    </Link>
-                                  </div>
                                   <div className="grid gap-y-10 gap-x-8 py-16">
                                     <div className="grid grid-cols-6 gap-x-16">
                                       {category.featured.map((item) => (
@@ -346,9 +334,7 @@ export const Navigation: FunctionComponent<NavigationProps> = ({
                                               height={150}
                                             />
                                           </div>
-                                          <div
-                                            className="mt-6 block font-medium text-gray-900"
-                                          >
+                                          <div className="mt-6 block font-medium text-gray-900">
                                             <span
                                               className="absolute inset-0 z-10"
                                               aria-hidden="true"
@@ -358,6 +344,16 @@ export const Navigation: FunctionComponent<NavigationProps> = ({
                                         </Link>
                                       ))}
                                     </div>
+                                  </div>
+                                  <div className="flex items-center justify-center pb-16">
+                                    <Link
+                                      href={ROUTE_MAP.app.collections}
+                                      onClick={() => close()}
+                                    >
+                                      <span className="text-lg">
+                                        View all collections
+                                      </span>
+                                    </Link>
                                   </div>
                                 </div>
                               </div>

@@ -4,7 +4,7 @@ import Link from 'next/link'
 const footerNavigation = {
   company: [
     { name: 'About us', href: ROUTE_MAP.app.aboutUs },
-    { name: 'Blog', href: 'https://blog.remodelmate.com/' },
+    { name: 'Blog', href: ROUTE_MAP.app.blogs },
     { name: 'Help', href: ROUTE_MAP.app.help },
   ],
   homeowners: [
@@ -100,7 +100,7 @@ export const Footer = () => {
             <Link href={ROUTE_MAP.app.entry}>
               <img
                 className="h-7"
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                src="https://tailwindui.com/img/logos/mark.svg?color=blue&shade=600"
                 alt="Company name"
               />
             </Link>

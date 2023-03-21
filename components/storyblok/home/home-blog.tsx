@@ -7,7 +7,7 @@ export const HomeBlog = ({ blok }: any) => {
       aria-labelledby="from-the-blog-heading"
       {...storyblokEditable(blok)}
     >
-      <div className="relative bg-gray-50 px-6 pt-16 pb-20 lg:px-8 lg:pt-24 lg:pb-28">
+      <div className="relative px-6 pt-16 pb-20 lg:px-8 lg:pt-24 lg:pb-28">
         <div className="absolute inset-0">
           <div className="h-1/3 bg-white sm:h-2/3" />
         </div>
@@ -35,7 +35,7 @@ export const HomeBlog = ({ blok }: any) => {
                 </div>
                 <div className="flex flex-1 flex-col justify-between bg-white p-6">
                   <div className="flex-1">
-                    {/* <p className="text-sm font-medium text-indigo-600">
+                    {/* <p className="text-sm font-medium text-blue-600">
                       <a href={post.category.href} className="hover:underline">
                         {post.category.name}
                       </a>

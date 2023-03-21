@@ -16,7 +16,7 @@ export const ContractorsHero = ({ blok }: any) => {
                     rel="noreferrer"
                     className="flex items-center rounded-full bg-gray-900 p-1 pr-2 text-white hover:text-gray-200 sm:text-base lg:text-sm xl:text-base"
                   >
-                    <span className="rounded-full bg-indigo-500 px-3 py-0.5 text-sm font-semibold leading-5 text-white">
+                    <span className="rounded-full bg-blue-500 px-3 py-0.5 text-sm font-semibold leading-5 text-white">
                       {blok.pill}
                     </span>
                     <span className="ml-4 text-sm">{blok.sub_pill}</span>
@@ -157,7 +157,7 @@ export const ContractorsHero = ({ blok }: any) => {
                           autoComplete="name"
                           placeholder="Full name"
                           required
-                          className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                          className="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
                         />
                       </div>
 
@@ -172,7 +172,7 @@ export const ContractorsHero = ({ blok }: any) => {
                           autoComplete="email"
                           placeholder="Mobile number or email"
                           required
-                          className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                          className="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
                         />
                       </div>
 
@@ -187,14 +187,14 @@ export const ContractorsHero = ({ blok }: any) => {
                           placeholder="Password"
                           autoComplete="current-password"
                           required
-                          className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                          className="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
                         />
                       </div>
 
                       <div>
                         <button
                           type="submit"
-                          className="flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                          className="flex w-full justify-center rounded-md border border-transparent bg-blue-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                         >
                           Create your account
                         </button>

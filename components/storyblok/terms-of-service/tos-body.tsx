@@ -109,7 +109,7 @@ export const TOSBody = ({ blok }: any) => {
           </div>
         </div>
         <div className="relative px-6 lg:px-8">
-          <div className="prose prose-lg prose-indigo mx-auto mt-6 text-gray-500">
+          <div className="prose prose-lg prose-blue mx-auto mt-6 text-gray-500">
             {render(blok.body)} 
           </div>
         </div>

@@ -16,6 +16,9 @@ export const HomeCollections = ({ blok }: any) => {
           >
             {blok.heading}
           </h2>
+          <div>
+            <span>View all</span>
+          </div>
 
           <div className="mt-6 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:space-y-0">
             {blok.collections.map((collection: any) => (

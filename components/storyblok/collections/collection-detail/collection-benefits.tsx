@@ -42,7 +42,7 @@ export const CollectionBenefits = ({ blok }: any) => {
             >
               <div className="mx-auto flex max-w-xs items-center px-4 lg:max-w-none lg:px-8">
                 <benefit.icon
-                  className="h-8 w-8 flex-shrink-0 text-indigo-600"
+                  className="h-8 w-8 flex-shrink-0 text-blue-600"
                   aria-hidden="true"
                 />
                 <div className="ml-4 flex flex-auto flex-col-reverse">
