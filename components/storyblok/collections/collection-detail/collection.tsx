@@ -106,7 +106,7 @@ export const Collection = ({ blok }: any) => {
                           </span>
                           <span
                             className={classNames(
-                              selected ? 'ring-blue-500' : 'ring-transparent',
+                              selected ? 'ring-sky-500' : 'ring-transparent',
                               'pointer-events-none absolute inset-0 rounded-md ring-2 ring-offset-2'
                             )}
                             aria-hidden="true"
@@ -201,7 +201,7 @@ export const Collection = ({ blok }: any) => {
                 <div className="sm:flex-col1 mt-10 flex">
                   <button
                     type="submit"
-                    className="flex max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-blue-600 py-3 px-8 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full"
+                    className="flex max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-sky-600 py-3 px-8 text-base font-medium text-white hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full"
                   >
                     {blok.button_text}
                   </button>
@@ -222,7 +222,7 @@ export const Collection = ({ blok }: any) => {
                           <Disclosure.Button className="group relative flex w-full items-center justify-between py-6 text-left">
                             <span
                               className={classNames(
-                                open ? 'text-blue-600' : 'text-gray-900',
+                                open ? 'text-sky-600' : 'text-gray-900',
                                 'text-sm font-medium'
                               )}
                             >
@@ -231,7 +231,7 @@ export const Collection = ({ blok }: any) => {
                             <span className="ml-6 flex items-center">
                               {open ? (
                                 <MinusIcon
-                                  className="block h-6 w-6 text-blue-400 group-hover:text-blue-500"
+                                  className="block h-6 w-6 text-sky-400 group-hover:text-sky-500"
                                   aria-hidden="true"
                                 />
                               ) : (

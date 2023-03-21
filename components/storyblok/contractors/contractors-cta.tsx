@@ -8,7 +8,7 @@ export const ContractorsCta = ({ blok }: any) => {
           className="absolute inset-x-0 top-0 hidden h-1/2 bg-gray-50 lg:block"
           aria-hidden="true"
         />
-        <div className="mx-auto max-w-7xl bg-blue-600 lg:bg-transparent lg:px-8">
+        <div className="mx-auto max-w-7xl bg-sky-600 lg:bg-transparent lg:px-8">
           <div className="lg:grid lg:grid-cols-12">
             <div className="relative z-10 lg:col-span-4 lg:col-start-1 lg:row-start-1 lg:bg-transparent lg:py-16">
               <div
@@ -26,7 +26,7 @@ export const ContractorsCta = ({ blok }: any) => {
               </div>
             </div>
 
-            <div className="relative bg-blue-600 lg:col-span-10 lg:col-start-3 lg:row-start-1 lg:grid lg:grid-cols-10 lg:items-center lg:rounded-3xl">
+            <div className="relative bg-sky-600 lg:col-span-10 lg:col-start-3 lg:row-start-1 lg:grid lg:grid-cols-10 lg:items-center lg:rounded-3xl">
               <div
                 className="absolute inset-0 hidden overflow-hidden rounded-3xl lg:block"
                 aria-hidden="true"
@@ -53,7 +53,7 @@ export const ContractorsCta = ({ blok }: any) => {
                         y={0}
                         width={4}
                         height={4}
-                        className="text-blue-500"
+                        className="text-sky-500"
                         fill="currentColor"
                       />
                     </pattern>
@@ -86,7 +86,7 @@ export const ContractorsCta = ({ blok }: any) => {
                         y={0}
                         width={4}
                         height={4}
-                        className="text-blue-500"
+                        className="text-sky-500"
                         fill="currentColor"
                       />
                     </pattern>
@@ -109,7 +109,7 @@ export const ContractorsCta = ({ blok }: any) => {
                   {blok.cta_sub_heading}
                 </p>
                 <a
-                  className="block w-full rounded-md border border-transparent bg-white py-3 px-5 text-center text-base font-medium text-blue-700 shadow-md hover:bg-gray-50 sm:inline-block sm:w-auto"
+                  className="block w-full rounded-md border border-transparent bg-white py-3 px-5 text-center text-base font-medium text-sky-700 shadow-md hover:bg-gray-50 sm:inline-block sm:w-auto"
                   href="#"
                 >
                   {blok.cta_button_text}

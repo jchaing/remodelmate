@@ -100,7 +100,7 @@ export const Footer = () => {
             <Link href={ROUTE_MAP.app.entry}>
               <img
                 className="h-7"
-                src="https://tailwindui.com/img/logos/mark.svg?color=blue&shade=600"
+                src="https://tailwindui.com/img/logos/mark.svg?color=sky&shade=600"
                 alt="Company name"
               />
             </Link>

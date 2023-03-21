@@ -115,7 +115,7 @@ export const Navigation: FunctionComponent<NavigationProps> = ({
                           className={({ selected }) =>
                             classNames(
                               selected
-                                ? 'border-blue-600 text-blue-600'
+                                ? 'border-sky-600 text-sky-600'
                                 : 'border-transparent text-gray-900',
                               'flex-1 whitespace-nowrap border-b-2 py-4 px-1 text-base font-medium'
                             )
@@ -254,7 +254,7 @@ export const Navigation: FunctionComponent<NavigationProps> = ({
                   <span className="sr-only">Your Company</span>
                   <img
                     className="h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/mark.svg?color=blue&shade=600"
+                    src="https://tailwindui.com/img/logos/mark.svg?color=sky&shade=600"
                     alt=""
                   />
                 </Link>
@@ -271,7 +271,7 @@ export const Navigation: FunctionComponent<NavigationProps> = ({
                             <Popover.Button
                               className={classNames(
                                 open
-                                  ? 'border-blue-600 text-blue-600'
+                                  ? 'border-sky-600 text-sky-600'
                                   : 'border-transparent text-gray-700 hover:text-gray-800',
                                 'relative z-10 -mb-px flex items-center border-b-2 pt-px text-sm font-medium transition-colors duration-200 ease-out'
                               )}

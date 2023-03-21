@@ -83,7 +83,7 @@ export const HomeHero = ({blok}: any) => {
 
                 <a
                   href="#"
-                  className="inline-block rounded-md border border-transparent bg-blue-600 py-3 px-8 text-center font-medium text-white hover:bg-blue-700"
+                  className="inline-block rounded-md border border-transparent bg-sky-600 py-3 px-8 text-center font-medium text-white hover:bg-sky-700"
                 >
                   {blok.button}
                 </a>

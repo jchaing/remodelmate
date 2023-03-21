@@ -45,7 +45,7 @@ export const ContractorsFaq = ({ blok }: any) => {
             {blok.faq_sub_heading}
             {/* <a
               href="#"
-              className="font-semibold text-blue-600 hover:text-blue-500"
+              className="font-semibold text-sky-600 hover:text-sky-500"
             >
               sending us an email
             </a>{' '}
