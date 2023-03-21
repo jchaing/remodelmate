@@ -254,7 +254,7 @@ export const Navigation: FunctionComponent<NavigationProps> = ({
                   <span className="sr-only">Your Company</span>
                   <img
                     className="h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/mark.svg?color=sky&shade=600"
+                    src="https://remodelmate-v2-local.s3.us-east-2.amazonaws.com/branding/logos/abstractmark/svg/remodelmate-symbol-black.svg"
                     alt=""
                   />
                 </Link>
