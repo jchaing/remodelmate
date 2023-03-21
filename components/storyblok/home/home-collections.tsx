@@ -1,4 +1,5 @@
 import { storyblokEditable } from "@storyblok/react"
+import { ROUTE_MAP } from "@utils/routes"
 import Link from "next/link"
 
 export const HomeCollections = ({ blok }: any) => {
@@ -16,9 +17,9 @@ export const HomeCollections = ({ blok }: any) => {
           >
             {blok.heading}
           </h2>
-          <div>
-            <span>View all</span>
-          </div>
+          <Link href={ROUTE_MAP.app.collections}>
+            <span className='cursor-pointer text-sky-700'>View all</span>
+          </Link>
 
           <div className="mt-6 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:space-y-0">
             {blok.collections.map((collection: any) => (

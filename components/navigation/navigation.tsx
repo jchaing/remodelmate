@@ -7,12 +7,7 @@ import {
   useState,
 } from 'react'
 import { Dialog, Popover, Tab, Transition } from '@headlessui/react'
-import {
-  XIcon,
-  MenuAlt3Icon,
-  SearchIcon,
-  ShoppingBagIcon,
-} from '@heroicons/react/outline'
+import { XIcon, MenuAlt3Icon } from '@heroicons/react/outline'
 import { Footer } from '@components/footer'
 import Link from 'next/link'
 import { ROUTE_MAP } from '@utils/routes'
@@ -158,9 +153,6 @@ export const Navigation: FunctionComponent<NavigationProps> = ({
                                 />
                                 {item.name}
                               </Link>
-                              {/* <p aria-hidden="true" className="mt-1">
-                                Shop now
-                              </p> */}
                             </div>
                           ))}
                         </div>
@@ -253,8 +245,8 @@ export const Navigation: FunctionComponent<NavigationProps> = ({
                 <Link href={ROUTE_MAP.app.entry}>
                   <span className="sr-only">Your Company</span>
                   <img
-                    className="h-8 w-auto"
-                    src="https://remodelmate-v2-local.s3.us-east-2.amazonaws.com/branding/logos/abstractmark/svg/remodelmate-symbol-black.svg"
+                    className="h-4 w-auto"
+                    src="https://remodelmate-v2-local.s3.us-east-2.amazonaws.com/branding/logos/wordmark/svg/remodelmate-black.svg"
                     alt=""
                   />
                 </Link>
@@ -392,43 +384,6 @@ export const Navigation: FunctionComponent<NavigationProps> = ({
                     Get quote
                   </Link>
                 </div>
-
-                {/* <div className="hidden lg:ml-8 lg:flex">
-                  <a
-                    href="#"
-                    className="flex items-center text-gray-700 hover:text-gray-800"
-                  >
-                    <img
-                      src="https://tailwindui.com/img/flags/flag-canada.svg"
-                      alt=""
-                      className="block h-auto w-5 flex-shrink-0"
-                    />
-                    <span className="ml-3 block text-sm font-medium">CAD</span>
-                    <span className="sr-only">, change currency</span>
-                  </a>
-                </div> */}
-
-                {/* Search */}
-                {/* <div className="flex lg:ml-6">
-                  <a href="#" className="p-2 text-gray-400 hover:text-gray-500">
-                    <span className="sr-only">Search</span>
-                    <SearchIcon className="h-6 w-6" aria-hidden="true" />
-                  </a>
-                </div> */}
-
-                {/* Cart */}
-                {/* <div className="ml-4 flow-root lg:ml-6">
-                  <a href="#" className="group -m-2 flex items-center p-2">
-                    <ShoppingBagIcon
-                      className="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
-                      aria-hidden="true"
-                    />
-                    <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">
-                      0
-                    </span>
-                    <span className="sr-only">items in cart, view bag</span>
-                  </a>
-                </div> */}
               </div>
             </div>
           </div>

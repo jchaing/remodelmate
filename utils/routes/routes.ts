@@ -6,7 +6,7 @@ export const ROUTE_MAP = {
     transformations: '/transformations',
     aboutUs: '/about-us',
     faq: '/faqs',
-    blogs: '/blogs',
+    blog: '/blog',
     press: '/press',
     tos: '/terms-of-service',
     privacy: '/privacy-policy',
