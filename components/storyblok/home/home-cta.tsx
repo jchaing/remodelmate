@@ -1,4 +1,6 @@
 import { storyblokEditable } from '@storyblok/react'
+import { ESTIMATE_URL } from '@utils/links'
+import Link from 'next/link'
 
 export const HomeCta = ({ blok }: any) => {
   return (
@@ -13,15 +15,15 @@ export const HomeCta = ({ blok }: any) => {
             <span className="block">{blok.heading}</span>
             <span className="block">{blok.sub_heading}</span>
           </h2>
-          <p className="mt-4 text-lg leading-6 text-sky-200">
-            {blok.message}
-          </p>
-          <a
-            href="#"
+          <p className="mt-4 text-lg leading-6 text-sky-200">{blok.message}</p>
+          <Link
+            href={ESTIMATE_URL}
             className="mt-8 inline-flex w-full items-center justify-center rounded-md border border-transparent bg-white px-5 py-3 text-base font-medium text-sky-600 hover:bg-sky-50 sm:w-auto"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             {blok.button_text}
-          </a>
+          </Link>
         </div>
       </div>
     </section>

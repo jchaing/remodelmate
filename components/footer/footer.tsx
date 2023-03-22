@@ -1,3 +1,4 @@
+import { ESTIMATE_URL } from '@utils/links'
 import { ROUTE_MAP } from '@utils/routes'
 import Link from 'next/link'
 
@@ -10,7 +11,7 @@ const footerNavigation = {
   homeowners: [
     {
       name: 'Get an Estimate',
-      href: 'https://staging.homeowner.remodelmate.com/estimate/1',
+      href: ESTIMATE_URL,
     },
     { name: 'Collections', href: ROUTE_MAP.app.collections },
     { name: 'FAQ', href: ROUTE_MAP.app.faq },
@@ -112,6 +113,8 @@ export const Footer = () => {
                   key={item.name}
                   href={item.href}
                   className="text-gray-400 hover:text-gray-500"
+                  target="_blank"
+                  rel="noreferrer noopener"
                 >
                   <span className="sr-only">{item.name}</span>
                   <item.icon className="h-6 w-6" aria-hidden="true" />
@@ -148,6 +151,12 @@ export const Footer = () => {
                       <Link
                         href={item.href}
                         className="text-sm leading-6 text-gray-600 hover:text-gray-900"
+                        target={item.name === 'Get an Estimate' ? '_blank' : ''}
+                        rel={
+                          item.name === 'Get an Estimate'
+                            ? 'noopener noreferrer'
+                            : ''
+                        }
                       >
                         {item.name}
                       </Link>

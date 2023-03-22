@@ -1,4 +1,6 @@
 import { storyblokEditable } from "@storyblok/react"
+import { ESTIMATE_URL } from "@utils/links"
+import Link from "next/link"
 
 export const ContractorsCta = ({ blok }: any) => {
   return (
@@ -108,12 +110,14 @@ export const ContractorsCta = ({ blok }: any) => {
                 <p className="text-lg text-white">
                   {blok.cta_sub_heading}
                 </p>
-                <a
+                <Link
                   className="block w-full rounded-md border border-transparent bg-white py-3 px-5 text-center text-base font-medium text-sky-700 shadow-md hover:bg-gray-50 sm:inline-block sm:w-auto"
-                  href="#"
+                  href={ESTIMATE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   {blok.cta_button_text}
-                </a>
+                </Link>
               </div>
             </div>
           </div>

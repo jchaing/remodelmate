@@ -43,13 +43,6 @@ export const ContractorsFaq = ({ blok }: any) => {
           </h2>
           <p className="mt-6 max-w-2xl text-base leading-7 text-gray-600">
             {blok.faq_sub_heading}
-            {/* <a
-              href="#"
-              className="font-semibold text-sky-600 hover:text-sky-500"
-            >
-              sending us an email
-            </a>{' '}
-            and we’ll get back to you as soon as we can. */}
           </p>
           <div className="mt-20">
             <dl className="space-y-16 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-16 sm:space-y-0 lg:grid-cols-3 lg:gap-x-10">

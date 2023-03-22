@@ -1,4 +1,6 @@
 import { storyblokEditable } from '@storyblok/react'
+import { ESTIMATE_URL } from '@utils/links'
+import Link from 'next/link'
 
 export const AboutUsCta = ({ blok }: any) => {
   return (
@@ -15,12 +17,14 @@ export const AboutUsCta = ({ blok }: any) => {
           <p className="mt-4 text-lg leading-6 text-sky-200">
             {blok.cta_sub_heading}
           </p>
-          <a
-            href={blok.cta_button_url.url}
+          <Link
+            href={ESTIMATE_URL}
             className="mt-8 inline-flex w-full items-center justify-center rounded-md border border-transparent bg-white px-5 py-3 text-base font-medium text-sky-600 hover:bg-sky-50 sm:w-auto"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             {blok.cta_button_text}
-          </a>
+          </Link>
         </div>
       </div>
     </section>

@@ -35,11 +35,6 @@ export const HomeBlog = ({ blok }: any) => {
                 </div>
                 <div className="flex flex-1 flex-col justify-between bg-white p-6">
                   <div className="flex-1">
-                    {/* <p className="text-sm font-medium text-sky-600">
-                      <a href={post.category.href} className="hover:underline">
-                        {post.category.name}
-                      </a>
-                    </p> */}
                     <Link
                       href={`/blog/${article.slug}`}
                       className="mt-2 block"
@@ -65,14 +60,10 @@ export const HomeBlog = ({ blok }: any) => {
                     </div>
                     <div className="ml-3">
                       <p className="text-sm font-medium text-gray-900">
-                        <a href="#" className="hover:underline">
                           Michael Smith
-                        </a>
                       </p>
                       <div className="flex space-x-1 text-sm text-gray-500">
                         <time dateTime="2020-03-16">Mar 16, 2020</time>
-                        <span aria-hidden="true">&middot;</span>
-                        <span>6 min read</span>
                       </div>
                     </div>
                   </div>

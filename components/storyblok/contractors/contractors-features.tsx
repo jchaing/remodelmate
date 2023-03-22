@@ -3,6 +3,8 @@ import {
   SparklesIcon,
 } from '@heroicons/react/outline'
 import { storyblokEditable } from '@storyblok/react'
+import { CONTRACTOR_URL } from '@utils/links'
+import Link from 'next/link'
 
 export const ContractorsFeatures = ({ blok }: any) => {
   return (
@@ -28,38 +30,40 @@ export const ContractorsFeatures = ({ blok }: any) => {
                     {blok.feature_1_description}
                   </p>
                   <div className="mt-6">
-                    <a
-                      href="#"
+                    <Link
+                      href={CONTRACTOR_URL}
                       className="inline-flex rounded-lg bg-sky-600 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-sky-600 hover:bg-sky-700 hover:ring-sky-700"
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
                       {blok.feature_1_button_text}
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
               <div className="mt-8 border-t border-gray-200 pt-6">
-                  <blockquote>
-                    <div>
-                      <p className="text-base text-gray-500">
-                        {blok.testimonial_heading}
-                      </p>
-                    </div>
-                    <footer className="mt-3">
-                      <div className="flex items-center space-x-3">
-                        <div className="flex-shrink-0">
-                          <img
-                            className="h-6 w-6 rounded-full"
-                            src="https://images.unsplash.com/photo-1509783236416-c9ad59bae472?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80"
-                            alt=""
-                          />
-                        </div>
-                        <div className="text-base font-medium text-gray-700">
-                          {blok.testimonial_sub_heading}
-                        </div>
+                <blockquote>
+                  <div>
+                    <p className="text-base text-gray-500">
+                      {blok.testimonial_heading}
+                    </p>
+                  </div>
+                  <footer className="mt-3">
+                    <div className="flex items-center space-x-3">
+                      <div className="flex-shrink-0">
+                        <img
+                          className="h-6 w-6 rounded-full"
+                          src="https://images.unsplash.com/photo-1509783236416-c9ad59bae472?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80"
+                          alt=""
+                        />
                       </div>
-                    </footer>
-                  </blockquote>
-                </div>
+                      <div className="text-base font-medium text-gray-700">
+                        {blok.testimonial_sub_heading}
+                      </div>
+                    </div>
+                  </footer>
+                </blockquote>
+              </div>
             </div>
             <div className="mt-12 sm:mt-16 lg:mt-0">
               <div className="-mr-48 pl-6 md:-mr-16 lg:relative lg:m-0 lg:h-full lg:px-0">
@@ -92,12 +96,14 @@ export const ContractorsFeatures = ({ blok }: any) => {
                     {blok.feature_2_description}
                   </p>
                   <div className="mt-6">
-                    <a
-                      href="#"
+                    <Link
+                      href={CONTRACTOR_URL}
                       className="inline-flex rounded-lg bg-sky-600 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-sky-600 hover:bg-sky-700 hover:ring-sky-700"
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
                       {blok.feature_2_button_text}
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>

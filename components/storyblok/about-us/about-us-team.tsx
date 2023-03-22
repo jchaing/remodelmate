@@ -1,4 +1,5 @@
 import { storyblokEditable } from "@storyblok/react"
+import Link from "next/link"
 
 export const AboutUsTeam = ({ blok }: any) => {
   return (
@@ -48,7 +49,7 @@ export const AboutUsTeam = ({ blok }: any) => {
                       </a>
                     </li> */}
                   <li>
-                    <a
+                    <Link
                       href={member.content?.team_member_linkedin.url}
                       target="_blank"
                       rel="noreferrer"
@@ -67,7 +68,7 @@ export const AboutUsTeam = ({ blok }: any) => {
                           clipRule="evenodd"
                         />
                       </svg>
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </li>

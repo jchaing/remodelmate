@@ -1,5 +1,7 @@
 import { ChevronRightIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
 import { storyblokEditable } from '@storyblok/react'
+import { CONTRACTOR_URL } from '@utils/links'
+import Link from 'next/link'
 
 export const ContractorsHero = ({ blok }: any) => {
   return (
@@ -10,8 +12,8 @@ export const ContractorsHero = ({ blok }: any) => {
             <div className="px-6 sm:text-center md:mx-auto md:max-w-2xl lg:col-span-6 lg:flex lg:items-center lg:text-left">
               <div>
                 <div className="hidden sm:mb-4 sm:flex sm:justify-center lg:justify-start">
-                  <a
-                    href="https://contractor.remodelmate.com"
+                  <Link
+                    href={CONTRACTOR_URL}
                     target="_blank"
                     rel="noreferrer"
                     className="flex items-center rounded-full bg-gray-900 p-1 pr-2 text-white hover:text-gray-200 sm:text-base lg:text-sm xl:text-base"
@@ -24,7 +26,7 @@ export const ContractorsHero = ({ blok }: any) => {
                       className="ml-2 h-5 w-5 text-gray-500"
                       aria-hidden="true"
                     />
-                  </a>
+                  </Link>
                 </div>
                 <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl">
                   {blok.heading}

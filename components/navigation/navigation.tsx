@@ -13,6 +13,7 @@ import Link from 'next/link'
 import { ROUTE_MAP } from '@utils/routes'
 import { getStoryblokApi } from '@storyblok/react'
 import Image from 'next/image'
+import { ESTIMATE_URL, LOGIN_URL } from '@utils/links'
 
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ')
@@ -188,35 +189,27 @@ export const Navigation: FunctionComponent<NavigationProps> = ({
                 <div className="space-y-6 border-t border-gray-200 py-6 px-4">
                   <div className="flow-root">
                     <Link
-                      href="https://staging.homeowner.remodelmate.com/"
+                      href={LOGIN_URL}
                       className="-m-2 block p-2 font-medium text-gray-900"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => setOpen(false)}
                     >
                       Sign in
                     </Link>
                   </div>
                   <div className="flow-root">
                     <Link
-                      href="https://staging.homeowner.remodelmate.com/estimate/1"
+                      href={ESTIMATE_URL}
                       className="-m-2 block p-2 font-medium text-gray-900"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => setOpen(false)}
                     >
                       Get quote
                     </Link>
                   </div>
                 </div>
-
-                {/* <div className="border-t border-gray-200 py-6 px-4">
-                  <a href="#" className="-m-2 flex items-center p-2">
-                    <img
-                      src="https://tailwindui.com/img/flags/flag-canada.svg"
-                      alt=""
-                      className="block h-auto w-5 flex-shrink-0"
-                    />
-                    <span className="ml-3 block text-base font-medium text-gray-900">
-                      CAD
-                    </span>
-                    <span className="sr-only">, change currency</span>
-                  </a>
-                </div> */}
               </Dialog.Panel>
             </Transition.Child>
           </div>
@@ -371,15 +364,19 @@ export const Navigation: FunctionComponent<NavigationProps> = ({
               <div className="ml-auto flex items-center">
                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
                   <Link
-                    href="https://staging.homeowner.remodelmate.com/"
+                    href={LOGIN_URL}
                     className="text-sm font-medium text-gray-700 hover:text-gray-800"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     Sign in
                   </Link>
                   <span className="h-6 w-px bg-gray-200" aria-hidden="true" />
                   <Link
-                    href="https://staging.homeowner.remodelmate.com/estimate/1"
+                    href={ESTIMATE_URL}
                     className="text-sm font-medium text-gray-700 hover:text-gray-800"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     Get quote
                   </Link>

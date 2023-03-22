@@ -1,6 +1,8 @@
-import { storyblokEditable } from "@storyblok/react"
+import { storyblokEditable } from '@storyblok/react'
+import { ESTIMATE_URL } from '@utils/links'
+import Link from 'next/link'
 
-export const HomeHero = ({blok}: any) => {
+export const HomeHero = ({ blok }: any) => {
   return (
     <section {...storyblokEditable(blok)}>
       <div className="relative overflow-hidden bg-white">
@@ -81,12 +83,14 @@ export const HomeHero = ({blok}: any) => {
                   </div>
                 </div>
 
-                <a
-                  href="#"
+                <Link
+                  href={ESTIMATE_URL}
                   className="inline-block rounded-md border border-transparent bg-sky-600 py-3 px-8 text-center font-medium text-white hover:bg-sky-700"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   {blok.button}
-                </a>
+                </Link>
               </div>
             </div>
           </div>
