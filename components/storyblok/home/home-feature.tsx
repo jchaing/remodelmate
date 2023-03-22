@@ -39,7 +39,7 @@ export const HomeFeature = ({ blok }: any) => {
                 </div>
               </div>
               {/** //TODO: Add testimonial? */}
-              <div className="mt-8 border-t border-gray-200 pt-6">
+              {/* <div className="mt-8 border-t border-gray-200 pt-6">
                 <blockquote>
                   <div>
                     <p className="text-base text-gray-500">
@@ -63,7 +63,7 @@ export const HomeFeature = ({ blok }: any) => {
                     </div>
                   </footer>
                 </blockquote>
-              </div>
+              </div> */}
             </div>
             <div className="mt-12 sm:mt-16 lg:mt-0">
               <div className="-mr-48 pl-6 md:-mr-16 lg:relative lg:m-0 lg:h-full lg:px-0">

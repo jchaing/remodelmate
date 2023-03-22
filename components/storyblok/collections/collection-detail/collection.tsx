@@ -1,13 +1,7 @@
 import { storyblokEditable } from '@storyblok/react'
 import { Disclosure, RadioGroup, Tab } from '@headlessui/react'
 import { useState } from 'react'
-import {
-  CalendarIcon,
-  MinusIcon,
-  PlusIcon,
-  SwitchHorizontalIcon,
-  TruckIcon,
-} from '@heroicons/react/outline'
+import { MinusIcon, PlusIcon } from '@heroicons/react/outline'
 
 const product = {
   name: 'Zip Tote Basket',
@@ -78,7 +72,6 @@ function classNames(...classes: any) {
 
 export const Collection = ({ blok }: any) => {
   const [selectedColor, setSelectedColor] = useState(product.colors[0])
-
   return (
     <section {...storyblokEditable(blok)}>
       <div className="bg-white">
@@ -87,7 +80,7 @@ export const Collection = ({ blok }: any) => {
             {/* Image gallery */}
             <Tab.Group as="div" className="flex flex-col-reverse">
               {/* Image selector */}
-              <div className="mx-auto mt-6 hidden w-full max-w-2xl sm:block lg:max-w-none">
+              <div className="mx-auto mt-6 w-full max-w-2xl sm:block lg:max-w-none">
                 <Tab.List className="grid grid-cols-4 gap-6">
                   {blok.images.map((image: any) => (
                     <Tab
@@ -115,6 +108,16 @@ export const Collection = ({ blok }: any) => {
                       )}
                     </Tab>
                   ))}
+                  <Tab className="relative flex h-24 cursor-pointer items-center justify-center rounded-md bg-white text-sm font-medium uppercase text-gray-900 hover:bg-gray-50 focus:outline-none focus:ring focus:ring-opacity-50 focus:ring-offset-4">
+                    <span className="sr-only">360 Degree SVG Icon</span>
+                    <span className="absolute inset-0 overflow-hidden rounded-md">
+                      <img
+                        src={blok.virtual_360_svg?.filename}
+                        alt=""
+                        className="h-full w-full"
+                      />
+                    </span>
+                  </Tab>
                 </Tab.List>
               </div>
 
@@ -128,6 +131,16 @@ export const Collection = ({ blok }: any) => {
                     />
                   </Tab.Panel>
                 ))}
+                <Tab.Panel>
+                  <iframe
+                    className="h-full w-full object-cover object-center sm:rounded-lg"
+                    frameBorder="0"
+                    allowFullScreen
+                    allow="xr-spatial-tracking; gyroscope; accelerometer"
+                    scrolling="no"
+                    src={blok.virtual_360_tour.url}
+                  ></iframe>
+                </Tab.Panel>
               </Tab.Panels>
             </Tab.Group>
 
