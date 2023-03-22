@@ -8,6 +8,7 @@ import { CONTRACTOR_URL } from '@utils/links'
 import Link from 'next/link'
 
 export const ContractorsFeatures = ({ blok }: any) => {
+  console.log('blok', blok)
   return (
     <section {...storyblokEditable(blok)}>
       <div className="relative overflow-hidden bg-white pt-16 pb-32">
@@ -70,8 +71,8 @@ export const ContractorsFeatures = ({ blok }: any) => {
               <div className="-mr-48 pl-6 md:-mr-16 lg:relative lg:m-0 lg:h-full lg:px-0">
                 <img
                   className="w-full rounded-xl shadow-xl ring-1 ring-black ring-opacity-5 lg:absolute lg:left-0 lg:h-full lg:w-auto lg:max-w-none"
-                  src="https://tailwindui.com/img/component-images/inbox-app-screenshot-1.jpg"
-                  alt="Inbox user interface"
+                  src={blok.feature_1_image.filename}
+                  alt={blok.feature_1_image.alt}
                 />
               </div>
             </div>
@@ -113,8 +114,8 @@ export const ContractorsFeatures = ({ blok }: any) => {
               <div className="-ml-48 pr-6 md:-ml-16 lg:relative lg:m-0 lg:h-full lg:px-0">
                 <img
                   className="w-full rounded-xl shadow-xl ring-1 ring-black ring-opacity-5 lg:absolute lg:right-0 lg:h-full lg:w-auto lg:max-w-none"
-                  src="https://tailwindui.com/img/component-images/inbox-app-screenshot-2.jpg"
-                  alt="Customer profile user interface"
+                  src={blok.feature_2_image.filename}
+                  alt={blok.feature_2_image.alt}
                 />
               </div>
             </div>
