@@ -1,5 +1,6 @@
 import { storyblokEditable } from '@storyblok/react'
 import { ESTIMATE_URL } from '@utils/links'
+import Image from 'next/image'
 import Link from 'next/link'
 
 export const HomeHero = ({ blok }: any) => {
@@ -26,56 +27,70 @@ export const HomeHero = ({ blok }: any) => {
                     <div className="flex items-center space-x-6 lg:space-x-8">
                       <div className="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
                         <div className="h-64 w-44 overflow-hidden rounded-lg sm:opacity-0 lg:opacity-100">
-                          <img
+                          <Image
                             src={blok.images[0].filename}
                             alt=""
                             className="h-full w-full object-cover object-center"
+                            width={176}
+                            height={256}
                           />
                         </div>
                         <div className="h-64 w-44 overflow-hidden rounded-lg">
-                          <img
+                          <Image
                             src={blok.images[1].filename}
                             alt=""
                             className="h-full w-full object-cover object-center"
+                            width={176}
+                            height={256}
                           />
                         </div>
                       </div>
                       <div className="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
                         <div className="h-64 w-44 overflow-hidden rounded-lg">
-                          <img
+                          <Image
                             src={blok.images[2].filename}
                             alt=""
                             className="h-full w-full object-cover object-center"
+                            width={176}
+                            height={256}
                           />
                         </div>
                         <div className="h-64 w-44 overflow-hidden rounded-lg">
-                          <img
+                          <Image
                             src={blok.images[3].filename}
                             alt=""
                             className="h-full w-full object-cover object-center"
+                            width={176}
+                            height={256}
                           />
                         </div>
                         <div className="h-64 w-44 overflow-hidden rounded-lg">
-                          <img
+                          <Image
                             src={blok.images[4].filename}
                             alt=""
                             className="h-full w-full object-cover object-center"
+                            width={176}
+                            height={256}
                           />
                         </div>
                       </div>
                       <div className="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
                         <div className="h-64 w-44 overflow-hidden rounded-lg">
-                          <img
+                          <Image
                             src={blok.images[5].filename}
                             alt=""
                             className="h-full w-full object-cover object-center"
+                            width={176}
+                            height={256}
                           />
                         </div>
                         <div className="h-64 w-44 overflow-hidden rounded-lg">
-                          <img
+                          <Image
                             src={blok.images[6].filename}
                             alt=""
                             className="h-full w-full object-cover object-center"
+                            width={176}
+                            height={256}
                           />
                         </div>
                       </div>

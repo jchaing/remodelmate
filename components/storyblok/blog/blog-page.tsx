@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { getStoryblokApi, storyblokEditable } from '@storyblok/react'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'

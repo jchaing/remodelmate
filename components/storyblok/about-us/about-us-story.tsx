@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { storyblokEditable } from '@storyblok/react'
 
 function classNames(...classes: any) {

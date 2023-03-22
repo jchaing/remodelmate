@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { storyblokEditable } from '@storyblok/react'
 import { Disclosure, RadioGroup, Tab } from '@headlessui/react'
 import { useState } from 'react'

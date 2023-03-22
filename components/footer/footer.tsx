@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { ESTIMATE_URL } from '@utils/links'
 import { ROUTE_MAP } from '@utils/routes'
 import Link from 'next/link'

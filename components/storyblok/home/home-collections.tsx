@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { storyblokEditable } from "@storyblok/react"
 import { ROUTE_MAP } from "@utils/routes"
 import Link from "next/link"

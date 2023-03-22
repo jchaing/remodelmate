@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { render } from 'storyblok-rich-text-react-renderer'
 
 export const BlogArticle = ({ blok }: any) => {

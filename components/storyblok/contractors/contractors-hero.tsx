@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { ChevronRightIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
 import { storyblokEditable } from '@storyblok/react'
 import { CONTRACTOR_URL } from '@utils/links'
