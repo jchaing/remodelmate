@@ -8,7 +8,6 @@ import { CONTRACTOR_URL } from '@utils/links'
 import Link from 'next/link'
 
 export const ContractorsFeatures = ({ blok }: any) => {
-  console.log('blok', blok)
   return (
     <section {...storyblokEditable(blok)}>
       <div className="relative overflow-hidden bg-white pt-16 pb-32">

@@ -2,6 +2,7 @@
 import { ChevronRightIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
 import { storyblokEditable } from '@storyblok/react'
 import { CONTRACTOR_URL } from '@utils/links'
+import { ROUTE_MAP } from '@utils/routes'
 import Link from 'next/link'
 
 export const ContractorsHero = ({ blok }: any) => {
@@ -35,7 +36,16 @@ export const ContractorsHero = ({ blok }: any) => {
                 <p className="mt-3 text-base text-gray-300 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
                   {blok.sub_heading}
                 </p>
-                <p className="mt-8 text-base font-semibold text-white sm:mt-10">
+                <div>
+                  <Link
+                    type="submit"
+                    href={CONTRACTOR_URL}
+                    className="mt-16 flex justify-center rounded-md border border-transparent bg-sky-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 sm:w-64 md:justify-center"
+                  >
+                    Create your account
+                  </Link>
+                </div>
+                {/* <p className="mt-8 text-base font-semibold text-white sm:mt-10">
                   Used by
                 </p>
                 <div className="mt-5 w-full sm:mx-auto sm:max-w-lg lg:ml-0">
@@ -62,7 +72,7 @@ export const ContractorsHero = ({ blok }: any) => {
                       />
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
             <div className="mt-16 sm:mt-24 lg:col-span-6 lg:mt-0">
@@ -150,45 +160,60 @@ export const ContractorsHero = ({ blok }: any) => {
                   <div className="mt-6">
                     <form action="#" method="POST" className="space-y-6">
                       <div>
-                        <label htmlFor="name" className="sr-only">
-                          Full name
+                        <label htmlFor="firstName" className="sr-only">
+                          First name
                         </label>
                         <input
                           type="text"
-                          name="name"
-                          id="name"
-                          autoComplete="name"
-                          placeholder="Full name"
+                          name="firstName"
+                          id="firstName"
+                          autoComplete="firstName"
+                          placeholder="First name"
                           required
                           className="block w-full rounded-md border-gray-300 shadow-sm focus:border-sky-500 focus:ring-sky-500 sm:text-sm"
                         />
                       </div>
 
                       <div>
-                        <label htmlFor="mobile-or-email" className="sr-only">
-                          Mobile number or email
+                        <label htmlFor="lastName" className="sr-only">
+                          Last name
                         </label>
                         <input
                           type="text"
-                          name="mobile-or-email"
-                          id="mobile-or-email"
-                          autoComplete="email"
-                          placeholder="Mobile number or email"
+                          name="lastName"
+                          id="lastName"
+                          autoComplete="lastName"
+                          placeholder="Last name"
                           required
                           className="block w-full rounded-md border-gray-300 shadow-sm focus:border-sky-500 focus:ring-sky-500 sm:text-sm"
                         />
                       </div>
 
                       <div>
-                        <label htmlFor="password" className="sr-only">
+                        <label htmlFor="mobile" className="sr-only">
+                          Mobile number
+                        </label>
+                        <input
+                          type="text"
+                          name="mobile"
+                          id="mobile"
+                          autoComplete="mobile"
+                          placeholder="Mobile number"
+                          required
+                          className="block w-full rounded-md border-gray-300 shadow-sm focus:border-sky-500 focus:ring-sky-500 sm:text-sm"
+                        />
+                      </div>
+
+                      <div>
+                        <label htmlFor="email" className="sr-only">
                           Password
                         </label>
                         <input
-                          id="password"
-                          name="password"
-                          type="password"
-                          placeholder="Password"
-                          autoComplete="current-password"
+                          id="email"
+                          name="email"
+                          type="email"
+                          placeholder="Email"
+                          autoComplete="email"
                           required
                           className="block w-full rounded-md border-gray-300 shadow-sm focus:border-sky-500 focus:ring-sky-500 sm:text-sm"
                         />
@@ -208,26 +233,19 @@ export const ContractorsHero = ({ blok }: any) => {
                 <div className="border-t-2 border-gray-200 bg-gray-50 px-6 py-6 sm:px-10">
                   <p className="text-xs leading-5 text-gray-500">
                     By signing up, you agree to our{' '}
-                    <a
-                      href="#"
+                    <Link
+                      href={ROUTE_MAP.app.tos}
                       className="font-medium text-gray-900 hover:underline"
                     >
-                      Terms
-                    </a>
-                    ,{' '}
-                    <a
-                      href="#"
-                      className="font-medium text-gray-900 hover:underline"
-                    >
-                      Data Policy
-                    </a>{' '}
+                      Terms of Service
+                    </Link>{' '}
                     and{' '}
-                    <a
-                      href="#"
+                    <Link
+                      href={ROUTE_MAP.app.privacy}
                       className="font-medium text-gray-900 hover:underline"
                     >
-                      Cookies Policy
-                    </a>
+                      Privacy Policy
+                    </Link>
                     .
                   </p>
                 </div>
