@@ -11,6 +11,8 @@ export const ROUTE_MAP = {
     tos: '/terms-of-service',
     privacy: '/privacy-policy',
     help: '/help',
-    newCityLaunch: '/new-city-launch'
+    newCityLaunch: '/new-city-launch',
+    signIn: '/sign-in',
+    signUp: '/sign-up',
   }
 }

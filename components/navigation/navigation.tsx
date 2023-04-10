@@ -189,13 +189,11 @@ export const Navigation: FunctionComponent<NavigationProps> = ({
                 <div className="space-y-6 border-t border-gray-200 py-6 px-4">
                   <div className="flow-root">
                     <Link
-                      href={LOGIN_URL}
+                      href={ROUTE_MAP.app.signIn}
                       className="-m-2 block p-2 font-medium text-gray-900"
-                      target="_blank"
-                      rel="noopener noreferrer"
                       onClick={() => setOpen(false)}
                     >
-                      Sign in
+                      Account
                     </Link>
                   </div>
                   <div className="flow-root">
@@ -364,12 +362,10 @@ export const Navigation: FunctionComponent<NavigationProps> = ({
               <div className="ml-auto flex items-center">
                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
                   <Link
-                    href={LOGIN_URL}
+                    href={ROUTE_MAP.app.signIn}
                     className="text-sm font-medium text-gray-700 hover:text-gray-800"
-                    target="_blank"
-                    rel="noopener noreferrer"
                   >
-                    Sign in
+                    Account
                   </Link>
                   <span className="h-6 w-px bg-gray-200" aria-hidden="true" />
                   <Link
