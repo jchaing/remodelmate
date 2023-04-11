@@ -13,6 +13,6 @@ export const ROUTE_MAP = {
     help: '/help',
     newCityLaunch: '/new-city-launch',
     signIn: '/sign-in',
-    signUp: '/sign-up',
+    register: '/register',
   }
 }
