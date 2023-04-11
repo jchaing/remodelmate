@@ -1,4 +1,5 @@
 export const ROUTE_MAP = {
+  auth: { signIn: '/sign-in', register: '/register' },
   app: {
     entry: '/',
     collections: '/collections',
@@ -12,7 +13,7 @@ export const ROUTE_MAP = {
     privacy: '/privacy-policy',
     help: '/help',
     newCityLaunch: '/new-city-launch',
-    signIn: '/sign-in',
-    register: '/register',
-  }
+    // signIn: '/sign-in',
+    // register: '/register',
+  },
 }
