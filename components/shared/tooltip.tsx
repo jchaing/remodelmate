@@ -31,7 +31,7 @@ export const Tooltip = ({ message }: {message: string}) => {
       </label>
       <div
         tabIndex={0}
-        className="card compact dropdown-content bg-base-100 rounded-box -right-28 w-64 shadow"
+        className="card compact dropdown-content bg-base-100 rounded-box w-64 shadow"
       >
         <div className="card-body">
           <ul className="pl-4 text-sm font-medium text-gray-500">
