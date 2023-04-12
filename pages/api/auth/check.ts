@@ -21,7 +21,15 @@ const handler = async (req: NextApiRequestWithPhone, res: NextApiResponse) => {
     try {
       const contractor = await Homeowner.findOne({ phone }).lean()
 
-      if (contractor) {
+      // Some homeowners have their phone number stored as a string
+      // and some as a number. This is a temporary fix to allow
+      // both types to be checked.This is due to the different versions of 
+      // the old homeowner app
+      const numberType = await Homeowner.findOne({
+        phone: Number(phone),
+      }).lean()
+
+      if (contractor || numberType) {
         res.status(200).json({ success: true })
       } else {
         res.status(400).json({ success: false })

@@ -4,7 +4,6 @@ import { CONTRACTOR_URL } from '@utils/links'
 import Link from 'next/link'
 
 export const ContractorsHero = ({ blok }: any) => {
-  console.log(blok)
   return (
     <section className="bg-white" {...storyblokEditable(blok)}>
       <main>
