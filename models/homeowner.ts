@@ -74,21 +74,21 @@ const homeownerSchema = new Schema<Homeowner>({
   address: {
     street: {
       type: String,
-      required: true,
+      // required: true,
     },
     city: {
       type: String,
-      required: true,
+      // required: true,
     },
     state: {
       type: String,
       uppercase: true,
-      required: true,
+      // required: true,
       enum: statesArray,
     },
     zip: {
       type: Number,
-      required: true,
+      // required: true,
     },
   },
 

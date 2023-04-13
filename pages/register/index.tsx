@@ -1,7 +1,10 @@
 import { SignInNav } from '@components/navigation'
 import { GenericFormField, Tooltip } from '@components/shared'
+import { createMagicUser } from '@utils/magic'
 import { ROUTE_MAP } from '@utils/routes'
 import { Form, Formik } from 'formik'
+import { checkUserExists } from 'hooks/auth'
+import { useAddHomeowner } from 'hooks/homeowner'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
@@ -34,9 +37,39 @@ const initialValues = {
 }
 
 const Register = () => {
+  const [field, setField] = useState<string>('')
   const [contractorErrorMsg, setContractorErrorMsg] = useState<string>('')
 
   const router = useRouter()
+
+  const addHomeownerMutation = useAddHomeowner({
+    onSuccess: async (_data: any, variables: any) => {
+      const userExists = await checkUserExists({ phone: variables.phone })
+
+      if (userExists) {
+        await createMagicUser(`+1${variables.phone}`)
+
+        router.push(ROUTE_MAP.app.entry)
+      } else {
+        router.push(ROUTE_MAP.auth.register)
+      }
+    },
+    onError: (error: any) => {
+      console.error('***ERROR***', error)
+
+      if (error.keyValue.email) {
+        setField('email')
+        setContractorErrorMsg(`${error.keyValue.email} already exists`)
+      }
+
+      if (error.keyValue.phone) {
+        setField('phone')
+        setContractorErrorMsg(
+          `${error.keyValue.phone} already exists, please sign-in`
+        )
+      }
+    },
+  })
 
   return (
     <Formik
@@ -46,7 +79,7 @@ const Register = () => {
         setSubmitting(true)
         setContractorErrorMsg('')
 
-        // await addContractorMutation.mutateAsync(values)
+        await addHomeownerMutation.mutateAsync(values)
       }}
     >
       {({ isSubmitting }) => (
@@ -118,6 +151,11 @@ const Register = () => {
                         autoComplete="email"
                         className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6"
                       />
+                      {field === 'email' ? (
+                        <p className="mt-1 block text-sm text-red-600">
+                          {contractorErrorMsg}
+                        </p>
+                      ) : null}
                     </div>
                   </div>
 
@@ -139,6 +177,11 @@ const Register = () => {
                         autoComplete="tel"
                         className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6"
                       />
+                      {field === 'phone' ? (
+                        <p className="mt-1 block text-sm text-red-600">
+                          {contractorErrorMsg}
+                        </p>
+                      ) : null}
                     </div>
                   </div>
 
