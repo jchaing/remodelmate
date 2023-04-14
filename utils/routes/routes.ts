@@ -13,7 +13,10 @@ export const ROUTE_MAP = {
     privacy: '/privacy-policy',
     help: '/help',
     newCityLaunch: '/new-city-launch',
-    // signIn: '/sign-in',
-    // register: '/register',
+  },
+  dashboard: {
+    entry: '/dashboard',
+    profile: '/dashboard/profile',
+    payment: '/dashboard/payment',
   },
 }

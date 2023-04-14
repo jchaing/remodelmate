@@ -214,7 +214,7 @@ export const Navigation: FunctionComponent<NavigationProps> = ({
         </Dialog>
       </Transition.Root>
 
-      <header className="min-h-screen relative overflow-hidden">
+      <header className="relative min-h-screen overflow-hidden">
         {/* Top navigation */}
         <nav
           aria-label="Top"

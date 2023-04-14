@@ -79,140 +79,180 @@ const footerNavigation = {
 
 export const Footer = () => {
   return (
-    <footer
-      className="sticky top-[100vh] bg-white"
-      aria-labelledby="footer-heading"
-    >
-      <h2 id="footer-heading" className="sr-only">
-        Footer
-      </h2>
-      <div className="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-32">
-        <div className="xl:grid xl:grid-cols-3 xl:gap-8">
-          <div className="space-y-8">
-            <Link href={ROUTE_MAP.app.entry}>
-              <img
-                className="h-4"
-                src="https://remodelmate-v2-local.s3.us-east-2.amazonaws.com/branding/logos/wordmark/svg/remodelmate-black.svg"
-                alt="Company name"
-              />
-            </Link>
-            <p className="text-sm leading-6 text-gray-600">
-              We use technology and world class customer service to make your
-              bathroom renovation effortless.
-            </p>
-            <p className="text-sm leading-6 text-gray-600">
-              Want to chat with a Concierge? Text us anytime.
-            </p>
-            <p>
-              <a
-                href="tel:2403013889"
-                className="text-sm leading-6 text-gray-600"
-              >
-                (240) 301-3889
-              </a>
-            </p>
-            <div className="flex space-x-6">
-              {footerNavigation.social.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="text-gray-400 hover:text-gray-500"
-                  target="_blank"
-                  rel="noreferrer noopener"
+    <>
+      {/* <footer
+        className="sticky top-[100vh] bg-white"
+        aria-labelledby="footer-heading"
+      >
+        <h2 id="footer-heading" className="sr-only">
+          Footer
+        </h2>
+        <div className="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-32">
+          <div className="xl:grid xl:grid-cols-3 xl:gap-8">
+            <div className="space-y-8">
+              <Link href={ROUTE_MAP.app.entry}>
+                <img
+                  className="h-4"
+                  src="https://remodelmate-v2-local.s3.us-east-2.amazonaws.com/branding/logos/wordmark/svg/remodelmate-black.svg"
+                  alt="Company name"
+                />
+              </Link>
+              <p className="text-sm leading-6 text-gray-600">
+                We use technology and world class customer service to make your
+                bathroom renovation effortless.
+              </p>
+              <p className="text-sm leading-6 text-gray-600">
+                Want to chat with a Concierge? Text us anytime.
+              </p>
+              <p>
+                <a
+                  href="tel:2403013889"
+                  className="text-sm leading-6 text-gray-600"
                 >
-                  <span className="sr-only">{item.name}</span>
-                  <item.icon className="h-6 w-6" aria-hidden="true" />
-                </Link>
-              ))}
+                  (240) 301-3889
+                </a>
+              </p>
+              <div className="flex space-x-6">
+                {footerNavigation.social.map((item) => (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className="text-gray-400 hover:text-gray-500"
+                    target="_blank"
+                    rel="noreferrer noopener"
+                  >
+                    <span className="sr-only">{item.name}</span>
+                    <item.icon className="h-6 w-6" aria-hidden="true" />
+                  </Link>
+                ))}
+              </div>
+            </div>
+            <div className="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
+              <div className="md:grid md:grid-cols-2 md:gap-8">
+                <div>
+                  <h3 className="text-sm font-semibold leading-6 text-gray-900">
+                    Company
+                  </h3>
+                  <ul role="list" className="mt-6 space-y-4">
+                    {footerNavigation.company.map((item) => (
+                      <li key={item.name}>
+                        <Link
+                          href={item.href}
+                          className="text-sm leading-6 text-gray-600 hover:text-gray-900"
+                        >
+                          {item.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="mt-10 md:mt-0">
+                  <h3 className="text-sm font-semibold leading-6 text-gray-900">
+                    Homeowners
+                  </h3>
+                  <ul role="list" className="mt-6 space-y-4">
+                    {footerNavigation.homeowners.map((item) => (
+                      <li key={item.name}>
+                        <Link
+                          href={item.href}
+                          className="text-sm leading-6 text-gray-600 hover:text-gray-900"
+                          target={
+                            item.name === 'Get an Estimate' ? '_blank' : ''
+                          }
+                          rel={
+                            item.name === 'Get an Estimate'
+                              ? 'noopener noreferrer'
+                              : ''
+                          }
+                        >
+                          {item.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+              <div className="md:grid md:grid-cols-2 md:gap-8">
+                <div>
+                  <h3 className="text-sm font-semibold leading-6 text-gray-900">
+                    Contractors
+                  </h3>
+                  <ul role="list" className="mt-6 space-y-4">
+                    {footerNavigation.contractors.map((item) => (
+                      <li key={item.name}>
+                        <Link
+                          href={item.href}
+                          className="text-sm leading-6 text-gray-600 hover:text-gray-900"
+                        >
+                          {item.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="mt-10 md:mt-0">
+                  <h3 className="text-sm font-semibold leading-6 text-gray-900">
+                    Legal
+                  </h3>
+                  <ul role="list" className="mt-6 space-y-4">
+                    {footerNavigation.legal.map((item) => (
+                      <li key={item.name}>
+                        <Link
+                          href={item.href}
+                          className="text-sm leading-6 text-gray-600 hover:text-gray-900"
+                        >
+                          {item.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
-          <div className="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
-            <div className="md:grid md:grid-cols-2 md:gap-8">
-              <div>
-                <h3 className="text-sm font-semibold leading-6 text-gray-900">
-                  Company
-                </h3>
-                <ul role="list" className="mt-6 space-y-4">
-                  {footerNavigation.company.map((item) => (
-                    <li key={item.name}>
-                      <Link
-                        href={item.href}
-                        className="text-sm leading-6 text-gray-600 hover:text-gray-900"
-                      >
-                        {item.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="mt-10 md:mt-0">
-                <h3 className="text-sm font-semibold leading-6 text-gray-900">
-                  Homeowners
-                </h3>
-                <ul role="list" className="mt-6 space-y-4">
-                  {footerNavigation.homeowners.map((item) => (
-                    <li key={item.name}>
-                      <Link
-                        href={item.href}
-                        className="text-sm leading-6 text-gray-600 hover:text-gray-900"
-                        target={item.name === 'Get an Estimate' ? '_blank' : ''}
-                        rel={
-                          item.name === 'Get an Estimate'
-                            ? 'noopener noreferrer'
-                            : ''
-                        }
-                      >
-                        {item.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-            <div className="md:grid md:grid-cols-2 md:gap-8">
-              <div>
-                <h3 className="text-sm font-semibold leading-6 text-gray-900">
-                  Contractors
-                </h3>
-                <ul role="list" className="mt-6 space-y-4">
-                  {footerNavigation.contractors.map((item) => (
-                    <li key={item.name}>
-                      <Link
-                        href={item.href}
-                        className="text-sm leading-6 text-gray-600 hover:text-gray-900"
-                      >
-                        {item.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="mt-10 md:mt-0">
-                <h3 className="text-sm font-semibold leading-6 text-gray-900">
-                  Legal
-                </h3>
-                <ul role="list" className="mt-6 space-y-4">
-                  {footerNavigation.legal.map((item) => (
-                    <li key={item.name}>
-                      <Link
-                        href={item.href}
-                        className="text-sm leading-6 text-gray-600 hover:text-gray-900"
-                      >
-                        {item.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
+          <div className="mt-16 border-t border-gray-900/10 pt-8 sm:mt-20 lg:mt-24">
+            <p className="text-xs leading-5 text-gray-500">
+              &copy; 2020 remodelmate, Inc. All rights reserved.
+            </p>
           </div>
         </div>
-        <div className="mt-16 border-t border-gray-900/10 pt-8 sm:mt-20 lg:mt-24">
-          <p className="text-xs leading-5 text-gray-500">
-            &copy; 2020 remodelmate, Inc. All rights reserved.
-          </p>
+      </footer> */}
+      <footer className="sticky top-[100vh] bg-white">
+        <div className="mx-auto max-w-7xl px-6 py-12 md:flex md:items-center md:justify-between lg:px-8">
+          <div className="md:order-1 ">
+            <p className="text-center text-xs leading-5 text-gray-500">
+              &copy; 2020 remodelmate, Inc. All rights reserved.
+            </p>
+          </div>
+          <div className="mt-8 flex justify-center space-x-6 md:order-2 md:mt-0">
+            <Link href="#">
+              <p className="text-center text-xs leading-5 text-gray-500">
+                Privacy Policy
+              </p>
+            </Link>
+            <Link href="#">
+              <p className="text-center text-xs leading-5 text-gray-500">
+                Terms of Service
+              </p>
+            </Link>
+            <Link href="#">
+              <p className="text-center text-xs leading-5 text-gray-500">
+                Contact Us
+              </p>
+            </Link>
+            <Link href="#">
+              <p className="text-center text-xs leading-5 text-gray-500">
+                Blog
+              </p>
+            </Link>
+            <Link href="#">
+              <p className="text-center text-xs leading-5 text-gray-500">
+                FAQ
+              </p>
+            </Link>
+          </div>
         </div>
-      </div>
-    </footer>
+      </footer>
+    </>
   )
 }
