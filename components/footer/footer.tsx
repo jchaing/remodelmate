@@ -79,7 +79,10 @@ const footerNavigation = {
 
 export const Footer = () => {
   return (
-    <footer className="bg-white" aria-labelledby="footer-heading">
+    <footer
+      className="sticky top-[100vh] bg-white"
+      aria-labelledby="footer-heading"
+    >
       <h2 id="footer-heading" className="sr-only">
         Footer
       </h2>
