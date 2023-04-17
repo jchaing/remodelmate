@@ -189,7 +189,7 @@ export const Navigation: FunctionComponent<NavigationProps> = ({
                 <div className="space-y-6 border-t border-gray-200 py-6 px-4">
                   <div className="flow-root">
                     <Link
-                      href={ROUTE_MAP.auth.signIn}
+                      href={ROUTE_MAP.dashboard.entry}
                       className="-m-2 block p-2 font-medium text-gray-900"
                       onClick={() => setOpen(false)}
                     >
@@ -362,7 +362,7 @@ export const Navigation: FunctionComponent<NavigationProps> = ({
               <div className="ml-auto flex items-center">
                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
                   <Link
-                    href={ROUTE_MAP.auth.signIn}
+                    href={ROUTE_MAP.dashboard.entry}
                     className="text-sm font-medium text-gray-700 hover:text-gray-800"
                   >
                     Account
