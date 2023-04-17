@@ -1,5 +1,6 @@
 import { Magic, RPCError, RPCErrorCode } from 'magic-sdk'
 import { Magic as MagicServer } from '@magic-sdk/admin'
+import { useQuery } from 'react-query'
 
 // creates instance only on client
 const createMagic = (key: string) => {
@@ -48,5 +49,36 @@ export const createMagicUser = async (phoneNumber: string) => {
       console.error(err)
     }
     return Promise.reject(false)
+  }
+}
+
+enum MagicUserCacheKeys {
+  isLoggedIn = 'isLoggedIn',
+  getMetadata = 'getMetadata',
+}
+
+const getIsLoggedIn = () => {
+  return magic.user.isLoggedIn()
+}
+
+export const useClientIsLoggedIn = () => {
+  return useQuery(MagicUserCacheKeys.isLoggedIn, getIsLoggedIn, {
+    onSuccess: () => {
+      // add logging
+    },
+    onError: (error) => {
+      // TODO: add error handling
+      console.error({ error })
+    },
+  })
+}
+
+export const getUserToken = async (): Promise<string | null> => {
+  try {
+    const token = await magic.user.getIdToken({ lifespan: 60 * 60 * 24 * 7 })
+    return token
+  } catch (error) {
+    //TODO: handle errors
+    return null
   }
 }
