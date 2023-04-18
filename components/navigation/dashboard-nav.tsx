@@ -76,7 +76,7 @@ export const DashboardNav = ({ children }) => {
             </nav>
           </div>
         </div>
-        <div className="mx-auto max-w-7xl px-4 pt-5 sm:px-6 md:px-8">
+        <div className="mx-auto sm:w-5/6 px-4 pt-5 sm:px-0 md:px-6">
           {children}
         </div>
       </div>

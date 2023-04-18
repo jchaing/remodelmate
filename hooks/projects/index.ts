@@ -14,3 +14,24 @@ const getProjects = async () => {
 export const useProjects = (config?: any) => {
   return useQuery('projects', getProjects, { ...config })
 }
+
+/******************************************************************************/
+
+const getProject = async (id: string) => {
+  const token = await getUserToken()
+
+  const body = JSON.stringify({ id })
+
+  return fetch('/api/projects/getProject', {
+    method: 'POST',
+    body: body,
+    headers: {
+      authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    },
+  }).then((d) => d.json())
+}
+
+export const useProject = (id: string, config?: any) => {
+  return useQuery(['project', id], () => getProject(id), { ...config })
+}

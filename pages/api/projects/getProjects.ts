@@ -31,7 +31,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       return res.status(500).json({ message: 'Failed to get projects', error })
     }
   } else {
-    res.setHeader('Allow', 'POST')
+    res.setHeader('Allow', 'GET')
     res.status(405).end('Method Not Allowed')
   }
 }

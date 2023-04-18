@@ -1,10 +1,11 @@
+import { ROUTE_MAP } from "@utils/routes"
 import Link from "next/link"
 import { FunctionComponent } from "react"
 
 export const Projects: FunctionComponent<ProjectsProps> = ({ projectsData }) => {
   return (
     <>
-      <div className="mt-5 sm:flex sm:items-center">
+      <div className="mt-8 sm:flex sm:items-center">
         <div className="sm:flex-auto">
           <h1 className="text-2xl font-bold tracking-tight text-gray-900 lg:text-3xl">
             Projects
@@ -85,7 +86,10 @@ export const Projects: FunctionComponent<ProjectsProps> = ({ projectsData }) => 
 
                   <td className="py-4 pl-3 pr-4 text-sm font-medium sm:pr-6">
                     {project.activated ? (
-                      <Link href={`/projects/${_id}`} legacyBehavior>
+                      <Link
+                        href={`${ROUTE_MAP.dashboard.projectDetails}/${_id}`}
+                        legacyBehavior
+                      >
                         <span className="text-start text-indigo-600 hover:cursor-pointer hover:text-indigo-900">
                           View Details
                         </span>

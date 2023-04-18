@@ -19,7 +19,7 @@ const handler = async (req: NextApiRequestWithPhone, res: NextApiResponse) => {
     await dbConnect()
 
     try {
-      const contractor = await Homeowner.findOne({ phone }).lean()
+      const homeowner = await Homeowner.findOne({ phone }).lean()
 
       // Some homeowners have their phone number stored as a string
       // and some as a number. This is a temporary fix to allow
@@ -29,7 +29,7 @@ const handler = async (req: NextApiRequestWithPhone, res: NextApiResponse) => {
         phone: Number(phone),
       }).lean()
 
-      if (contractor || numberType) {
+      if (homeowner || numberType) {
         res.status(200).json({ success: true })
       } else {
         res.status(400).json({ success: false })

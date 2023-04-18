@@ -16,7 +16,21 @@ export const ROUTE_MAP = {
   },
   dashboard: {
     entry: '/dashboard',
+    projectDetails: '/dashboard/project',
     profile: '/dashboard/profile',
     payment: '/dashboard/payment',
   },
+}
+
+export const interpolateParams = (
+  route: string,
+  params: Record<string, string>
+) => {
+  let interpolatedRoute = route
+
+  Object.keys(params).forEach((key) => {
+    interpolatedRoute = interpolatedRoute.replace(`:${key}`, params[key])
+  })
+
+  return interpolatedRoute
 }
