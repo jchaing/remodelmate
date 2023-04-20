@@ -1,8 +1,9 @@
-import { ContractorModal } from "@components/shared"
-import clsx from "clsx"
-import Link from "next/link"
+import { ContractorModal } from '@components/shared'
+import { ROUTE_MAP } from '@utils/routes'
+import clsx from 'clsx'
+import Link from 'next/link'
 
-export enum MilestoneStatus {
+enum MilestoneStatus {
   NOT_STARTED = 'notStarted',
   IN_PROGRESS = 'inProgress',
   PENDING_REVIEW = 'pendingReview',
@@ -121,7 +122,10 @@ export const MilestonesTable = ({ milestones }) => (
                 </td>
 
                 <td className="py-4 pl-3 pr-4 text-sm font-medium">
-                  <Link href={`/projects/${_project}/${_id}`} legacyBehavior>
+                  <Link
+                    href={`${ROUTE_MAP.dashboard.projectDetails}/${_project}/${_id}`}
+                    legacyBehavior
+                  >
                     <span className="text-indigo-600 hover:cursor-pointer hover:text-indigo-900">
                       {action}
                     </span>
