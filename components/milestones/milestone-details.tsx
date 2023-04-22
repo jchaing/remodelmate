@@ -1,12 +1,16 @@
-import { ContractorModal, ImageEnlarge, PaymentToolTip } from "@components/shared"
-import { InformationCircleIcon } from "@heroicons/react/outline"
-import { Elements } from "@stripe/react-stripe-js"
-import { getStripe } from "@utils/stripe"
-import clsx from "clsx"
-import Image from "next/image"
-import Link from "next/link"
-import { FunctionComponent, useState } from "react"
-import MilestonePaymentForm from "./milestone-payment-form"
+import {
+  ContractorModal,
+  ImageEnlarge,
+  PaymentToolTip,
+} from '@components/shared'
+import { InformationCircleIcon } from '@heroicons/react/outline'
+import { Elements } from '@stripe/react-stripe-js'
+import { getStripe } from '@utils/stripe'
+import clsx from 'clsx'
+import Image from 'next/image'
+import Link from 'next/link'
+import { FunctionComponent, useState } from 'react'
+import MilestonePaymentForm from './milestone-payment-form'
 
 enum MilestoneStatus {
   NOT_STARTED = 'notStarted',
