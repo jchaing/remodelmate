@@ -6,7 +6,6 @@ import { ROUTE_MAP } from '@utils/routes'
 import { fetchPostJSON } from 'hooks/stripe'
 import Link from 'next/link'
 import { Fragment, FunctionComponent, useState } from 'react'
-import { useQueryClient } from 'react-query'
 
 // import { PROJECT_DETAILS_EVENTS, trackEvent } from '../lib/mixpanel'
 
@@ -105,8 +104,6 @@ export const MilestonePaymentForm = ({ milestone, homeowner }) => {
 
   const stripe = useStripe()
 
-  const cache = useQueryClient()
-
   const handleSubmit = async (e) => {
     e.preventDefault()
     if (!e.currentTarget.reportValidity()) return // abort if form isn't valid
@@ -160,9 +157,6 @@ export const MilestonePaymentForm = ({ milestone, homeowner }) => {
           //     contractorId: contractorId,
           //   },
           // })
-
-          await cache.invalidateQueries(['project', projectId])
-          await cache.invalidateQueries(['milestone', milestoneId])
 
           setModalIsOpen(true)
         }
