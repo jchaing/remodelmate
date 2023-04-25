@@ -5,7 +5,8 @@ import { Homeowner } from 'models/homeowner'
 import { Magic } from '@magic-sdk/admin'
 
 const STRIPE_SECRET_KEY = process.env.STRIPE_SECRET_KEY
-const stripe = new Stripe(STRIPE_SECRET_KEY, { apiVersion: '2022-11-15' })
+// @ts-ignore stripe-version-2022-08-01
+const stripe = new Stripe(STRIPE_SECRET_KEY, { apiVersion: '2022-08-01' })
 
 const magic = new Magic(process.env.MAGIC_SECRET_KEY)
 

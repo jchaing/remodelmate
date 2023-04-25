@@ -5,7 +5,11 @@ import { dbConnect } from '@utils/mongodb'
 import { Milestone } from 'models/milestone'
 
 const STRIPE_SECRET_KEY = process.env.STRIPE_SECRET_KEY
-const stripe = new Stripe(STRIPE_SECRET_KEY, { apiVersion: '2022-11-15' })
+
+// This is for version 2022-11-15 removing the "charges" property which contains
+// the receipt_url
+// @ts-ignore stripe-version-2022-08-01
+const stripe = new Stripe(STRIPE_SECRET_KEY, { apiVersion: '2022-08-01' })
 
 const calculateContractorPayoutAmount = (
   milestonePrice: number,

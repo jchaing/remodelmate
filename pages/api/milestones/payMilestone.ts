@@ -5,10 +5,7 @@ import { dbConnect } from '@utils/mongodb'
 import { Milestone } from 'models/milestone'
 import { Estimate } from 'models/estimate'
 import { Receipt } from 'models/receipt'
-
-// const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL
-//   ? process.env.NEXT_PUBLIC_BASE_URL
-//   : `https://${process.env.VERCEL_URL}`
+require('models/contractor')
 
 const magic = new Magic(process.env.MAGIC_SECRET_KEY)
 
@@ -39,7 +36,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
         res.status(400).json({ message: 'No homeowner exists' })
       }
 
-      const { milestoneStatus, projectId, stripeReceipt, id } = JSON.parse(body)
+      const { milestoneStatus, projectId, stripeReceipt, id } = body
 
       const milestone = await Milestone.findById(id).populate({
         path: '_contractor',
@@ -64,18 +61,17 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
         status: milestoneStatus,
         receipt: receipt,
       }
+      
       const updatedMilestone = await Milestone.findByIdAndUpdate(
         id,
         milestoneUpdates,
-        { new: true },
-        // (err, milestone) => (err ? err : milestone)
+        { new: true }
       )
 
       const updatedProject = await Estimate.findByIdAndUpdate(
         projectId,
         projectUpdates,
-        { new: true },
-        // (err, project) => (err ? err : project)
+        { new: true }
       )
 
       // TODO: send email to contractor

@@ -35,7 +35,8 @@
     "next-env.d.ts",
     "custom.d.ts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    "pages/api/webhooks/index.ts"
   ],
   "exclude": [
     "node_modules",

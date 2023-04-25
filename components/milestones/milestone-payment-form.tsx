@@ -1,9 +1,12 @@
 import { Dialog, Transition } from '@headlessui/react'
 import { CheckIcon } from '@heroicons/react/outline'
 import { useStripe } from '@stripe/react-stripe-js'
+import { getUserToken } from '@utils/magic'
+import { ROUTE_MAP } from '@utils/routes'
 import { fetchPostJSON } from 'hooks/stripe'
 import Link from 'next/link'
 import { Fragment, FunctionComponent, useState } from 'react'
+import { useQueryClient } from 'react-query'
 
 // import { PROJECT_DETAILS_EVENTS, trackEvent } from '../lib/mixpanel'
 
@@ -68,7 +71,7 @@ const PaymentSuccessModal: FunctionComponent<PaymentSuccessModalProps> = ({
                 </div>
                 <div className="mt-5 sm:mt-6">
                   <Link
-                    href={`/projects/${projectId}`}
+                    href={`${ROUTE_MAP.dashboard.projectDetails}/${projectId}`}
                     className="btn w-full rounded-md border border-transparent bg-indigo-600 py-3 px-4 text-base font-medium text-white shadow-sm hover:bg-indigo-900 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 focus:ring-offset-gray-50"
                     onClick={closeModal}
                   >
@@ -102,6 +105,8 @@ export const MilestonePaymentForm = ({ milestone, homeowner }) => {
 
   const stripe = useStripe()
 
+  const cache = useQueryClient()
+
   const handleSubmit = async (e) => {
     e.preventDefault()
     if (!e.currentTarget.reportValidity()) return // abort if form isn't valid
@@ -132,10 +137,16 @@ export const MilestonePaymentForm = ({ milestone, homeowner }) => {
         stripeReceipt: receipt,
       }
 
+      const token = await getUserToken()
+
       try {
         const res = await fetch(API_URL, {
           method: 'PATCH',
           body: JSON.stringify(reqBody),
+          headers: {
+            authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json',
+          },
         })
 
         const data = await res.json()
@@ -149,6 +160,9 @@ export const MilestonePaymentForm = ({ milestone, homeowner }) => {
           //     contractorId: contractorId,
           //   },
           // })
+
+          await cache.invalidateQueries(['project', projectId])
+          await cache.invalidateQueries(['milestone', milestoneId])
 
           setModalIsOpen(true)
         }
