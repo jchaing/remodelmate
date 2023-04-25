@@ -95,7 +95,7 @@ export const Projects: FunctionComponent<ProjectsProps> = ({ projectsData }) => 
                         </span>
                       </Link>
                     ) : (
-                      <Link href={`/projects/book/${_id}`} legacyBehavior>
+                      <Link href={`${ROUTE_MAP.dashboard.projectBook}/${_id}`} legacyBehavior>
                         <button
                           type="button"
                           className="text-start text-indigo-600 hover:cursor-pointer hover:text-indigo-900"

@@ -17,6 +17,7 @@ export const ROUTE_MAP = {
   dashboard: {
     entry: '/dashboard',
     projectDetails: '/dashboard/project',
+    projectBook: '/dashboard/project/book',
     profile: '/dashboard/profile',
     payment: '/dashboard/payment',
   },
