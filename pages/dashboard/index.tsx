@@ -26,13 +26,13 @@ const Dashboard = () => {
     return <Loader />
   }
 
+  if (isLoggedInError || projectsError) {
+    return <div>There was an error</div>
+  }
+
   if (!isLoggedIn) {
     router.push(ROUTE_MAP.auth.signIn)
     return <></>
-  }
-
-  if (isLoggedInError || projectsError) {
-    return <div>There was an error</div>
   }
 
   return (

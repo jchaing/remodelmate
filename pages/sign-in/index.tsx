@@ -1,12 +1,11 @@
 import { SignInNav } from '@components/navigation'
 import { GenericFormField, Tooltip } from '@components/shared'
-import { createMagicUser } from '@utils/magic'
+import { createMagicUser, useClientIsLoggedIn } from '@utils/magic'
 import { ROUTE_MAP } from '@utils/routes'
 import { Form, Formik } from 'formik'
 import { checkUserExists } from 'hooks/auth'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-// import { FunctionComponent } from 'react'
 import * as yup from 'yup'
 import 'yup-phone-lite'
 
@@ -28,6 +27,13 @@ const signinInitialValues = {
 
 const SignIn = () => {
   const router = useRouter()
+  const { data: isLoggedIn } = useClientIsLoggedIn()
+
+  if (isLoggedIn) {
+    router.push(ROUTE_MAP.dashboard.entry)
+    return <></>
+  }
+
   return (
     <Formik
       initialValues={signinInitialValues}
@@ -128,9 +134,5 @@ const SignIn = () => {
     </Formik>
   )
 }
-
-// interface SignInProps {
-//   createMagicUser: (phone: string) => Promise<boolean>
-// }
 
 export default SignIn
