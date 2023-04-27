@@ -49,7 +49,7 @@ const Register = () => {
       if (userExists) {
         await createMagicUser(`+1${variables.phone}`)
 
-        router.push(ROUTE_MAP.app.entry)
+        router.push(ROUTE_MAP.dashboard.entry)
       } else {
         router.push(ROUTE_MAP.auth.register)
       }

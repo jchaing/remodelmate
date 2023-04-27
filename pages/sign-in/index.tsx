@@ -45,7 +45,7 @@ const SignIn = () => {
 
           setSubmitting(false)
 
-          router.push(ROUTE_MAP.app.entry)
+          router.push(ROUTE_MAP.dashboard.entry)
         } else {
           router.push(ROUTE_MAP.auth.register)
         }
