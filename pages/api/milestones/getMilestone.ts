@@ -5,16 +5,9 @@ import { Milestone } from 'models/milestone'
 import { model } from 'mongoose'
 import { NextApiRequest, NextApiResponse } from 'next'
 
-// import { Milestone, dbConnect } from '../../../models'
-// import { getLoginSession } from '../../../lib/auth/auth'
-
 const magic = new Magic(process.env.MAGIC_SECRET_KEY)
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
-  // const { method, query } = req
-  // const { id } = query
-
-  // let userFromCookie: any
   const didToken = req.headers.authorization.substr(7)
 
   try {

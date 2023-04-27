@@ -14,6 +14,7 @@ export async function fetchGetJSON(url: string) {
 }
 
 export async function fetchPostJSON(url: string, data?: {}) {
+  const token = await getUserToken()
   try {
     // Default options are marked with *
     const response = await fetch(url, {
@@ -22,6 +23,7 @@ export async function fetchPostJSON(url: string, data?: {}) {
       cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
       credentials: 'same-origin', // include, *same-origin, omit
       headers: {
+        authorization: `Bearer ${token}`,
         'Content-Type': 'application/json',
         // 'Content-Type': 'application/x-www-form-urlencoded',
       },
