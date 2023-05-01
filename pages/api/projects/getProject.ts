@@ -6,10 +6,6 @@ import { dbConnect } from '@utils/mongodb'
 import { Magic } from '@magic-sdk/admin'
 require('models/milestone')
 require('models/receipt')
-// import { dbConnect } from '../../../models'
-// import { getLoginSession } from '../../../lib/auth/auth'
-
-// const GET_ONLY = 'This route only accepts GET requests'
 
 const magic = new Magic(process.env.MAGIC_SECRET_KEY)
 

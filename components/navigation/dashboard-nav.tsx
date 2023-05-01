@@ -21,7 +21,12 @@ const navigation = [
     current: true,
   },
   { name: 'Profile', icon: UserIcon, href: '#', current: false },
-  { name: 'Payment', icon: CreditCardIcon, href: '#', current: false },
+  {
+    name: 'Payment',
+    icon: CreditCardIcon,
+    href: ROUTE_MAP.dashboard.payment,
+    current: false,
+  },
 ]
 
 function classNames(...classes) {

@@ -11,6 +11,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { FunctionComponent, useState } from 'react'
 import MilestonePaymentForm from './milestone-payment-form'
+import { ROUTE_MAP } from '@utils/routes'
 
 enum MilestoneStatus {
   NOT_STARTED = 'notStarted',
@@ -201,7 +202,7 @@ export const MilestoneDetails = ({
                     <span className="ml-2">
                       <PaymentToolTip text="☝🏽 Click to update your payment method">
                         <Link
-                          href="/profile"
+                          href={ROUTE_MAP.dashboard.payment}
                           className="flex-shrink-0 text-gray-400 hover:text-indigo-200"
                         >
                           <InformationCircleIcon className="h-5 w-5" />

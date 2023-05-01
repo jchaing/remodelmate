@@ -3,6 +3,7 @@ import { SignUpForm, StripeForm } from '@components/stripe'
 import { InformationCircleIcon } from '@heroicons/react/outline'
 import { Elements } from '@stripe/react-stripe-js'
 import { Card } from '@stripe/stripe-js'
+import { ROUTE_MAP } from '@utils/routes'
 import { getStripe } from '@utils/stripe'
 import Link from 'next/link'
 import { FunctionComponent } from 'react'
@@ -85,7 +86,7 @@ export const BookProject: FunctionComponent<BookProjectProps> = ({
                           <span className="ml-2">
                             <PaymentToolTip text="☝🏽 Click to update your payment method">
                               <Link
-                                href="/profile"
+                                href={ROUTE_MAP.dashboard.payment}
                                 className="flex-shrink-0 text-gray-400 hover:text-indigo-200"
                               >
                                 <InformationCircleIcon className="h-5 w-5" />

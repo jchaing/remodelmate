@@ -1,4 +1,5 @@
-import { useMutation } from "react-query"
+import { getUserToken } from '@utils/magic'
+import { useMutation, useQuery } from 'react-query'
 
 interface addHomeownerProps {
   firstName: string
@@ -39,3 +40,18 @@ export const useAddHomeowner = (config?: any) => {
 }
 
 /******************************************************************************/
+
+const getHomeowner = async () => {
+  const token = await getUserToken()
+
+  return fetch('/api/homeowner/getHomeowner', {
+    method: 'GET',
+    headers: {
+      authorization: `Bearer ${token}`,
+    },
+  }).then((d) => d.json())
+}
+
+export const useGetHomeowner = (config?: any) => {
+  return useQuery('homeowner', getHomeowner, { ...config })
+}

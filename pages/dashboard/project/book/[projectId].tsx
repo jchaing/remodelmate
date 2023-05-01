@@ -47,9 +47,6 @@ const BookProjectPage = () => {
     return <></>
   }
 
-  console.log('paymentMethod', paymentMethod)
-  console.log('projectData', projectData)
-
   const {
     homeowner,
     project,

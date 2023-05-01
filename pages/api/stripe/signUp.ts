@@ -14,6 +14,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const { customerName, homeownerEmail } = req.body
 
   const didToken = req.headers.authorization.substr(7)
+  await dbConnect()
 
   try {
     magic.token.validate(didToken)
@@ -35,8 +36,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   }
 
   try {
-    await dbConnect()
-
     const customer = await stripe.customers.create({
       email: homeownerEmail,
       name: customerName,
