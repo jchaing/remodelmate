@@ -20,7 +20,12 @@ const navigation = [
     href: ROUTE_MAP.dashboard.entry,
     current: true,
   },
-    { name: 'Profile', icon: UserIcon, href: ROUTE_MAP.dashboard.profile, current: false },
+  {
+    name: 'Profile',
+    icon: UserIcon,
+    href: ROUTE_MAP.dashboard.profile,
+    current: false,
+  },
   {
     name: 'Payment',
     icon: CreditCardIcon,
@@ -35,9 +40,9 @@ function classNames(...classes) {
 
 export const DashboardNav = ({ children }) => {
   const tabs = [
-    { id: 'dashboard', name: 'Dashboard' },
-    { id: 'profile', name: 'Profile' },
-    { id: 'payment', name: 'Payment' },
+    { id: 'dashboard', name: 'Dashboard', href: ROUTE_MAP.dashboard.entry },
+    { id: 'profile', name: 'Profile', href: ROUTE_MAP.dashboard.profile },
+    { id: 'payment', name: 'Payment', href: ROUTE_MAP.dashboard.payment },
     { id: 'sign-out', name: 'Sign-out' },
   ]
 
@@ -55,6 +60,29 @@ export const DashboardNav = ({ children }) => {
     await router.replace(ROUTE_MAP.app.entry)
   }
 
+  const handleTabSelect = (e: any) => {
+    switch (e.target.value) {
+      case 'sign-out':
+        logout()
+        break
+      case 'dashboard':
+        router.push(ROUTE_MAP.dashboard.entry)
+        break
+      case 'profile':
+        router.push(ROUTE_MAP.dashboard.profile)
+        break
+      case 'payment':
+        router.push(ROUTE_MAP.dashboard.payment)
+        break
+      default:
+        router.push(ROUTE_MAP.dashboard.entry)
+        break
+    }
+  }
+
+  const splitPath = router.pathname.split('/')
+  const activePath = splitPath[splitPath.length - 1]
+
   return (
     <>
       {/**Mobile Dropdown Nav */}
@@ -67,8 +95,8 @@ export const DashboardNav = ({ children }) => {
           id="tabs"
           name="tabs"
           className="block w-full rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500"
-          // value={currentTab}
-          // onChange={handleTabSelect}
+          value={activePath}
+          onChange={handleTabSelect}
         >
           {tabs.map((tab) => (
             <option key={tab.id} value={tab.id}>
