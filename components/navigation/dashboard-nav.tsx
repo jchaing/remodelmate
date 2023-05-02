@@ -20,7 +20,7 @@ const navigation = [
     href: ROUTE_MAP.dashboard.entry,
     current: true,
   },
-  { name: 'Profile', icon: UserIcon, href: '#', current: false },
+    { name: 'Profile', icon: UserIcon, href: ROUTE_MAP.dashboard.profile, current: false },
   {
     name: 'Payment',
     icon: CreditCardIcon,
