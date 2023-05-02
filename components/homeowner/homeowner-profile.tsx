@@ -6,7 +6,9 @@ import { useRouter } from 'next/router'
 import { useQueryClient } from 'react-query'
 import { ROUTE_MAP } from '@utils/routes'
 import { createMagicUser, magic } from '@utils/magic'
-import { GenericFormField } from '@components/shared'
+import { GenericFormField, Tooltip } from '@components/shared'
+import { useUpdateHomeownerProfile } from 'hooks/homeowner'
+import { shallowEqualObjects } from '@utils/compare'
 
 const profileValidationSchema = () => {
   return yup.object().shape({
@@ -39,38 +41,32 @@ export const HomeownerProfile = ({
 
   const router = useRouter()
 
-  const cache = useQueryClient()
+  const { mutateAsync, isLoading } = useUpdateHomeownerProfile({
+    onSuccess: async (_data: any, variables: any) => {
+      if (initialValues.phone !== variables.phone) {
+        await magic.user.logout()
+        await createMagicUser(`+1${variables.phone}`)
+        await router.push(ROUTE_MAP.dashboard.profile)
+        router.reload()
+      }
 
-  // const { mutateAsync, isLoading } = useUpdateContractorPersonal({
-  //   onSuccess: async (_data: any, variables: any) => {
-  //     await cache.invalidateQueries('contractor')
+      // TODO: When changing phone number, log user out and sign back into profile page
+    },
+    onError: (error: any) => {
+      console.error('error on mutateAsync', error)
 
-  //     if (initialValues.phone !== variables.phone) {
-  //       await magic.user.logout()
-  //       await createMagicUser(`+1${variables.phone}`)
-  //       await router.push(ROUTE_MAP.dashboard.profile)
-  //       router.reload()
-  //     }
+      if (error.keyValue.email) {
+        setField('email')
+        setHomeownerErrorMsg(`${error.keyValue.email} already exists`)
+      }
 
-  //     // TODO: When changing phone number, log user out and sign back into profile page
-  //   },
-  //   onError: (error: any) => {
-  //     console.error('error on mutateAsync', error)
+      if (error.keyValue.phone) {
+        setField('phone')
+        setHomeownerErrorMsg(`${error.keyValue.phone} already exists`)
+      }
+    },
+  })
 
-  //     if (error.keyValue.email) {
-  //       setField('email')
-  //       setHomeownerErrorMsg(`${error.keyValue.email} already exists`)
-  //     }
-
-  //     if (error.keyValue.phone) {
-  //       setField('phone')
-  //       setHomeownerErrorMsg(`${error.keyValue.phone} already exists`)
-  //     }
-  //   },
-  // })
-
-  const handleSubmit = null
-  const handleChange = null
   return (
     <>
       <Formik
@@ -84,9 +80,9 @@ export const HomeownerProfile = ({
           }
 
           // Checks for changes before submitting to API
-          // if (!shallowEqualObjects(initialValues, values)) {
-          //   await mutateAsync(profileValues)
-          // }
+          if (!shallowEqualObjects(initialValues, values)) {
+            await mutateAsync(profileValues)
+          }
         }}
       >
         {({ isSubmitting }) => (
@@ -139,12 +135,17 @@ export const HomeownerProfile = ({
                           </div>
 
                           <div className="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
-                            <label
-                              htmlFor="phone"
-                              className="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
-                            >
-                              Mobile Number
-                            </label>
+                            <div className="flex">
+                              <label
+                                htmlFor="phone"
+                                className="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
+                              >
+                                Mobile Number
+                              </label>
+                              <div className="sm:pt-2">
+                                <Tooltip message="Be cautious when updating your mobile number. We will send an SMS code to the new number." />
+                              </div>
+                            </div>
                             <div>
                               <div className="mt-1 sm:col-span-2 sm:mt-0">
                                 <GenericFormField
@@ -194,8 +195,7 @@ export const HomeownerProfile = ({
                         type="submit"
                         className="btn inline-flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:w-52"
                       >
-                        {/* {isSubmitting || isLoading ? 'Saving...' : 'Save'} */}
-                        Save
+                        {isSubmitting || isLoading ? 'Saving...' : 'Save'}
                       </button>
                     </div>
                   </div>

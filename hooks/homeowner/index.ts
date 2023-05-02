@@ -55,3 +55,52 @@ const getHomeowner = async () => {
 export const useGetHomeowner = (config?: any) => {
   return useQuery('homeowner', getHomeowner, { ...config })
 }
+
+/******************************************************************************/
+
+interface updateHomeownerProfileRequest {
+  firstName: string
+  lastName: string
+  phone: string
+  email: string
+}
+
+const updateHomeownerProfile = async ({
+  firstName,
+  lastName,
+  phone,
+  email,
+}: updateHomeownerProfileRequest) => {
+  const token = await getUserToken()
+
+  const body = JSON.stringify({
+    firstName,
+    lastName,
+    phone,
+    email,
+  })
+
+  const response = await fetch('/api/homeowner/updateHomeownerProfile', {
+    method: 'PATCH',
+    headers: {
+      authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    },
+    body: body,
+  })
+
+  const apiRes = await response.json()
+
+  if (!response.ok) {
+    console.error('Error:', apiRes)
+    throw apiRes.error
+  }
+}
+
+export const useUpdateHomeownerProfile = (config?: any) => {
+  return useMutation(
+    async (request: updateHomeownerProfileRequest) =>
+      await updateHomeownerProfile({ ...request }),
+    { ...config }
+  )
+}

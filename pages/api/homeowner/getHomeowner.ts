@@ -30,10 +30,9 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       res.status(200).json(homeowner )
     } catch (error) {
       res.status(500).json({ message: 'Failed to retrieve homeowner', error })
-      throw new Error(error)
     }
   } else {
-    res.setHeader('Allow', 'POST')
+    res.setHeader('Allow', 'GET')
     res.status(405).end('Method Not Allowed')
   }
 }
