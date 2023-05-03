@@ -29,6 +29,9 @@
       "@assets/*": [
         "./assets/*"
       ],
+      "@lib/*": [
+        "./lib/*"
+      ],
     }
   },
   "include": [
