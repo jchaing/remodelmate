@@ -145,7 +145,7 @@ export const Navigation: FunctionComponent<NavigationProps> = ({
                                 />
                               </div>
                               <Link
-                                href={item.full_slug}
+                                href={`/${item.full_slug}`}
                                 className="mt-6 block font-medium text-gray-900"
                               >
                                 <span
@@ -297,7 +297,7 @@ export const Navigation: FunctionComponent<NavigationProps> = ({
                                     <div className="grid grid-cols-6 gap-x-16">
                                       {category.featured.map((item) => (
                                         <Link
-                                          href={item.full_slug}
+                                          href={`/${item.full_slug}`}
                                           key={item.name}
                                           className="group relative text-base sm:text-sm"
                                           onClick={() => close()}
