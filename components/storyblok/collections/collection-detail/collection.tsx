@@ -79,6 +79,7 @@ export const Collection = ({ blok }: any) => {
     e.preventDefault()
     setOpenForm(!openForm)
   }
+  console.log(blok.name.toLowerCase())
 
   return (
     <>
@@ -287,7 +288,7 @@ export const Collection = ({ blok }: any) => {
           </div>
         </div>
       </section>
-      <CollectionForm openForm={openForm} setOpenForm={setOpenForm}/>
+      <CollectionForm openForm={openForm} setOpenForm={setOpenForm} collectionName={blok.name} />
     </>
   )
 }

@@ -6,6 +6,10 @@ interface addHomeownerProps {
   lastName: string
   email: string
   phone: string
+  street?: string
+  city?: string
+  state?: string
+  zip?: number
 }
 
 const addHomeowner = async ({
@@ -13,8 +17,21 @@ const addHomeowner = async ({
   lastName,
   email,
   phone,
+  street,
+  city,
+  state,
+  zip,
 }: addHomeownerProps) => {
-  const body = JSON.stringify({ firstName, lastName, email, phone })
+  const body = JSON.stringify({
+    firstName,
+    lastName,
+    email,
+    phone,
+    street,
+    city,
+    state,
+    zip,
+  })
 
   const response = await fetch('/api/homeowner/addHomeowner', {
     method: 'POST',
@@ -30,6 +47,8 @@ const addHomeowner = async ({
     console.error('Error:', apiRes)
     throw apiRes.error
   }
+
+  return apiRes
 }
 
 export const useAddHomeowner = (config?: any) => {

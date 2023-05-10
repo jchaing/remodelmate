@@ -44,7 +44,7 @@ const handler = async (
     } catch (error) {
       res
         .status(500)
-        .json({ message: 'Failed to update contractor personal', error })
+        .json({ message: 'Failed to update homeowner profile', error })
     }
   } else {
     res.setHeader('Allow', 'PATCH')
