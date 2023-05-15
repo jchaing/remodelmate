@@ -22,18 +22,17 @@ import { useCreateEstimate } from 'hooks/estimate'
 import * as yup from 'yup'
 import 'yup-phone-lite'
 import { ROUTE_MAP } from '@utils/routes'
-import { set } from 'mongoose'
 
-enum FormTypeTitles {
-  'Personal' = 'Update Profile',
-  'Company' = 'Update Profile',
-  'State License' = 'Add State License',
-  'Local License' = 'Add Local License',
-  'Insurance Policy' = 'Add Insurance Policy',
-  'Update State License' = 'Update State License',
-  'Update Local License' = 'Update Local License',
-  'Update Insurance Policy' = 'Update Insurance Policy',
-}
+// enum FormTypeTitles {
+//   'Personal' = 'Update Profile',
+//   'Company' = 'Update Profile',
+//   'State License' = 'Add State License',
+//   'Local License' = 'Add Local License',
+//   'Insurance Policy' = 'Add Insurance Policy',
+//   'Update State License' = 'Update State License',
+//   'Update Local License' = 'Update Local License',
+//   'Update Insurance Policy' = 'Update Insurance Policy',
+// }
 
 const signupValidationSchema = () => {
   return yup.object().shape({
@@ -65,7 +64,7 @@ export const CollectionForm: FunctionComponent<CollectionFormProps> = ({
   const [addressError, setAddressError] = useState(null)
   const [field, setField] = useState<string>('')
   const [homeownerErrorMsg, setHomeownerErrorMsg] = useState<string>('')
-  const [finalValues, setFinalValues] = useState({})
+  // const [finalValues, setFinalValues] = useState({})
   const [modalOpen, setModalOpen] = useState<boolean>(false)
 
   const { data: isLoggedIn } = useClientIsLoggedIn()
@@ -73,9 +72,7 @@ export const CollectionForm: FunctionComponent<CollectionFormProps> = ({
 
   const addHomeownerMutation = useAddHomeowner({
     onSuccess: async (_data: any, variables: any) => {
-      console.log('***SUCCESS***', _data)
-      console.log('***VARIABLES***', variables)
-      // setOpenForm(false)
+      // do something with variables
     },
     onError: (error: any) => {
       console.error('***ERROR***', error)
@@ -99,14 +96,11 @@ export const CollectionForm: FunctionComponent<CollectionFormProps> = ({
   const createEstimateMutation = useCreateEstimate({
     onSuccess: async (_data: any, variables: any) => {
       // do something with variables
-      console.log('***SUCCESS***', _data)
-      console.log('***VARIABLES***', variables)
 
       if (isLoggedIn) {
         setOpenForm(false)
         router.replace(`${ROUTE_MAP.dashboard.projectBook}/${_data._id}`)
       } else {
-        // router.replace(ROUTE_MAP.auth.signIn)
         setModalOpen(true)
       }
     },
@@ -129,8 +123,6 @@ export const CollectionForm: FunctionComponent<CollectionFormProps> = ({
     phone: '',
     layout: 'powderRoom',
   }
-
-  console.log(isLoggedIn)
 
   return (
     <Formik
@@ -158,8 +150,6 @@ export const CollectionForm: FunctionComponent<CollectionFormProps> = ({
           }
         })
 
-        setFinalValues({ ...values, ...addressData, ...activeMarket })
-
         const {
           firstName,
           lastName,
@@ -186,14 +176,7 @@ export const CollectionForm: FunctionComponent<CollectionFormProps> = ({
           zip,
         }
 
-        const estimateBody = {
-          layout,
-          ...addressData,
-          ...activeMarket,
-        }
-
         if (!activeZipCodesSet.has(Number(addressData.zip))) {
-          console.log('zip code is not active')
           return setAddressError(
             `Market for Zip Code ${addressData.zip} is currently not available`
           )
@@ -203,7 +186,6 @@ export const CollectionForm: FunctionComponent<CollectionFormProps> = ({
           const newHomeowner = await addHomeownerMutation.mutateAsync(
             homeownerBody
           )
-          console.log('***newHomeowner***', newHomeowner)
 
           if (newHomeowner) {
             await createEstimateMutation.mutateAsync({
