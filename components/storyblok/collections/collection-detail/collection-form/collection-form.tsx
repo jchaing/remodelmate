@@ -22,6 +22,7 @@ import { useCreateEstimate } from 'hooks/estimate'
 import * as yup from 'yup'
 import 'yup-phone-lite'
 import { ROUTE_MAP } from '@utils/routes'
+import { ADMIN_URL } from '@utils/links'
 
 // enum FormTypeTitles {
 //   'Personal' = 'Update Profile',
@@ -94,12 +95,97 @@ export const CollectionForm: FunctionComponent<CollectionFormProps> = ({
   })
 
   const createEstimateMutation = useCreateEstimate({
-    onSuccess: async (_data: any, variables: any) => {
-      // do something with variables
+    onSuccess: async (_data: any) => {
+      const { firstName, lastName, email, phone } = _data
+      const {
+        _id,
+        address: { street, city, state, zip },
+        milestones,
+        totalCost,
+      } = _data.estimate
+
+      let milestoneString = ``
+      milestones.forEach(
+        (milestone) =>
+          (milestoneString += `* _${milestone.name} $${milestone.price}_\n`)
+      )
+
+      const slackMessageBody = {
+        blocks: [
+          {
+            type: 'divider',
+          },
+          {
+            type: 'section',
+            text: {
+              type: 'mrkdwn',
+              text: `<${ADMIN_URL}/estimates/${_id}|*🎉 New Estimate Built*>`,
+            },
+          },
+          {
+            type: 'divider',
+          },
+          {
+            type: 'section',
+            fields: [
+              {
+                type: 'mrkdwn',
+                text: `*Homeowner:* \n_${firstName} ${lastName}_\n`,
+              },
+              {
+                type: 'mrkdwn',
+                text: `*Email:* \n_${email}_\n`,
+              },
+            ],
+          },
+          {
+            type: 'section',
+            fields: [
+              {
+                type: 'mrkdwn',
+                text: `\n*Address:* \n_${street}_ \n_${city}, ${state} ${zip}_`,
+              },
+              {
+                type: 'mrkdwn',
+                text: `\n*Phone:* \n_${phone}_\n`,
+              },
+            ],
+          },
+          {
+            type: 'section',
+            fields: [
+              {
+                type: 'mrkdwn',
+                text: `_*Milestones:*_ \n${milestoneString}`,
+              },
+              {
+                type: 'mrkdwn',
+                text: `*Estimate Total:* \n_$${totalCost}_`,
+              },
+            ],
+          },
+          {
+            type: 'divider',
+          },
+        ],
+      }
+
+      try {
+        const sendSlackMessage = await fetch('/api/slack/newEstimate', {
+          method: 'POST',
+          mode: 'no-cors',
+          body: JSON.stringify(slackMessageBody),
+        })
+        await sendSlackMessage.json()
+      } catch (error) {
+        new Error(error)
+      }
 
       if (isLoggedIn) {
         setOpenForm(false)
-        router.replace(`${ROUTE_MAP.dashboard.projectBook}/${_data._id}`)
+        router.replace(
+          `${ROUTE_MAP.dashboard.projectBook}/${_data.estimate._id}`
+        )
       } else {
         setModalOpen(true)
       }
@@ -496,7 +582,7 @@ export const CollectionForm: FunctionComponent<CollectionFormProps> = ({
                               </div>
                             </Form>
                             <ActionModal
-                              message={`You have successfully created an account and estimate for the ${collectionName} Collection. Please click the button below to go to the sign-in page.`}
+                              message={`You have successfully created an account and quote for the ${collectionName} Collection. Please click the button below to sign-in and view your quote.`}
                               modalOpen={modalOpen}
                               action={onModalClick}
                               actionText={'Sign-in'}

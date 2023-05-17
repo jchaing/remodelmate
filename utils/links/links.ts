@@ -9,3 +9,4 @@ export const ESTIMATE_URL =
     : 'https://staging.homeowner.remodelmate.com/estimate/1'
 
 export const CONTRACTOR_URL = 'https://contractor.remodelmate.com'
+export const ADMIN_URL = 'https://admin.remodelmate.com'

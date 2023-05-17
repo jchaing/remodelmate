@@ -49,11 +49,15 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
       estimate.milestones = createMilestones(pricingBundle, estimate._id)
 
+      const { firstName, lastName, email } = homeowner
+
       await estimate.save()
       await homeowner.estimates.push(estimate)
       await homeowner.save()
 
-      return res.status(201).json(estimate)
+      return res
+        .status(201)
+        .json({ estimate, firstName, lastName, email, phone })
     } catch (error) {
       return res.status(400).json({ error: error })
     }
