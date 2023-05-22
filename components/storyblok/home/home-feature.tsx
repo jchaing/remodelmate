@@ -2,6 +2,7 @@
 import { InboxIcon, SparklesIcon } from '@heroicons/react/outline'
 import { storyblokEditable } from '@storyblok/react'
 import { ESTIMATE_URL } from '@utils/links'
+import { ROUTE_MAP } from '@utils/routes'
 import Link from 'next/link'
 
 export const HomeFeature = ({ blok }: any) => {
@@ -33,10 +34,8 @@ export const HomeFeature = ({ blok }: any) => {
                   </p>
                   <div className="mt-6">
                     <Link
-                      href={ESTIMATE_URL}
+                      href={ROUTE_MAP.app.collections}
                       className="inline-flex rounded-lg bg-sky-600 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-sky-600 hover:bg-sky-700 hover:ring-sky-700"
-                      target="_blank"
-                      rel="noopener noreferrer"
                     >
                       {blok.feature1_button_text}
                     </Link>
@@ -103,10 +102,8 @@ export const HomeFeature = ({ blok }: any) => {
                   </p>
                   <div className="mt-6">
                     <Link
-                      href={ESTIMATE_URL}
+                      href={ROUTE_MAP.app.collections}
                       className="inline-flex rounded-lg bg-sky-600 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-sky-600 hover:bg-sky-700 hover:ring-sky-700"
-                      target="_blank"
-                      rel="noopener noreferrer"
                     >
                       {blok.feature2_button_text}
                     </Link>

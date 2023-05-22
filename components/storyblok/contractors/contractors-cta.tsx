@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { storyblokEditable } from "@storyblok/react"
-import { ESTIMATE_URL } from "@utils/links"
+import { ROUTE_MAP } from "@utils/routes"
 import Link from "next/link"
 
 export const ContractorsCta = ({ blok }: any) => {
@@ -113,9 +113,7 @@ export const ContractorsCta = ({ blok }: any) => {
                 </p>
                 <Link
                   className="block w-full rounded-md border border-transparent bg-white py-3 px-5 text-center text-base font-medium text-sky-700 shadow-md hover:bg-gray-50 sm:inline-block sm:w-auto"
-                  href={ESTIMATE_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href={ROUTE_MAP.app.collections}
                 >
                   {blok.cta_button_text}
                 </Link>

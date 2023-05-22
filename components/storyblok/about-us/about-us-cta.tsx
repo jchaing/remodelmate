@@ -1,5 +1,5 @@
 import { storyblokEditable } from '@storyblok/react'
-import { ESTIMATE_URL } from '@utils/links'
+import { ROUTE_MAP } from '@utils/routes'
 import Link from 'next/link'
 
 export const AboutUsCta = ({ blok }: any) => {
@@ -18,10 +18,8 @@ export const AboutUsCta = ({ blok }: any) => {
             {blok.cta_sub_heading}
           </p>
           <Link
-            href={ESTIMATE_URL}
+            href={ROUTE_MAP.app.collections}
             className="mt-8 inline-flex w-full items-center justify-center rounded-md border border-transparent bg-white px-5 py-3 text-base font-medium text-sky-600 hover:bg-sky-50 sm:w-auto"
-            target="_blank"
-            rel="noopener noreferrer"
           >
             {blok.cta_button_text}
           </Link>

@@ -13,7 +13,6 @@ import Link from 'next/link'
 import { ROUTE_MAP } from '@utils/routes'
 import { getStoryblokApi } from '@storyblok/react'
 import Image from 'next/image'
-import { ESTIMATE_URL, LOGIN_URL } from '@utils/links'
 
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ')
@@ -198,10 +197,8 @@ export const Navigation: FunctionComponent<NavigationProps> = ({
                   </div>
                   <div className="flow-root">
                     <Link
-                      href={ESTIMATE_URL}
+                      href={ROUTE_MAP.app.collections}
                       className="-m-2 block p-2 font-medium text-gray-900"
-                      target="_blank"
-                      rel="noopener noreferrer"
                       onClick={() => setOpen(false)}
                     >
                       Get quote
@@ -369,10 +366,8 @@ export const Navigation: FunctionComponent<NavigationProps> = ({
                   </Link>
                   <span className="h-6 w-px bg-gray-200" aria-hidden="true" />
                   <Link
-                    href={ESTIMATE_URL}
+                    href={ROUTE_MAP.app.collections}
                     className="text-sm font-medium text-gray-700 hover:text-gray-800"
-                    target="_blank"
-                    rel="noopener noreferrer"
                   >
                     Get quote
                   </Link>
