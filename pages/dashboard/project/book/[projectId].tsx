@@ -53,6 +53,11 @@ const BookProjectPage = () => {
     project: { milestones },
   } = projectData
 
+  if (project.activated) {
+    router.push(`${ROUTE_MAP.dashboard.projectDetails}/${project._id}`)
+    return <></>
+  }
+
   return (
     <>
       <Head>
