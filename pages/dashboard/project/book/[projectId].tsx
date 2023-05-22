@@ -1,7 +1,7 @@
 import { Layout } from '@components/layout'
 import { DashboardNav } from '@components/navigation'
 import { BookProject } from '@components/projects'
-import { Loader } from '@components/shared'
+import { BackButton, Loader } from '@components/shared'
 import { Card } from '@stripe/stripe-js'
 import { useClientIsLoggedIn } from '@utils/magic'
 import { ROUTE_MAP } from '@utils/routes'
@@ -61,6 +61,7 @@ const BookProjectPage = () => {
         <title>{pageTitle}</title> */}
       </Head>
       <DashboardNav>
+        <BackButton />
         <BookProject
           homeowner={homeowner}
           project={project}

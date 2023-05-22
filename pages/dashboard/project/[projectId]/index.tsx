@@ -1,7 +1,7 @@
 import { Layout } from '@components/layout'
 import { useClientIsLoggedIn } from '@utils/magic'
 import { useRouter } from 'next/router'
-import { Loader } from '@components/shared'
+import { BackButton, Loader } from '@components/shared'
 import { ROUTE_MAP } from '@utils/routes'
 import { DashboardNav } from '@components/navigation'
 import { ProjectDetails } from '@components/projects'
@@ -45,6 +45,7 @@ const ProjectPage = () => {
   return (
     <DashboardNav>
       <div className="max-w-7xl">
+        <BackButton />
         <ProjectDetails project={projectData.project} />
         <MilestonesTable milestones={milestones} />
       </div>
