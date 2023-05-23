@@ -1,7 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { InboxIcon, SparklesIcon } from '@heroicons/react/outline'
 import { storyblokEditable } from '@storyblok/react'
-import { ESTIMATE_URL } from '@utils/links'
 import { ROUTE_MAP } from '@utils/routes'
 import Link from 'next/link'
 
