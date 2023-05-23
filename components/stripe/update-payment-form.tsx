@@ -102,9 +102,13 @@ export const UpdatePaymentForm: FunctionComponent<UpdatePaymentFormProps> = ({
                           id="saved"
                           name="saved"
                           type="text"
-                          placeholder={`${paymentMethod?.brand?.toUpperCase()} ending in ${
+                          placeholder={
                             paymentMethod.last4
-                          }`}
+                              ? `${paymentMethod?.brand?.toUpperCase()} ending in ${
+                                  paymentMethod.last4
+                                }`
+                              : 'No saved payment'
+                          }
                           disabled
                           className="block w-full max-w-lg rounded-md border border-gray-300 text-sm shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:max-w-xs"
                         />
