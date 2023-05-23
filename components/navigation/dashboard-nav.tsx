@@ -16,18 +16,21 @@ import { useState } from 'react'
 const navigation = [
   {
     name: 'Dashboard',
+    key: 'dashboard',
     icon: HomeIcon,
     href: ROUTE_MAP.dashboard.entry,
     current: true,
   },
   {
     name: 'Profile',
+    key: 'profile',
     icon: UserIcon,
     href: ROUTE_MAP.dashboard.profile,
     current: false,
   },
   {
     name: 'Payment',
+    key: 'payment',
     icon: CreditCardIcon,
     href: ROUTE_MAP.dashboard.payment,
     current: false,
@@ -83,6 +86,8 @@ export const DashboardNav = ({ children }) => {
   const splitPath = router.pathname.split('/')
   const activePath = splitPath[splitPath.length - 1]
 
+  console.log(activePath)
+
   return (
     <>
       {/**Mobile Dropdown Nav */}
@@ -116,13 +121,15 @@ export const DashboardNav = ({ children }) => {
                   key={item.name}
                   href={item.href}
                   className={classNames(
-                    'border-transparent text-gray-600 hover:bg-gray-50 hover:text-gray-900',
+                    item.key === activePath
+                      ? 'border-transparent text-sky-500'
+                      : 'border-transparent text-gray-600 hover:bg-gray-50 hover:text-gray-900',
                     'group flex items-center border-l-4 px-3 py-2 text-sm font-medium'
                   )}
                 >
                   <item.icon
                     className={classNames(
-                      item.current
+                      item.key === activePath
                         ? 'text-sky-500'
                         : 'text-gray-400 group-hover:text-gray-500',
                       'mr-3 h-6 w-6 flex-shrink-0'
