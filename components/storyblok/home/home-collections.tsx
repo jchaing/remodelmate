@@ -14,7 +14,7 @@ export const HomeCollections = ({ blok }: any) => {
         <div className="mx-auto max-w-2xl py-16 sm:py-24 lg:max-w-none lg:py-32">
           <h2
             id="collections-heading"
-            className="text-2xl font-bold text-gray-900"
+            className="text-3xl font-bold text-gray-900"
           >
             {blok.heading}
           </h2>
