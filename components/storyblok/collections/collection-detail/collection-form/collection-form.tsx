@@ -264,8 +264,6 @@ export const CollectionForm: FunctionComponent<CollectionFormProps> = ({
           )
         }
 
-        console.log(values.additional)
-
         if (!isLoggedIn) {
           const newHomeowner = await addHomeownerMutation.mutateAsync(
             homeownerBody

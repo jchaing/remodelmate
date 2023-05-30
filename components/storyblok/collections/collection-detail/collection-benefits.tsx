@@ -45,7 +45,7 @@ export const CollectionBenefits = ({ blok }: any) => {
                   className="h-8 w-8 flex-shrink-0 text-sky-600"
                   aria-hidden="true"
                 />
-                <div className="ml-4 flex flex-auto flex-col-reverse">
+                <div className="ml-4 flex flex-auto flex-col">
                   <h3 className="font-medium text-gray-900">{benefit.name}</h3>
                   <p className="text-sm text-gray-500">{benefit.description}</p>
                 </div>
