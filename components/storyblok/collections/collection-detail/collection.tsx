@@ -239,7 +239,7 @@ export const Collection = ({ blok }: any) => {
 
                   <div className="divide-y divide-gray-200 border-t">
                     {/* {product.details.map((detail) => ( */}
-                    <Disclosure as="div">
+                    <Disclosure as="div" defaultOpen={true}>
                       {({ open }) => (
                         <>
                           <h3>
