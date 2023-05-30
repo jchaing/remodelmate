@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { storyblokEditable } from '@storyblok/react'
+import { ROUTE_MAP } from '@utils/routes'
 import Link from 'next/link'
 
 export const HomeBlog = ({ blok }: any) => {
@@ -36,10 +37,7 @@ export const HomeBlog = ({ blok }: any) => {
                 </div>
                 <div className="flex flex-1 flex-col justify-between bg-white p-6">
                   <div className="flex-1">
-                    <Link
-                      href={`/blog/${article.slug}`}
-                      className="mt-2 block"
-                    >
+                    <Link href={`/blog/${article.slug}`} className="mt-2 block">
                       <p className="text-xl font-semibold text-gray-900">
                         {article.content?.title}
                       </p>
@@ -61,7 +59,7 @@ export const HomeBlog = ({ blok }: any) => {
                     </div>
                     <div className="ml-3">
                       <p className="text-sm font-medium text-gray-900">
-                          Michael Smith
+                        Michael Smith
                       </p>
                       <div className="flex space-x-1 text-sm text-gray-500">
                         <time dateTime="2020-03-16">Mar 16, 2020</time>
@@ -72,6 +70,11 @@ export const HomeBlog = ({ blok }: any) => {
               </div>
             ))}
           </div>
+          <Link href={ROUTE_MAP.app.blog} className="text-center">
+            <div className="mt-10 cursor-pointer text-sky-700">
+              View all
+            </div>
+          </Link>
         </div>
       </div>
     </section>
