@@ -49,6 +49,7 @@ const signupValidationSchema = () => {
       .phone('US', 'Please enter a valid phone number')
       .length(10)
       .required('Phone number is required'),
+    additional: yup.string(),
   })
 }
 
@@ -99,7 +100,7 @@ export const CollectionForm: FunctionComponent<CollectionFormProps> = ({
       const { firstName, lastName, email, phone } = _data
       const {
         _id,
-        address: { street, city, state, zip },
+        address: { street, city, state, zip, additional },
         milestones,
         totalCost,
       } = _data.estimate
@@ -143,7 +144,7 @@ export const CollectionForm: FunctionComponent<CollectionFormProps> = ({
             fields: [
               {
                 type: 'mrkdwn',
-                text: `\n*Address:* \n_${street}_ \n_${city}, ${state} ${zip}_`,
+                text: `\n*Address:* \n_${street} ${additional}_ \n_${city}, ${state} ${zip}_`,
               },
               {
                 type: 'mrkdwn',
@@ -208,13 +209,14 @@ export const CollectionForm: FunctionComponent<CollectionFormProps> = ({
     email: '',
     phone: '',
     layout: 'powderRoom',
+    additional: '',
   }
 
   return (
     <Formik
       initialValues={initialValues}
       validationSchema={!isLoggedIn ? signupValidationSchema() : null}
-      onSubmit={async (values, { setSubmitting, resetForm }) => {
+      onSubmit={async (values, { setSubmitting }) => {
         setSubmitting(true)
 
         // Error handling for Google Address
@@ -224,7 +226,12 @@ export const CollectionForm: FunctionComponent<CollectionFormProps> = ({
 
         const { place_id, url, address_components } = addressObject
         const parsedAddress = parseAddress(address_components)
-        const addressData = { ...parsedAddress, place_id, url }
+        const addressData = {
+          ...parsedAddress,
+          place_id,
+          url,
+          additional: values.additional,
+        }
 
         const activeZipCodesSet = new Set(ACTIVE_ZIP_CODES)
 
@@ -236,20 +243,8 @@ export const CollectionForm: FunctionComponent<CollectionFormProps> = ({
           }
         })
 
-        const {
-          firstName,
-          lastName,
-          email,
-          phone,
-          street,
-          city,
-          state,
-          zip,
-          layout,
-        } = {
-          ...values,
-          ...addressData,
-        }
+        const { firstName, lastName, email, phone, layout } = values
+        const { street, city, state, zip, additional } = addressData
 
         const homeownerBody = {
           firstName,
@@ -260,6 +255,7 @@ export const CollectionForm: FunctionComponent<CollectionFormProps> = ({
           city,
           state,
           zip,
+          additional,
         }
 
         if (!activeZipCodesSet.has(Number(addressData.zip))) {
@@ -267,6 +263,8 @@ export const CollectionForm: FunctionComponent<CollectionFormProps> = ({
             `Market for Zip Code ${addressData.zip} is currently not available`
           )
         }
+
+        console.log(values.additional)
 
         if (!isLoggedIn) {
           const newHomeowner = await addHomeownerMutation.mutateAsync(
@@ -509,6 +507,13 @@ export const CollectionForm: FunctionComponent<CollectionFormProps> = ({
                                   setAddressObject={setAddressObject}
                                   setAddressError={setAddressError}
                                   addressError={addressError}
+                                />
+                                <GenericFormField
+                                  id="additional"
+                                  name="additional"
+                                  type="text"
+                                  placeholder="Unit/Suite (optional)"
+                                  className="mt-4 block w-full rounded-md border border-gray-300 px-5 py-3 text-base text-gray-900 placeholder-gray-500 shadow-sm focus:outline-none focus:ring-slate-900"
                                 />
                               </section>
 

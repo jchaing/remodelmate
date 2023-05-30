@@ -103,6 +103,10 @@ const estimateSchema = new Schema<Estimate>({
       type: String,
       required: true,
     },
+    additional: {
+      type: String,
+      trim: true,
+    },
   },
 
   milestones: [

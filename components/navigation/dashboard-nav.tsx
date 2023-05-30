@@ -86,8 +86,6 @@ export const DashboardNav = ({ children }) => {
   const splitPath = router.pathname.split('/')
   const activePath = splitPath[splitPath.length - 1]
 
-  console.log(activePath)
-
   return (
     <>
       {/**Mobile Dropdown Nav */}

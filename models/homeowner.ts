@@ -90,6 +90,10 @@ const homeownerSchema = new Schema<Homeowner>({
       type: Number,
       // required: true,
     },
+    additional: {
+      type: String,
+      trim: true,
+    }
   },
 
   email: {

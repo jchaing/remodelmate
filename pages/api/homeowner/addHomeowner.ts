@@ -12,6 +12,7 @@ type NextApiRequestWithContractorInfo = Omit<NextApiRequest, 'body'> & {
     city?: string
     state?: string
     zip?: number
+    additional?: string
   }
 }
 
@@ -22,7 +23,7 @@ const handler = async (
   if (req.method === 'POST') {
     await dbConnect()
 
-    const { firstName, lastName, email, phone, street, city, state, zip } =
+    const { firstName, lastName, email, phone, street, city, state, zip, additional } =
       req.body
 
     try {
@@ -31,7 +32,7 @@ const handler = async (
         lastName,
         email,
         phone,
-        address: { street, city, state, zip },
+        address: { street, city, state, zip, additional },
       })
 
       res.status(200).json({ ...homeowner })

@@ -6,6 +6,7 @@ export const createEstimate = async ({
   city,
   state,
   zip,
+  additional,
   place_id,
   url,
   layout,
@@ -17,6 +18,7 @@ export const createEstimate = async ({
     city,
     state,
     zip,
+    additional,
     place_id,
     url,
     layout,
@@ -54,6 +56,7 @@ interface createEstimateRequest {
   city: string
   state: string
   zip: number
+  additional: string
   place_id: string
   url: string
   layout: string

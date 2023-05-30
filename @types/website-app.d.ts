@@ -53,8 +53,17 @@ interface Address {
   city: string
   state: string // TODO: change to enum
   zip: number
+  additional: string
   place_id: string
   url: string
+}
+
+interface HomeownerAddress {
+  street: string
+  city: string
+  state: string // TODO: change to enum
+  zip: number
+  additional: string
 }
 
 interface GenericAddress {
@@ -75,6 +84,7 @@ interface Contractor {
     city: string
     state: string
     street: string
+    additional: string
   }
   description: string
   profileImage: string
@@ -84,6 +94,7 @@ interface Contractor {
     city: string
     state: string
     street: string
+    additional: string
   }
   contractorsLicense: [
     {

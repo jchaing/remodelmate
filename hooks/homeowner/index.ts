@@ -10,6 +10,7 @@ interface addHomeownerProps {
   city?: string
   state?: string
   zip?: number
+  additional?: string
 }
 
 const addHomeowner = async ({
@@ -21,6 +22,7 @@ const addHomeowner = async ({
   city,
   state,
   zip,
+  additional,
 }: addHomeownerProps) => {
   const body = JSON.stringify({
     firstName,
@@ -31,6 +33,7 @@ const addHomeowner = async ({
     city,
     state,
     zip,
+    additional,
   })
 
   const response = await fetch('/api/homeowner/addHomeowner', {

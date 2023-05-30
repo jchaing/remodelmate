@@ -19,7 +19,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       return res.status(400).json({ error })
     }
   }
-  console.log('body', body)
 
   return res.status(405).json({
     authorized: false,

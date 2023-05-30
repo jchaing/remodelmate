@@ -8,8 +8,18 @@ import { ACTIVE_BUNDLES } from '@lib/pricing/activeMarkets'
 // INFO: This route doesn't need to be authenticated
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const { method, body } = req
-  const { phone, street, city, state, zip, place_id, url, layout, market } =
-    req.body
+  const {
+    phone,
+    street,
+    city,
+    state,
+    zip,
+    additional,
+    place_id,
+    url,
+    layout,
+    market,
+  } = req.body
 
   const pricingBundle = ACTIVE_BUNDLES[market].pricingBundles[layout]
 
@@ -42,7 +52,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       const homeowner = await Homeowner.findOne({ phone: phone })
       const estimate = new Estimate({
         _homeowner: homeowner._id,
-        address: { street, city, state, zip, place_id, url },
+        address: { street, city, state, zip, additional, place_id, url },
         totalCost: calculateTotalCost(pricingBundle),
         remainingBalance: calculateTotalCost(pricingBundle),
       })
