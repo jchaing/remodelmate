@@ -1,6 +1,8 @@
-import { FunctionComponent } from "react"
+import { FunctionComponent } from 'react'
 
-export const ProjectDetails: FunctionComponent<ProjectDetailsProps> = ({ project }) => {
+export const ProjectDetails: FunctionComponent<ProjectDetailsProps> = ({
+  project,
+}) => {
   const { _id, address, totalCost, milestones } = project
 
   return (
@@ -29,6 +31,9 @@ export const ProjectDetails: FunctionComponent<ProjectDetailsProps> = ({ project
                 <span>Address</span>
               </h3>
               <p className="mt-2  text-gray-900">{address.street}</p>
+              {address.additional && (
+                <p className="text-gray-900">{address.additional}</p>
+              )}
               <p className=" text-gray-900">
                 {`${address.city}, ${address.state} ${address.zip}`}
               </p>

@@ -1,8 +1,10 @@
-import { ROUTE_MAP } from "@utils/routes"
-import Link from "next/link"
-import { FunctionComponent } from "react"
+import { ROUTE_MAP } from '@utils/routes'
+import Link from 'next/link'
+import { FunctionComponent } from 'react'
 
-export const Projects: FunctionComponent<ProjectsProps> = ({ projectsData }) => {
+export const Projects: FunctionComponent<ProjectsProps> = ({
+  projectsData,
+}) => {
   return (
     <>
       <div className="mt-8 sm:flex sm:items-center">
@@ -53,7 +55,7 @@ export const Projects: FunctionComponent<ProjectsProps> = ({ projectsData }) => 
                 _id,
                 totalCost,
                 milestones,
-                address: { street, city, state, zip },
+                address: { street, city, state, zip, additional },
               } = project
 
               const address = `${street}, ${city} ${state} ${zip}`
@@ -64,7 +66,9 @@ export const Projects: FunctionComponent<ProjectsProps> = ({ projectsData }) => 
                     {_id}
                     <dl className="font-normal lg:hidden">
                       <dt className="sr-only">Address</dt>
-                      <dd className="mt-1 truncate text-gray-700">{address}</dd>
+                      <dd className="mt-1 truncate text-gray-700">
+                        {address} {additional ? <p>{additional}</p> : null}
+                      </dd>
                       <dt className="sr-only sm:hidden">Total</dt>
                       <dd className="mt-1 truncate text-gray-500 lg:hidden">
                         ${totalCost.toLocaleString()}
@@ -74,6 +78,7 @@ export const Projects: FunctionComponent<ProjectsProps> = ({ projectsData }) => 
 
                   <td className="hidden px-3 py-4 text-sm text-gray-500 lg:table-cell">
                     {address}
+                    {additional ? <p>{additional}</p> : null}
                   </td>
 
                   <td className="hidden px-3 py-4 text-sm text-gray-500 lg:table-cell">
@@ -95,7 +100,10 @@ export const Projects: FunctionComponent<ProjectsProps> = ({ projectsData }) => 
                         </span>
                       </Link>
                     ) : (
-                      <Link href={`${ROUTE_MAP.dashboard.projectBook}/${_id}`} legacyBehavior>
+                      <Link
+                        href={`${ROUTE_MAP.dashboard.projectBook}/${_id}`}
+                        legacyBehavior
+                      >
                         <button
                           type="button"
                           className="text-start text-indigo-600 hover:cursor-pointer hover:text-indigo-900"

@@ -16,7 +16,7 @@ export const BookProject: FunctionComponent<BookProjectProps> = ({
 }) => {
   const { firstName, lastName, email, stripeCustomerId } = homeowner
   const projectId = project._id
-  const { totalCost, address: { street, city, state, zip } = {} as any } =
+  const { totalCost, address: { street, city, state, zip, additional } = {} as any } =
     project
   return (
     <>
