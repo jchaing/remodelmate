@@ -23,7 +23,7 @@ export const Footer = () => {
                 Terms of Service
               </p>
             </Link>
-            <Link href="#">
+            <Link href={ROUTE_MAP.app.contactUs}>
               <p className="text-center text-xs leading-5 text-gray-500">
                 Contact Us
               </p>
