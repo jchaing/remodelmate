@@ -4,6 +4,7 @@ import { dbConnect } from '@utils/mongodb'
 import { Homeowner } from 'models/homeowner'
 import { Estimate } from 'models/estimate'
 import { ACTIVE_BUNDLES } from '@lib/pricing/activeMarkets'
+import { Layout } from '@lib/layout'
 
 // INFO: This route doesn't need to be authenticated
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
@@ -17,11 +18,28 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     additional,
     place_id,
     url,
+    collectionName,
     layout,
     market,
   } = req.body
 
-  const pricingBundle = ACTIVE_BUNDLES[market].pricingBundles[layout]
+  const materialsPricing = {
+    _category: 'materials',
+    name: 'Materials',
+    description: `${collectionName} materials for the ${Layout[layout]} project.`,
+    price:
+      ACTIVE_BUNDLES[market].materialsCollectionPricing[collectionName][layout],
+    contractorPayoutAmount: 0,
+  }
+
+  const pricingBundle = [
+    // Fees due at booking
+    ACTIVE_BUNDLES[market].reservationFee,
+    // Materials pricing depending on collection and layout
+    materialsPricing,
+    // Construction pricing
+    ...ACTIVE_BUNDLES[market].pricingBundles[layout],
+  ]
 
   function createMilestones(bundle: any, projectId: any) {
     const milestones = []
@@ -52,6 +70,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       const homeowner = await Homeowner.findOne({ phone: phone })
       const estimate = new Estimate({
         _homeowner: homeowner._id,
+        collectionName,
+        layout: Layout[layout],
         address: { street, city, state, zip, additional, place_id, url },
         totalCost: calculateTotalCost(pricingBundle),
         remainingBalance: calculateTotalCost(pricingBundle),

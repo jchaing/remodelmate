@@ -56,6 +56,8 @@ export const Projects: FunctionComponent<ProjectsProps> = ({
                 totalCost,
                 milestones,
                 address: { street, city, state, zip, additional },
+                collectionName,
+                layout
               } = project
 
               const address = `${street}, ${city} ${state} ${zip}`
@@ -63,7 +65,7 @@ export const Projects: FunctionComponent<ProjectsProps> = ({
               return (
                 <tr key={_id}>
                   <td className="w-full max-w-0 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:w-auto sm:max-w-none sm:pl-6">
-                    {_id}
+                    {collectionName && layout ? `${collectionName} - ${layout}`: _id}
                     <dl className="font-normal lg:hidden">
                       <dt className="sr-only">Address</dt>
                       <dd className="mt-1 truncate text-gray-700">

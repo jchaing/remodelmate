@@ -23,17 +23,7 @@ import * as yup from 'yup'
 import 'yup-phone-lite'
 import { ROUTE_MAP } from '@utils/routes'
 import { ADMIN_URL } from '@utils/links'
-
-// enum FormTypeTitles {
-//   'Personal' = 'Update Profile',
-//   'Company' = 'Update Profile',
-//   'State License' = 'Add State License',
-//   'Local License' = 'Add Local License',
-//   'Insurance Policy' = 'Add Insurance Policy',
-//   'Update State License' = 'Update State License',
-//   'Update Local License' = 'Update Local License',
-//   'Update Insurance Policy' = 'Update Insurance Policy',
-// }
+import { Layout } from '@lib/layout'
 
 const signupValidationSchema = () => {
   return yup.object().shape({
@@ -54,19 +44,15 @@ const signupValidationSchema = () => {
 }
 
 export const CollectionForm: FunctionComponent<CollectionFormProps> = ({
-  // contractor,
   openForm,
   setOpenForm,
   collectionName,
-  // formType,
-  // document,
 }) => {
   const router = useRouter()
   const [addressObject, setAddressObject] = useState(null)
   const [addressError, setAddressError] = useState(null)
   const [field, setField] = useState<string>('')
   const [homeownerErrorMsg, setHomeownerErrorMsg] = useState<string>('')
-  // const [finalValues, setFinalValues] = useState({})
   const [modalOpen, setModalOpen] = useState<boolean>(false)
 
   const { data: isLoggedIn } = useClientIsLoggedIn()
@@ -103,6 +89,8 @@ export const CollectionForm: FunctionComponent<CollectionFormProps> = ({
         address: { street, city, state, zip, additional },
         milestones,
         totalCost,
+        collectionName,
+        layout
       } = _data.estimate
 
       let milestoneString = ``
@@ -157,7 +145,7 @@ export const CollectionForm: FunctionComponent<CollectionFormProps> = ({
             fields: [
               {
                 type: 'mrkdwn',
-                text: `_*Milestones:*_ \n${milestoneString}`,
+                text: `_*${collectionName} - ${layout}:*_ \n${milestoneString}`,
               },
               {
                 type: 'mrkdwn',
@@ -272,6 +260,7 @@ export const CollectionForm: FunctionComponent<CollectionFormProps> = ({
           if (newHomeowner) {
             await createEstimateMutation.mutateAsync({
               phone: newHomeowner._doc.phone,
+              collectionName,
               layout,
               ...addressData,
               ...activeMarket,
@@ -280,6 +269,7 @@ export const CollectionForm: FunctionComponent<CollectionFormProps> = ({
         } else {
           await createEstimateMutation.mutateAsync({
             phone: homeowner.phone,
+            collectionName,
             layout,
             ...addressData,
             ...activeMarket,

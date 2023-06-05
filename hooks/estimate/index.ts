@@ -9,6 +9,7 @@ export const createEstimate = async ({
   additional,
   place_id,
   url,
+  collectionName,
   layout,
   market,
 }: createEstimateRequest) => {
@@ -21,6 +22,7 @@ export const createEstimate = async ({
     additional,
     place_id,
     url,
+    collectionName,
     layout,
     market,
   })
@@ -59,6 +61,7 @@ interface createEstimateRequest {
   additional: string
   place_id: string
   url: string
+  collectionName: string
   layout: string
   market: string
 }

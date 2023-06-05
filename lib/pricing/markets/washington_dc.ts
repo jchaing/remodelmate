@@ -42,488 +42,440 @@ const zipCodes = [
 
 // PRICING BUNDLES/LAYOUT TYPES
 const powderRoom = [
-  // FEES
-  {
-    _category: 'fee',
-    name: 'Booking',
-    description: 'Lock your quote and reserve a start date for only $250.',
-    price: 250,
-    contractorPercentage: 0,
-  },
-  {
-    _category: 'fee',
-    name: '3D Design',
-    description:
-      '3D illustration of your new bathroom from two perspectives. Includes 3 revisions and a full materials list.',
-    price: 499,
-    contractorPercentage: 60,
-  },
   // REMOVE
   {
     _category: 'bathroom',
     name: 'Remove Toilet',
     description:
-      'Labor to remove a toilet with favorable site conditions. Disconnect water suppply and drain unit. Remove mounting fasteners. Remove from home and dispose of legally. Includes area preparation and protection, costs to load and haul away old materials, installation waste, and associated debris. ',
-    price: 230,
-    contractorPercentage: 60,
+      'Labor to remove a toilet. Disconnect the water supply and drain the unit. Remove mounting fasteners. Remove the toilet from the home and dispose of it legally.',
+    price: 139,
+    contractorPayoutAmount: 121,
   },
   {
     _category: 'bathroom',
     name: 'Remove Vanity',
     description:
-      'Labor to remove a bathroom vanity with favorable site conditions. Detach from adjacent surfaces. Remove from home and dispose of legally. Includes area preparation and protection, costs to load and haul away old materials, installation waste, and associated debris.',
-    price: 530,
-    contractorPercentage: 60,
+      'Labor to remove a bathroom vanity. Detach from adjacent surfaces. Remove the vanity from the home and dispose of it legally.',
+    price: 355,
+    contractorPayoutAmount: 309,
   },
   {
     _category: 'bathroom',
     name: 'Remove Flooring',
     description:
-      'Labor to remove bathroom floor tile with favorable site conditions. Detach tile, mortar, and backing surface from subfloor. Break into haulable pieces. Remove from home and dispose of legally. Includes area preparation and protection, costs to haul away old materials, installation waste, and associated debris.',
-    price: 310,
-    contractorPercentage: 60,
+      'Labor to remove one layer of bathroom floor tile on a wooden subfloor. Detach floor tile, mortar, and backing surface from the wooden subfloor. Remove floor tile from the home and dispose of it legally.',
+    price: 345,
+    contractorPayoutAmount: 300,
   },
   // INSTALL
   {
     _category: 'bathroom',
     name: 'Install Toilet',
     description:
-      'Basic labor to install toilet with favorable site conditions. Fit and secure new customer-purchased toilet. Connect to existing water supply. Drain and leak test. Includes planning, equipment, and cost of related rough-in material acquisition and supplies typically required to install a toilet (fittings, mounting hardware, and connectors).',
-    price: 680,
-    contractorPercentage: 60,
+      'Labor to install a toilet. Fit and secure new customer-purchased toilet. Connect to the existing water supply. Drain and leak test.',
+    price: 368,
+    contractorPayoutAmount: 320,
   },
   {
     _category: 'bathroom',
     name: 'Install Vanity',
     description:
-      'Basic labor to install a bathroom vanity with favorable site conditions. Fabricate plumbing cutouts in back panel. Level and secure customer-purchased vanity to wall. Scribe exposed panel edge to wall surface or apply molding at edge. Assemble, install drawers and customer-purchased hardware. Includes planning, equipment, and cost of related material acquisition and supplies typically required to install a bathroom vanity (fasteners and connectors).',
-    price: 595,
-    contractorPercentage: 60,
+      'Labor to install a bathroom vanity. Fabricate plumbing cutouts in the back panel. Level and secure customer-purchased vanity to the wall. Scribe, caulk, or apply molding at the exposed panel edge. Assemble and install drawers and hardware. Connect faucet and drain to existing plumbing connections. Install mirror or medicine cabinet.',
+    price: 970,
+    contractorPayoutAmount: 845,
   },
   {
     _category: 'bathroom',
     name: 'Install Flooring',
-    description: `Basic labor to install bathroom floor tile with favorable site conditions. Measure, fabricate and secure contractor-purchased tile backer board to subfloor. Layout tile pattern and confirm with homeowner. Install customer-purchased tile with customer-purchased thinset mortar, grout, caulk, and edge transition pieces. Includes planning, equipment, cost of related material acquisiton and supplies typically required to install bathroom floor tile (manufacter recommended underlayment, grout spacers) and specialty equipment used for job quality and efficiency (10" diameter diamond wet tile and stone saw, mortar box, and power mortar mixer).`,
-    price: 1250,
-    contractorPercentage: 60,
+    description: `Labor to install the bathroom floor tile. Measure, fabricate, and secure contractor-purchased tile backer board to the subfloor. Dry-lay the tile pattern and confirm with the homeowner. Install customer-purchased tile with customer-purchased mortar, grout, caulk, and edge transition pieces.`,
+    price: 918,
+    contractorPayoutAmount: 799,
   },
   {
     _category: 'bathroom',
     name: 'Install Light',
     description:
-      'Basic labor to install wall-mounted lighting with favorable site conditions. Turn off power to circuit. Layout location, confirm with homeowner, and cut mounting hole. Add or modify wiring from existing switch or existing parallel fixture after verifying safe amperage for circuit. Connect and secure fixture. Secure wiring and install trim piece. Power and test. Includes planning, equipment, and cost of related rough-in material acquisiton and supplies typically required to install wall-mounted lighting (fittings, connectors, junction boxes, and fasteners).',
-    price: 710,
-    contractorPercentage: 60,
+      'Labor to install vanity light fixture. Mark the location, confirm with the homeowner, and cut the mounting hole. Wire from existing switched lighting circuit (up to 15 feet away) after verifying safe amperage for the circuit. Secure wiring, mount the fixture, and install the trim piece.',
+    price: 362,
+    contractorPayoutAmount: 315,
   },
   // MISC
   {
     _category: 'bathroom',
     name: 'Paint',
     description:
-      'Basic labor to paint a bathroom with favorable site conditions. Clean, scrape, sand, and patch up to 4 defects per 100 square feet. Caulk edges and spot prime. Roll or brush 1 coat of primer and 2 coats of customer-purchased paint on walls and ceiling. Includes planning, equipment, and cost of related material acquistion and supplies typically required to paint a bathroom (masking tape and paper, drywall repair and preparation material, primers).',
-    price: 1340,
-    contractorPercentage: 60,
+      'Labor to paint a bathroom. Clean, scrape, sand, and patch up to 6 defects. Caulk gaps and spot prime. Roll or brush 2 coats of customer-purchased paint on walls and ceiling. Paint 1 door and door trim.',
+    price: 1146,
+    contractorPayoutAmount: 998,
   },
 ]
 
 const tubAndShowerCombo = [
-  // FEES
-  {
-    _category: 'fee',
-    name: 'Booking',
-    description: 'Lock your quote and reserve a start date for only $250.',
-    price: 250,
-    contractorPercentage: 0,
-  },
-  {
-    _category: 'fee',
-    name: '3D Design',
-    description:
-      '3D illustration of your new bathroom from two perspectives. Includes 3 revisions and a full materials list.',
-    price: 899,
-    contractorPercentage: 55.5562,
-  },
   // REMOVE
   {
     _category: 'bathroom',
-    name: 'Remove Tub',
+    name: 'Remove Bathtub',
     description:
-      'Labor to remove a bathtub and wall tile with favorable site conditions. Detach bathtub from adjacent surfaces and components. Detach tile, mortar, and backing surface from studs and break into haulable pieces. Remove from home and dispose of legally. Includes area preparation and protection, costs to load and haul away old materials, installation waste, and associated debris.',
-    price: 1375,
-    contractorPercentage: 60,
+      'Labor to remove a bathtub and wall tile. Detach the bathtub from adjacent surfaces and components. Detach wall tile, mortar, and backing surface from the studs. Remove bathtub and wall tile from the home and dispose of them legally.',
+    price: 1132,
+    contractorPayoutAmount: 986,
   },
   {
     _category: 'bathroom',
     name: 'Remove Toilet',
     description:
-      'Labor to remove a toilet with favorable site conditions. Disconnect water suppply and drain unit. Remove mounting fasteners. Remove from home and dispose of legally. Includes area preparation and protection, costs to load and haul away old materials, installation waste, and associated debris. ',
-    price: 230,
-    contractorPercentage: 60,
+      'Labor to remove a toilet. Disconnect the water supply and drain the unit. Remove mounting fasteners. Remove the toilet from the home and dispose of it legally.',
+    price: 139,
+    contractorPayoutAmount: 121,
   },
   {
     _category: 'bathroom',
     name: 'Remove Vanity',
     description:
-      'Labor to remove a bathroom vanity with favorable site conditions. Detach from adjacent surfaces. Remove from home and dispose of legally. Includes area preparation and protection, costs to load and haul away old materials, installation waste, and associated debris.',
-    price: 530,
-    contractorPercentage: 60,
+      'Labor to remove a bathroom vanity. Detach from adjacent surfaces. Remove the vanity from the home and dispose of it legally.',
+    price: 355,
+    contractorPayoutAmount: 309,
   },
   {
     _category: 'bathroom',
     name: 'Remove Flooring',
     description:
-      'Labor to remove bathroom floor tile with favorable site conditions. Detach tile, mortar, and backing surface from subfloor. Break into haulable pieces. Remove from home and dispose of legally. Includes area preparation and protection, costs to haul away old materials, installation waste, and associated debris.',
-    price: 500,
-    contractorPercentage: 60,
+      'Labor to remove one layer of bathroom floor tile on a wooden subfloor. Detach floor tile, mortar, and backing surface from the wooden subfloor. Remove floor tile from the home and dispose of it legally.',
+    price: 345,
+    contractorPayoutAmount: 300,
   },
   // INSTALL
   {
     _category: 'bathroom',
-    name: 'Install Tub',
+    name: 'Install Bathtub',
     description:
-      'Labor to install a bathtub with favorable site conditions. For new unit installation only. Install level ledger strip and leveling supports. Secure tub to wall and deck. Includes planning, equipment, and cost of related rough-in material acquisition and supplies typically required to install a bathtub (fittings, mounting hardware, and connectors), area preparation and protection, setup and clean up.',
-    price: 931,
-    contractorPercentage: 60,
+      'Labor to install a bathtub. For new unit installation only. Level the bathtub, install supports, and secure to the backer surface as necessary. Install contractor-purchased rough plumbing for drain and overflow.',
+    price: 1325,
+    contractorPayoutAmount: 1154,
   },
   {
     _category: 'bathroom',
-    name: 'Install Waterproofing',
+    name: 'Install Waterproofing and Diverter',
     description:
-      'Labor to waterproof wet area with favorable site conditions. Measure, fabricate and secure contractor-purchased waterproofing and tile backer board to studs. Layout tile pattern and confirm with homeowner. Includes planning, equipment, and cost of related rough-in material acquisition and supplies typically required to waterproof the wet area (mounting hardware), area preparation and protection, setup and clean up.',
-    price: 2172,
-    contractorPercentage: 60,
+      'Labor to install waterproofing in the wet area and rough-in plumbing for the diverter valve and fixture(s). Install customer-purchased diverter valve. Measure, fabricate, and secure contractor-purchased fixture rough-ins, tile backer board, and waterproofing to studs. The contractor will dry-lay the tile pattern and confirm with the homeowner.',
+    price: 1205,
+    contractorPayoutAmount: 1049,
   },
   {
     _category: 'bathroom',
-    name: 'Install Tile',
+    name: 'Install Wall Tile and Trim',
     description:
-      'Labor to install tile with favorable site conditions. Install customer-purchased tile with customer-purchased thinset mortar, grout, caulk, and edge transition pieces.  Includes planning, equipment, and cost of related rough-in material acquisition and supplies typically required to install tile (mounting hardware, grout spacers, and fittings), area preparation and protection, setup and clean up.',
-    price: 3102,
-    contractorPercentage: 60,
+      'Labor to install wall tile and fixtures. Install customer-purchased tile with customer-purchased mortar, grout, caulk, and edge transition pieces. Install customer-purchased fixtures with the customer-purchased trim kit(s).',
+    price: 2061,
+    contractorPayoutAmount: 1795,
   },
   {
     _category: 'bathroom',
     name: 'Install Toilet',
     description:
-      'Basic labor to install toilet with favorable site conditions. Fit and secure new customer-purchased toilet. Connect to existing water supply. Drain and leak test. Includes planning, equipment, and cost of related rough-in material acquisition and supplies typically required to install a toilet (fittings, mounting hardware, and connectors).',
-    price: 680,
-    contractorPercentage: 60,
+      'Labor to install a toilet. Fit and secure new customer-purchased toilet. Connect to the existing water supply. Drain and leak test.',
+    price: 368,
+    contractorPayoutAmount: 320,
   },
   {
     _category: 'bathroom',
     name: 'Install Vanity',
     description:
-      'Basic labor to install a bathroom vanity with favorable site conditions. Fabricate plumbing cutouts in back panel. Level and secure customer-purchased vanity to wall. Scribe exposed panel edge to wall surface or apply molding at edge. Assemble, install drawers and customer-purchased hardware. Includes planning, equipment, and cost of related material acquisition and supplies typically required to install a bathroom vanity (fasteners and connectors).',
-    price: 595,
-    contractorPercentage: 60,
+      'Labor to install a bathroom vanity. Fabricate plumbing cutouts in the back panel. Level and secure customer-purchased vanity to the wall. Scribe, caulk, or apply molding at the exposed panel edge. Assemble and install drawers and hardware. Connect faucet and drain to existing plumbing connections. Install mirror or medicine cabinet.',
+    price: 970,
+    contractorPayoutAmount: 845,
   },
   {
     _category: 'bathroom',
     name: 'Install Flooring',
-    description: `Basic labor to install bathroom floor tile with favorable site conditions. Measure, fabricate and secure contractor-purchased tile backer board to subfloor. Layout tile pattern and confirm with homeowner. Install customer-purchased tile with customer-purchased thinset mortar, grout, caulk, and edge transition pieces. Includes planning, equipment, cost of related material acquisiton and supplies typically required to install bathroom floor tile (manufacter recommended underlayment, grout spacers) and specialty equipment used for job quality and efficiency (10" diameter diamond wet tile and stone saw, mortar box, and power mortar mixer).`,
-    price: 2000,
-    contractorPercentage: 60,
+    description: `Labor to install the bathroom floor tile. Measure, fabricate, and secure contractor-purchased tile backer board to the subfloor. Dry-lay the tile pattern and confirm with the homeowner. Install customer-purchased tile with customer-purchased mortar, grout, caulk, and edge transition pieces.`,
+    price: 918,
+    contractorPayoutAmount: 799,
   },
   {
     _category: 'bathroom',
     name: 'Install Light',
     description:
-      'Basic labor to install wall-mounted lighting with favorable site conditions. Turn off power to circuit. Layout location, confirm with homeowner, and cut mounting hole. Add or modify wiring from existing switch or existing parallel fixture after verifying safe amperage for circuit. Connect and secure fixture. Secure wiring and install trim piece. Power and test. Includes planning, equipment, and cost of related rough-in material acquisiton and supplies typically required to install wall-mounted lighting (fittings, connectors, junction boxes, and fasteners).',
-    price: 710,
-    contractorPercentage: 60,
+      'Labor to install vanity light fixture. Mark the location, confirm with the homeowner, and cut the mounting hole. Wire from existing switched lighting circuit (up to 15 feet away) after verifying safe amperage for the circuit. Secure wiring, mount the fixture, and install the trim piece.',
+    price: 362,
+    contractorPayoutAmount: 315,
   },
   // MISC
   {
     _category: 'bathroom',
     name: 'Paint',
     description:
-      'Basic labor to paint a bathroom with favorable site conditions. Clean, scrape, sand, and patch up to 4 defects per 100 square feet. Caulk edges and spot prime. Roll or brush 1 coat of primer and 2 coats of customer-purchased paint on walls and ceiling. Includes planning, equipment, and cost of related material acquistion and supplies typically required to paint a bathroom (masking tape and paper, drywall repair and preparation material, primers).',
-    price: 1550,
-    contractorPercentage: 60,
+      'Labor to paint a bathroom. Clean, scrape, sand, and patch up to 6 defects. Caulk gaps and spot prime. Roll or brush 2 coats of customer-purchased paint on walls and ceiling. Paint 1 door and door trim.',
+    price: 1146,
+    contractorPayoutAmount: 998,
   },
 ]
 
 const showerOnly = [
-  // FEES
-  {
-    _category: 'fee',
-    name: 'Booking',
-    description: 'Lock your quote and reserve a start date for only $250.',
-    price: 250,
-    contractorPercentage: 0,
-  },
-  {
-    _category: 'fee',
-    name: '3D Design',
-    description:
-      '3D illustration of your new bathroom from two perspectives. Includes 3 revisions and a full materials list.',
-    price: 899,
-    contractorPercentage: 55.5562,
-  },
   // REMOVE
   {
     _category: 'bathroom',
     name: 'Remove Shower',
     description:
-      'Labor to remove a walk-in shower and wall tile with favorable site conditions. Detach shower pan from adjacent surfaces and components. Detach tile, mortar, and backing surface from studs and break into haulable pieces. Remove from home and dispose of legally. Includes area preparation and protection, costs to load and haul away old materials, installation waste, and associated debris.',
-    price: 1375,
-    contractorPercentage: 60,
+      'Labor to remove walk-in shower wall tile. Detach wall tile, mortar, and backing surface from the studs and subfloor. Remove wall and floor tile from the home and dispose of it legally.',
+    price: 988,
+    contractorPayoutAmount: 860,
   },
   {
     _category: 'bathroom',
     name: 'Remove Toilet',
     description:
-      'Labor to remove a toilet with favorable site conditions. Disconnect water suppply and drain unit. Remove mounting fasteners. Remove from home and dispose of legally. Includes area preparation and protection, costs to load and haul away old materials, installation waste, and associated debris. ',
-    price: 230,
-    contractorPercentage: 60,
+      'Labor to remove a toilet. Disconnect the water supply and drain the unit. Remove mounting fasteners. Remove the toilet from the home and dispose of it legally.',
+    price: 139,
+    contractorPayoutAmount: 121,
   },
   {
     _category: 'bathroom',
     name: 'Remove Vanity',
     description:
-      'Labor to remove a bathroom vanity with favorable site conditions. Detach from adjacent surfaces. Remove from home and dispose of legally. Includes area preparation and protection, costs to load and haul away old materials, installation waste, and associated debris.',
-    price: 530,
-    contractorPercentage: 60,
+      'Labor to remove a bathroom vanity. Detach from adjacent surfaces. Remove the vanity from the home and dispose of it legally.',
+    price: 355,
+    contractorPayoutAmount: 309,
   },
   {
     _category: 'bathroom',
     name: 'Remove Flooring',
     description:
-      'Labor to remove bathroom floor tile with favorable site conditions. Detach tile, mortar, and backing surface from subfloor. Break into haulable pieces. Remove from home and dispose of legally. Includes area preparation and protection, costs to haul away old materials, installation waste, and associated debris.',
-    price: 500,
-    contractorPercentage: 60,
+      'Labor to remove one layer of bathroom floor tile on a wooden subfloor. Detach floor tile, mortar, and backing surface from the wooden subfloor. Remove floor tile from the home and dispose of it legally.',
+    price: 345,
+    contractorPayoutAmount: 300,
   },
   // INSTALL
   {
     _category: 'bathroom',
-    name: 'Install Shower',
+    name: 'Install Shower Floor and Curb',
     description:
-      'Labor to install a walk-in shower with favorable site conditions. For new unit installation only. Install level ledger strip and leveling supports. Secure shower pan to wall and deck. Includes planning, equipment, and cost of related rough-in material acquisition and supplies typically required to install a walk-in shower (fittings, mounting hardware, grout spacers and connectors), area preparation and protection, setup and clean up.',
-    price: 700,
-    contractorPercentage: 60,
+      'Labor to build a graded floor for the walk-in shower and curb. Install contractor-purchased rough plumbing for the drain.',
+    price: 811,
+    contractorPayoutAmount: 706,
   },
   {
     _category: 'bathroom',
-    name: 'Install Waterproofing',
+    name: 'Install Waterproofing and Diverter',
     description:
-      'Labor to waterproof wet area with favorable site conditions. Measure, fabricate and secure contractor-purchased waterproofing and tile backer board to studs. Layout tile pattern and confirm with homeowner. Includes planning, equipment, and cost of related rough-in material acquisition and supplies typically required to waterproof the wet area (mounting hardware), area preparation and protection, setup and clean up.',
-    price: 2798,
-    contractorPercentage: 60,
+      'Labor to install waterproofing in the wet area and rough-in plumbing for the diverter valve and fixture(s). Install customer-purchased diverter valve. Measure, fabricate, and secure contractor-purchased fixture rough-ins, tile backer board, and waterproofing to studs. The contractor will dry-lay the tile pattern and confirm with the homeowner.',
+    price: 1205,
+    contractorPayoutAmount: 1049,
   },
   {
     _category: 'bathroom',
-    name: 'Install Tile',
+    name: 'Install Wall Tile and Trim',
     description:
-      'Labor to install tile with favorable site conditions. Install customer-purchased tile with customer-purchased thinset mortar, grout, caulk, and edge transition pieces.  Includes planning, equipment, and cost of related rough-in material acquisition and supplies typically required to install tile (mounting hardware, grout spacers, and fittings), area preparation and protection, setup and clean up.',
-    price: 3497,
-    contractorPercentage: 60,
+      'Labor to install wall tile and fixtures. Install customer-purchased tile with customer-purchased mortar, grout, caulk, and edge transition pieces. Install customer-purchased fixtures with the customer-purchased trim kit(s).',
+    price: 2061,
+    contractorPayoutAmount: 1795,
   },
   {
     _category: 'bathroom',
     name: 'Install Toilet',
     description:
-      'Basic labor to install toilet with favorable site conditions. Fit and secure new customer-purchased toilet. Connect to existing water supply. Drain and leak test. Includes planning, equipment, and cost of related rough-in material acquisition and supplies typically required to install a toilet (fittings, mounting hardware, and connectors).',
-    price: 680,
-    contractorPercentage: 60,
+      'Labor to install a toilet. Fit and secure new customer-purchased toilet. Connect to the existing water supply. Drain and leak test.',
+    price: 368,
+    contractorPayoutAmount: 320,
   },
   {
     _category: 'bathroom',
     name: 'Install Vanity',
     description:
-      'Basic labor to install a bathroom vanity with favorable site conditions. Fabricate plumbing cutouts in back panel. Level and secure customer-purchased vanity to wall. Scribe exposed panel edge to wall surface or apply molding at edge. Assemble, install drawers and customer-purchased hardware. Includes planning, equipment, and cost of related material acquisition and supplies typically required to install a bathroom vanity (fasteners and connectors).',
-    price: 595,
-    contractorPercentage: 60,
+      'Labor to install a bathroom vanity. Fabricate plumbing cutouts in the back panel. Level and secure customer-purchased vanity to the wall. Scribe, caulk, or apply molding at the exposed panel edge. Assemble and install drawers and hardware. Connect faucet and drain to existing plumbing connections. Install mirror or medicine cabinet.',
+    price: 970,
+    contractorPayoutAmount: 845,
   },
   {
     _category: 'bathroom',
     name: 'Install Flooring',
-    description: `Basic labor to install bathroom floor tile with favorable site conditions. Measure, fabricate and secure contractor-purchased tile backer board to subfloor. Layout tile pattern and confirm with homeowner. Install customer-purchased tile with customer-purchased thinset mortar, grout, caulk, and edge transition pieces. Includes planning, equipment, cost of related material acquisiton and supplies typically required to install bathroom floor tile (manufacter recommended underlayment, grout spacers) and specialty equipment used for job quality and efficiency (10" diameter diamond wet tile and stone saw, mortar box, and power mortar mixer).`,
-    price: 2000,
-    contractorPercentage: 60,
+    description: `Labor to install the bathroom floor tile. Measure, fabricate, and secure contractor-purchased tile backer board to the subfloor. Dry-lay the tile pattern and confirm with the homeowner. Install customer-purchased tile with customer-purchased mortar, grout, caulk, and edge transition pieces.`,
+    price: 918,
+    contractorPayoutAmount: 799,
   },
   {
     _category: 'bathroom',
     name: 'Install Light',
     description:
-      'Basic labor to install wall-mounted lighting with favorable site conditions. Turn off power to circuit. Layout location, confirm with homeowner, and cut mounting hole. Add or modify wiring from existing switch or existing parallel fixture after verifying safe amperage for circuit. Connect and secure fixture. Secure wiring and install trim piece. Power and test. Includes planning, equipment, and cost of related rough-in material acquisiton and supplies typically required to install wall-mounted lighting (fittings, connectors, junction boxes, and fasteners).',
-    price: 710,
-    contractorPercentage: 60,
-  },
-  {
-    _category: 'bathroom',
-    name: 'Install Shower Door',
-    description: `Basic labor to install glass shower door with favorable site conditions. Fabricate and secure door frame to to wall structure. Set and adjust customer-purchased door. Caulk perimeter edges of door frame. Includes planning, equipment, and cost of related material acquisition and supplies typically required to install a glass shower door (mounting hardware, fasteners) and speciality equipment used for job quality and efficiency (pneumatic finish nailer, 10" miter saw, electric jigsaw, 3" belt sander, 3.25" electric planer).`,
-    price: 870,
-    contractorPercentage: 60,
+      'Labor to install vanity light fixture. Mark the location, confirm with the homeowner, and cut the mounting hole. Wire from existing switched lighting circuit (up to 15 feet away) after verifying safe amperage for the circuit. Secure wiring, mount the fixture, and install the trim piece.',
+    price: 362,
+    contractorPayoutAmount: 315,
   },
   // MISC
   {
     _category: 'bathroom',
     name: 'Paint',
     description:
-      'Basic labor to paint a bathroom with favorable site conditions. Clean, scrape, sand, and patch up to 4 defects per 100 square feet. Caulk edges and spot prime. Roll or brush 1 coat of primer and 2 coats of customer-purchased paint on walls and ceiling. Includes planning, equipment, and cost of related material acquistion and supplies typically required to paint a bathroom (masking tape and paper, drywall repair and preparation material, primers).',
-    price: 1550,
-    contractorPercentage: 60,
+      'Labor to paint a bathroom. Clean, scrape, sand, and patch up to 6 defects. Caulk gaps and spot prime. Roll or brush 2 coats of customer-purchased paint on walls and ceiling. Paint 1 door and door trim.',
+    price: 1146,
+    contractorPayoutAmount: 998,
   },
 ]
 
 const separateTubAndShower = [
-  // FEES
-  {
-    _category: 'fee',
-    name: 'Booking',
-    description: 'Lock your quote and reserve a start date for only $250.',
-    price: 250,
-    contractorPercentage: 0,
-  },
-  {
-    _category: 'fee',
-    name: '3D Design',
-    description:
-      '3D illustration of your new bathroom from two perspectives. Includes 3 revisions and a full materials list.',
-    price: 899,
-    contractorPercentage: 55.5562,
-  },
   // REMOVE
   {
     _category: 'bathroom',
-    name: 'Remove Tub',
+    name: 'Remove Bathtub',
     description:
-      'Labor to remove a bathtub and wall tile with favorable site conditions. Detach bathtub from adjacent surfaces and components. Detach tile, mortar, and backing surface from studs and break into haulable pieces. Remove from home and dispose of legally. Includes area preparation and protection, costs to load and haul away old materials, installation waste, and associated debris.',
-    price: 1375,
-    contractorPercentage: 60,
+      'Labor to remove a bathtub and wall tile. Detach the bathtub from adjacent surfaces and components. Detach wall tile, mortar, and backing surface from the studs.  Remove bathtub and wall tile from the home and dispose of them legally.',
+    price: 1132,
+    contractorPayoutAmount: 986,
   },
   {
     _category: 'bathroom',
     name: 'Remove Shower',
     description:
-      'Labor to remove a walk-in shower and wall tile with favorable site conditions. Detach shower pan from adjacent surfaces and components. Detach tile, mortar, and backing surface from studs and break into haulable pieces. Remove from home and dispose of legally. Includes area preparation and protection, costs to load and haul away old materials, installation waste, and associated debris.',
-    price: 688,
-    contractorPercentage: 60,
+      'Labor to remove walk-in shower wall tile. Detach wall tile, mortar, and backing surface from the studs and subfloor. Remove wall and floor tile from the home and dispose of it legally.',
+    price: 988,
+    contractorPayoutAmount: 860,
   },
   {
     _category: 'bathroom',
     name: 'Remove Toilet',
     description:
-      'Labor to remove a toilet with favorable site conditions. Disconnect water suppply and drain unit. Remove mounting fasteners. Remove from home and dispose of legally. Includes area preparation and protection, costs to load and haul away old materials, installation waste, and associated debris. ',
-    price: 230,
-    contractorPercentage: 60,
+      'Labor to remove a toilet. Disconnect the water supply and drain the unit. Remove mounting fasteners. Remove the toilet from the home and dispose of it legally.',
+    price: 139,
+    contractorPayoutAmount: 121,
   },
   {
     _category: 'bathroom',
     name: 'Remove Vanity',
     description:
-      'Labor to remove a bathroom vanity with favorable site conditions. Detach from adjacent surfaces. Remove from home and dispose of legally. Includes area preparation and protection, costs to load and haul away old materials, installation waste, and associated debris.',
-    price: 530,
-    contractorPercentage: 60,
+      'Labor to remove a bathroom vanity. Detach from adjacent surfaces. Remove the vanity from the home and dispose of it legally.',
+    price: 355,
+    contractorPayoutAmount: 309,
   },
   {
     _category: 'bathroom',
     name: 'Remove Flooring',
     description:
-      'Labor to remove bathroom floor tile with favorable site conditions. Detach tile, mortar, and backing surface from subfloor. Break into haulable pieces. Remove from home and dispose of legally. Includes area preparation and protection, costs to haul away old materials, installation waste, and associated debris.',
-    price: 750,
-    contractorPercentage: 60,
+      'Labor to remove one layer of bathroom floor tile on a wooden subfloor. Detach floor tile, mortar, and backing surface from the wooden subfloor. Remove floor tile from the home and dispose of it legally.',
+    price: 345,
+    contractorPayoutAmount: 300,
   },
   // INSTALL
   {
     _category: 'bathroom',
-    name: 'Install Tub',
+    name: 'Install Bathtub',
     description:
-      'Labor to install a bathtub and wall tile with favorable site conditions. For new unit installation only. Install level ledger strip and leveling supports. Secure tub to wall and deck. Measure, fabricate and secure contractor-purchased waterproofing and tile backer board to studs. Layout tile pattern and confirm with homeowner. Install customer-purchased tile with customer-purchased thinset mortar, grout, caulk, and edge transition pieces. Includes planning, equipment, and cost of related rough-in material acquisition and supplies typically required to install a bathtub (fittings, mounting hardware, grout spacers, and connectors), area preparation and protection, setup and clean up.',
-    price: 931,
-    contractorPercentage: 60,
+      'Labor to install a bathtub. For new unit installation only. Level the bathtub, install supports, and secure to the backer surface as necessary. Install contractor-purchased rough plumbing for drain and overflow.',
+    price: 1325,
+    contractorPayoutAmount: 1154,
   },
   {
     _category: 'bathroom',
-    name: 'Install Bathtub Waterproofing',
+    name: 'Install Shower Floor and Curb',
     description:
-      'Labor to waterproof wet area with favorable site conditions. Measure, fabricate and secure contractor-purchased waterproofing and tile backer board to studs. Layout tile pattern and confirm with homeowner. Includes planning, equipment, and cost of related rough-in material acquisition and supplies typically required to waterproof the wet area (mounting hardware), area preparation and protection, setup and clean up.',
-    price: 2172,
-    contractorPercentage: 60,
+      'Labor to build a graded floor for the walk-in shower and curb. Install contractor-purchased rough plumbing for the drain.',
+    price: 811,
+    contractorPayoutAmount: 706,
   },
   {
     _category: 'bathroom',
-    name: 'Install Bathtub Tile',
+    name: 'Install Waterproofing and Diverter',
     description:
-      'Labor to install tile with favorable site conditions. Install customer-purchased tile with customer-purchased thinset mortar, grout, caulk, and edge transition pieces.  Includes planning, equipment, and cost of related rough-in material acquisition and supplies typically required to install tile (mounting hardware, grout spacers, and fittings), area preparation and protection, setup and clean up.',
-    price: 3102,
-    contractorPercentage: 60,
+      'Labor to install waterproofing in the wet area and rough-in plumbing for the diverter valve and fixture(s). Install customer-purchased diverter valve. Measure, fabricate, and secure contractor-purchased fixture rough-ins, tile backer board, and waterproofing to studs. The contractor will dry-lay the tile pattern and confirm with the homeowner.',
+    price: 2410,
+    contractorPayoutAmount: 2098,
   },
   {
     _category: 'bathroom',
-    name: 'Install Shower',
+    name: 'Install Wall Tile and Trim',
     description:
-      'Labor to install a walk-in shower and wall tile with favorable site conditions. For new unit installation only. Install level ledger strip and leveling supports. Secure shower pan to wall and deck. Includes planning, equipment, and cost of related rough-in material acquisition and supplies typically required to install a walk-in shower (fittings, mounting hardware, grout spacers and connectors), area preparation and protection, setup and clean up.',
-    price: 700,
-    contractorPercentage: 60,
-  },
-  {
-    _category: 'bathroom',
-    name: 'Install Shower Waterproofing',
-    description:
-      'Labor to waterproof wet area with favorable site conditions. Measure, fabricate and secure contractor-purchased waterproofing and tile backer board to studs. Layout tile pattern and confirm with homeowner. Includes planning, equipment, and cost of related rough-in material acquisition and supplies typically required to waterproof the wet area (mounting hardware), area preparation and protection, setup and clean up.',
-    price: 2798,
-    contractorPercentage: 60,
-  },
-  {
-    _category: 'bathroom',
-    name: 'Install Shower Tile',
-    description:
-      'Labor to install tile with favorable site conditions. Install customer-purchased tile with customer-purchased thinset mortar, grout, caulk, and edge transition pieces.  Includes planning, equipment, and cost of related rough-in material acquisition and supplies typically required to install tile (mounting hardware, grout spacers, and fittings), area preparation and protection, setup and clean up.',
-    price: 3497,
-    contractorPercentage: 60,
+      'Labor to install wall tile and fixtures. Install customer-purchased tile with customer-purchased mortar, grout, caulk, and edge transition pieces. Install customer-purchased fixtures with the customer-purchased trim kit(s).',
+    price: 4122,
+    contractorPayoutAmount: 3590,
   },
   {
     _category: 'bathroom',
     name: 'Install Toilet',
     description:
-      'Basic labor to install toilet with favorable site conditions. Fit and secure new customer-purchased toilet. Connect to existing water supply. Drain and leak test. Includes planning, equipment, and cost of related rough-in material acquisition and supplies typically required to install a toilet (fittings, mounting hardware, and connectors).',
-    price: 680,
-    contractorPercentage: 60,
+      'Labor to install a toilet. Fit and secure new customer-purchased toilet. Connect to the existing water supply. Drain and leak test.',
+    price: 368,
+    contractorPayoutAmount: 320,
   },
   {
     _category: 'bathroom',
     name: 'Install Vanity',
     description:
-      'Basic labor to install a bathroom vanity with favorable site conditions. Fabricate plumbing cutouts in back panel. Level and secure customer-purchased vanity to wall. Scribe exposed panel edge to wall surface or apply molding at edge. Assemble, install drawers and customer-purchased hardware. Includes planning, equipment, and cost of related material acquisition and supplies typically required to install a bathroom vanity (fasteners and connectors).',
-    price: 595,
-    contractorPercentage: 60,
+      'Labor to install vanity light fixture. Mark the location, confirm with the homeowner, and cut the mounting hole. Wire from existing switched lighting circuit (up to 15 feet away) after verifying safe amperage for the circuit. Secure wiring, mount the fixture, and install the trim piece.',
+    price: 970,
+    contractorPayoutAmount: 315,
   },
   {
     _category: 'bathroom',
     name: 'Install Flooring',
-    description: `Basic labor to install bathroom floor tile with favorable site conditions. Measure, fabricate and secure contractor-purchased tile backer board to subfloor. Layout tile pattern and confirm with homeowner. Install customer-purchased tile with customer-purchased thinset mortar, grout, caulk, and edge transition pieces. Includes planning, equipment, cost of related material acquisiton and supplies typically required to install bathroom floor tile (manufacter recommended underlayment, grout spacers) and specialty equipment used for job quality and efficiency (10" diameter diamond wet tile and stone saw, mortar box, and power mortar mixer).`,
-    price: 3000,
-    contractorPercentage: 60,
+    description: `Labor to install the bathroom floor tile. Measure, fabricate, and secure contractor-purchased tile backer board to the subfloor. Dry-lay the tile pattern and confirm with the homeowner. Install customer-purchased tile with customer-purchased mortar, grout, caulk, and edge transition pieces.`,
+    price: 918,
+    contractorPayoutAmount: 799,
   },
   {
     _category: 'bathroom',
     name: 'Install Light',
     description:
-      'Basic labor to install wall-mounted lighting with favorable site conditions. Turn off power to circuit. Layout location, confirm with homeowner, and cut mounting hole. Add or modify wiring from existing switch or existing parallel fixture after verifying safe amperage for circuit. Connect and secure fixture. Secure wiring and install trim piece. Power and test. Includes planning, equipment, and cost of related rough-in material acquisiton and supplies typically required to install wall-mounted lighting (fittings, connectors, junction boxes, and fasteners).',
-    price: 710,
-    contractorPercentage: 60,
-  },
-  {
-    _category: 'bathroom',
-    name: 'Install Shower Door',
-    description: `Basic labor to install glass shower door with favorable site conditions. Fabricate and secure door frame to to wall structure. Set and adjust customer-purchased door. Caulk perimeter edges of door frame. Includes planning, equipment, and cost of related material acquisition and supplies typically required to install a glass shower door (mounting hardware, fasteners) and speciality equipment used for job quality and efficiency (pneumatic finish nailer, 10" miter saw, electric jigsaw, 3" belt sander, 3.25" electric planer).`,
-    price: 870,
-    contractorPercentage: 60,
+      'Labor to install vanity light fixture. Mark the location, confirm with the homeowner, and cut the mounting hole. Wire from existing switched lighting circuit (up to 15 feet away) after verifying safe amperage for the circuit. Secure wiring, mount the fixture, and install the trim piece.',
+    price: 362,
+    contractorPayoutAmount: 315,
   },
   // MISC
   {
     _category: 'bathroom',
     name: 'Paint',
     description:
-      'Basic labor to paint a bathroom with favorable site conditions. Clean, scrape, sand, and patch up to 4 defects per 100 square feet. Caulk edges and spot prime. Roll or brush 1 coat of primer and 2 coats of customer-purchased paint on walls and ceiling. Includes planning, equipment, and cost of related material acquistion and supplies typically required to paint a bathroom (masking tape and paper, drywall repair and preparation material, primers).',
-    price: 2000,
-    contractorPercentage: 60,
+      'Labor to paint a bathroom. Clean, scrape, sand, and patch up to 6 defects. Caulk gaps and spot prime. Roll or brush 2 coats of customer-purchased paint on walls and ceiling. Paint 1 door and door trim.',
+    price: 1146,
+    contractorPayoutAmount: 998,
   },
 ]
 
-// Bundle Mapping
+const reservationFee = {
+  _category: 'fee',
+  name: 'Reservation',
+  description: 'Lock your quote and reserve a start date for only $250.',
+  price: 250,
+  contractorPayoutAmount: 0,
+}
+
+const materialsCollectionPricing = {
+  Efficiency: {
+    powderRoom: 5100,
+    tubAndShowerCombo: 5200,
+    showerOnly: 5300,
+    separateTubAndShower: 5400,
+  },
+  Tranquility: {
+    powderRoom: 6100,
+    tubAndShowerCombo: 6200,
+    showerOnly: 6300,
+    separateTubAndShower: 6400,
+  },
+  Essential: {
+    powderRoom: 7100,
+    tubAndShowerCombo: 7200,
+    showerOnly: 7300,
+    separateTubAndShower: 7400,
+  },
+  Serenity: {
+    powderRoom: 8100,
+    tubAndShowerCombo: 8200,
+    showerOnly: 8300,
+    separateTubAndShower: 8400,
+  },
+  Subtle: {
+    powderRoom: 9100,
+    tubAndShowerCombo: 9200,
+    showerOnly: 9300,
+    separateTubAndShower: 9400,
+  },
+  Grandeur: {
+    powderRoom: 10100,
+    tubAndShowerCombo: 10200,
+    showerOnly: 10300,
+    separateTubAndShower: 10400,
+  },
+}
+
 const pricingBundles = {
   powderRoom,
   tubAndShowerCombo,
@@ -536,4 +488,6 @@ export const WASHINGTON_DC = {
   name,
   zipCodes,
   pricingBundles,
+  materialsCollectionPricing,
+  reservationFee,
 }

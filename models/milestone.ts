@@ -45,6 +45,12 @@ const milestoneSchema = new Schema<Milestone>({
   contractorPercentage: {
     type: Number,
     min: 0,
+    // required: true,
+  },
+
+  contractorPayoutAmount: {
+    type: Number,
+    min: 0,
     required: true,
   },
 

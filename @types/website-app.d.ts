@@ -2,6 +2,8 @@ interface Estimate {
   _id: string
   _homeowner: Homeowner
   _contractor: Contractor
+  collectionName: string
+  layout: string
   address: Address
   milestones: Milestone[]
   receipts: Receipt[]
@@ -22,6 +24,7 @@ interface Milestone {
   description: string
   price: number
   contractorPercentage: number
+  contractorPayoutAmount: number
   status: string
   receipt: Receipt // ref
   images: string[]

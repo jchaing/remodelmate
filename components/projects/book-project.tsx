@@ -16,8 +16,10 @@ export const BookProject: FunctionComponent<BookProjectProps> = ({
 }) => {
   const { firstName, lastName, email, stripeCustomerId } = homeowner
   const projectId = project._id
-  const { totalCost, address: { street, city, state, zip, additional } = {} as any } =
-    project
+  const {
+    totalCost,
+    address: { street, city, state, zip, additional } = {} as any,
+  } = project
   return (
     <>
       {project && milestones && (
@@ -43,7 +45,7 @@ export const BookProject: FunctionComponent<BookProjectProps> = ({
 
                 <dl className="mt-6 space-y-4">
                   <div className="flex items-center justify-between">
-                    <dt className="text-sm text-gray-600">Renovation</dt>
+                    <dt className="text-sm text-gray-600">Construction</dt>
                     <dd className="text-sm font-medium text-gray-900">
                       $
                       {(
@@ -54,7 +56,11 @@ export const BookProject: FunctionComponent<BookProjectProps> = ({
                   </div>
                   <div className="flex items-center justify-between border-t border-gray-300 pt-4">
                     <dt className="flex items-center text-sm text-gray-600">
-                      <span>3D Design</span>
+                      {milestones[1]._category === 'materials' ? (
+                        <span>Materials</span>
+                      ) : (
+                        <span>3D Design</span>
+                      )}
                     </dt>
                     <dd className="text-sm font-medium text-gray-900">
                       ${milestones[1].price.toLocaleString('en')}
@@ -63,7 +69,7 @@ export const BookProject: FunctionComponent<BookProjectProps> = ({
 
                   <div className="flex items-center justify-between border-t border-gray-300 pt-4">
                     <dt className="flex text-sm text-gray-600">
-                      <span>Booking</span>
+                      <span>Reservation</span>
                     </dt>
 
                     <dd className="text-sm font-medium text-gray-900">
@@ -230,7 +236,7 @@ export const BookProject: FunctionComponent<BookProjectProps> = ({
 
                 <dl className="mt-6 space-y-4">
                   <div className="flex items-center justify-between">
-                    <dt className="text-sm text-gray-600">Renovation</dt>
+                    <dt className="text-sm text-gray-600">Construction</dt>
                     <dd className="text-sm font-medium text-gray-900">
                       $
                       {(
@@ -241,7 +247,11 @@ export const BookProject: FunctionComponent<BookProjectProps> = ({
                   </div>
                   <div className="flex items-center justify-between border-t border-gray-300 pt-4">
                     <dt className="flex items-center text-sm text-gray-600">
-                      <span>3D Design</span>
+                      {milestones[1]._category === 'materials' ? (
+                        <span>Materials</span>
+                      ) : (
+                        <span>3D Design</span>
+                      )}
                     </dt>
                     <dd className="text-sm font-medium text-gray-900">
                       ${milestones[1].price.toLocaleString('en')}
@@ -250,7 +260,7 @@ export const BookProject: FunctionComponent<BookProjectProps> = ({
 
                   <div className="flex items-center justify-between border-t border-gray-300 pt-4">
                     <dt className="flex text-sm text-gray-600">
-                      <span>Booking</span>
+                      <span>Reservation</span>
                     </dt>
 
                     <dd className="text-sm font-medium text-gray-900">
@@ -306,8 +316,8 @@ export const BookProject: FunctionComponent<BookProjectProps> = ({
                   </div>
                   <div className="prose-sm prose mt-4 text-gray-500">
                     <ul role="list">
-                      <li>Excludes permits and finished materials.</li>
-                      <li>Estimate is valid for 30 days.</li>
+                      {/* <li>Excludes permits and finished materials.</li> */}
+                      <li>Estimate is valid for 7 days.</li>
                     </ul>
                   </div>
 
