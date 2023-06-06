@@ -5,6 +5,7 @@ export function formatAmountForDisplay(
   let numberFormat = new Intl.NumberFormat(['en-US'], {
     style: 'currency',
     currency: 'USD',
+    minimumFractionDigits: 0,
     // currency: currency,
     currencyDisplay: 'symbol',
   })

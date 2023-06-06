@@ -17,6 +17,7 @@ export const BookProject: FunctionComponent<BookProjectProps> = ({
   const { firstName, lastName, email, stripeCustomerId } = homeowner
   const projectId = project._id
   const {
+    collectionName,
     totalCost,
     address: { street, city, state, zip, additional } = {} as any,
     dateCreated,
@@ -94,8 +95,10 @@ export const BookProject: FunctionComponent<BookProjectProps> = ({
                   </div>
                   <div className="prose-sm prose mt-4 text-gray-500">
                     <ul role="list">
+                      <li>Non-refundable order fee.</li>
                       <li>
-                        Pay $250 to lock your quote and reserve your start date.
+                        Includes warehousing and consolidated delivery for your{' '}
+                        {collectionName} Collection.
                       </li>
                     </ul>
                   </div>
@@ -290,8 +293,9 @@ export const BookProject: FunctionComponent<BookProjectProps> = ({
                   </div>
                   <div className="prose-sm prose mt-4 text-gray-500">
                     <ul role="list">
+                      <li>Non-refundable order fee.</li>
                       <li>
-                        Pay $250 to lock your quote and reserve your start date.
+                        Includes warehousing and consolidated delivery for your {collectionName} Collection.
                       </li>
                     </ul>
                   </div>
