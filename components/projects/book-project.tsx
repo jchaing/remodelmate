@@ -19,7 +19,23 @@ export const BookProject: FunctionComponent<BookProjectProps> = ({
   const {
     totalCost,
     address: { street, city, state, zip, additional } = {} as any,
+    dateCreated,
   } = project
+
+  const quoteDate = new Date(dateCreated)
+  const currentDate = new Date()
+
+  const expirationDate = new Date(quoteDate)
+  expirationDate.setDate(expirationDate.getDate() + 7)
+  expirationDate.setHours(23, 59, 59, 0)
+
+  const expirationDateUserTimezone = new Date(expirationDate.toLocaleString())
+
+  const expirationDateString = expirationDateUserTimezone.toLocaleString(
+    'en-US',
+    { month: 'long', day: 'numeric', year: 'numeric' }
+  )
+
   return (
     <>
       {project && milestones && (
@@ -125,8 +141,7 @@ export const BookProject: FunctionComponent<BookProjectProps> = ({
                   </div>
                   <div className="prose-sm prose mt-4 text-gray-500">
                     <ul role="list">
-                      <li>Excludes permits and finished materials.</li>
-                      <li>Estimate is valid for 30 days.</li>
+                      <li>Quote expires on {expirationDateString}.</li>
                     </ul>
                   </div>
 
@@ -142,18 +157,24 @@ export const BookProject: FunctionComponent<BookProjectProps> = ({
 
                 {stripeCustomerId && milestones && (
                   <div className="mt-6">
-                    <Elements stripe={getStripe()}>
-                      <StripeForm
-                        firstName={firstName}
-                        lastName={lastName}
-                        email={email}
-                        customerId={stripeCustomerId}
-                        projectId={projectId}
-                        milestoneId={milestones[0]._id}
-                        milestonePrice={milestones[0].price}
-                        milestoneName={milestones[0].name}
-                      />
-                    </Elements>
+                    {expirationDateUserTimezone > currentDate ? (
+                      <Elements stripe={getStripe()}>
+                        <StripeForm
+                          firstName={firstName}
+                          lastName={lastName}
+                          email={email}
+                          customerId={stripeCustomerId}
+                          projectId={projectId}
+                          milestoneId={milestones[0]._id}
+                          milestonePrice={milestones[0].price}
+                          milestoneName={milestones[0].name}
+                        />
+                      </Elements>
+                    ) : (
+                      <div className="btn inline-flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white opacity-50 shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                        Expired
+                      </div>
+                    )}
                   </div>
                 )}
               </section>
@@ -317,7 +338,7 @@ export const BookProject: FunctionComponent<BookProjectProps> = ({
                   <div className="prose-sm prose mt-4 text-gray-500">
                     <ul role="list">
                       {/* <li>Excludes permits and finished materials.</li> */}
-                      <li>Estimate is valid for 7 days.</li>
+                      <li>Quote expires on {expirationDateString}.</li>
                     </ul>
                   </div>
 
@@ -333,18 +354,24 @@ export const BookProject: FunctionComponent<BookProjectProps> = ({
 
                 {stripeCustomerId && milestones && paymentMethod && (
                   <div className="mt-6">
-                    <Elements stripe={getStripe()}>
-                      <StripeForm
-                        firstName={firstName}
-                        lastName={lastName}
-                        email={email}
-                        customerId={stripeCustomerId}
-                        projectId={projectId}
-                        milestoneId={milestones[0]._id}
-                        milestonePrice={milestones[0].price}
-                        milestoneName={milestones[0].name}
-                      />
-                    </Elements>
+                    {expirationDateUserTimezone > currentDate ? (
+                      <Elements stripe={getStripe()}>
+                        <StripeForm
+                          firstName={firstName}
+                          lastName={lastName}
+                          email={email}
+                          customerId={stripeCustomerId}
+                          projectId={projectId}
+                          milestoneId={milestones[0]._id}
+                          milestonePrice={milestones[0].price}
+                          milestoneName={milestones[0].name}
+                        />
+                      </Elements>
+                    ) : (
+                      <div className="btn inline-flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white opacity-50 shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                        Expired
+                      </div>
+                    )}
                   </div>
                 )}
               </section>
