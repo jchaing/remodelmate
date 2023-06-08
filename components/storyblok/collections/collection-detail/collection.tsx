@@ -161,9 +161,9 @@ export const Collection = ({ blok }: any) => {
                 </h1>
 
                 <div className="mt-3">
-                  <h2 className="sr-only">Product information</h2>
+                  <h2 className="sr-only">Price</h2>
                   <p className="text-3xl tracking-tight text-gray-900">
-                    {blok.price}
+                    Starting at {blok.price}
                   </p>
                 </div>
 
