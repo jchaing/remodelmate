@@ -53,7 +53,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       _contractor,
       name: milestoneName,
       contractorPercentage,
-    } = await milestone
+      contractorPayoutAmount,
+    } = milestone
 
     if (_contractor) {
       try {
@@ -69,10 +70,14 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
         const payment_method = payment_methods.data[0].id
 
         const milestonePrice = formatAmountForStripe(price)
-        const contractorPayoutAmount = formatAmountForStripe(
+        const contractorPayoutAmountOld = formatAmountForStripe(
           Number(calculateContractorPayoutAmount(price, contractorPercentage))
         )
-        const applicationFeeAmount = milestonePrice - contractorPayoutAmount
+        const applicationFeeAmount =
+          milestonePrice -
+          (contractorPayoutAmount
+            ? contractorPayoutAmount
+            : contractorPayoutAmountOld)
 
         const paymentIntentOptions = {
           amount: milestonePrice,
