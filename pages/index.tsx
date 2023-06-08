@@ -28,7 +28,7 @@ export async function getStaticProps() {
     props: {
       story: data ? data.story : false,
     },
-    revalidate: 10,
+    // revalidate: 10,
   }
 }
 
