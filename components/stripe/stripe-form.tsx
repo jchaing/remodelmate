@@ -72,7 +72,7 @@ export function StripeForm({
         setErrorMessage(error.message)
       }
 
-      // if (milestoneName === 'Booking') {
+      // if (milestoneName === 'Booking' || 'Reservation') {
       //   trackEvent({
       //     name: ESTIMATE_BUILDER_EVENTS.ESTIMATE_EVENT_ACTION,
       //     props: {

@@ -147,6 +147,10 @@ const contractorSchema = new Schema<Contractor>({
     zip: {
       type: Number,
     },
+    additional: {
+      type: String,
+      trim: true,
+    },
   },
 
   contractorsLicense: [
