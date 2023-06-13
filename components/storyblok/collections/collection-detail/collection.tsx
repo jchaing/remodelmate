@@ -4,6 +4,7 @@ import { Disclosure, RadioGroup, Tab } from '@headlessui/react'
 import { useState } from 'react'
 import { MinusIcon, PlusIcon } from '@heroicons/react/outline'
 import { CollectionForm } from './collection-form'
+import Image from 'next/image'
 
 // const product = {
 //   name: 'Zip Tote Basket',
@@ -101,10 +102,12 @@ export const Collection = ({ blok }: any) => {
                           <>
                             <span className="sr-only"> {image.alt} </span>
                             <span className="absolute inset-0 overflow-hidden rounded-md">
-                              <img
+                              <Image
                                 src={image.filename}
                                 alt=""
                                 className="h-full w-full object-cover object-center"
+                                width={130}
+                                height={96}
                               />
                             </span>
                             <span
@@ -134,10 +137,12 @@ export const Collection = ({ blok }: any) => {
                 <Tab.Panels className="aspect-w-1 aspect-h-1 w-full">
                   {blok.images.map((image: any) => (
                     <Tab.Panel key={image.id}>
-                      <img
+                      <Image
                         src={image.filename}
                         alt={image.alt}
                         className="h-full w-full object-cover object-center sm:rounded-lg"
+                        width={592}
+                        height={592}
                       />
                     </Tab.Panel>
                   ))}
