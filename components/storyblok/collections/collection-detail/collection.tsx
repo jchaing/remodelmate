@@ -170,6 +170,9 @@ export const Collection = ({ blok }: any) => {
                   <p className="text-3xl tracking-tight text-gray-900">
                     Starting at {blok.price}
                   </p>
+                  <p className="mt-1 text-xs tracking-tight">
+                    * Includes labor and materials for the Powder Room layout
+                  </p>
                 </div>
 
                 <div className="mt-6">
@@ -293,7 +296,11 @@ export const Collection = ({ blok }: any) => {
           </div>
         </div>
       </section>
-      <CollectionForm openForm={openForm} setOpenForm={setOpenForm} collectionName={blok.name} />
+      <CollectionForm
+        openForm={openForm}
+        setOpenForm={setOpenForm}
+        collectionName={blok.name}
+      />
     </>
   )
 }
