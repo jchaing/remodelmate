@@ -5,9 +5,12 @@ import { dbConnect } from '@utils/mongodb'
 import { Milestone } from 'models/milestone'
 import { Estimate } from 'models/estimate'
 import { Receipt } from 'models/receipt'
+import { ServerClient } from 'postmark'
 require('models/contractor')
 
 const magic = new Magic(process.env.MAGIC_SECRET_KEY)
+
+const client = new ServerClient(process.env.NEXT_PUBLIC_POSTMARK_SERVER_TOKEN)
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const { method, body } = req
@@ -61,7 +64,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
         status: milestoneStatus,
         receipt: receipt,
       }
-      
+
       const updatedMilestone = await Milestone.findByIdAndUpdate(
         id,
         milestoneUpdates,
@@ -74,49 +77,48 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
         { new: true }
       )
 
-      // TODO: send email to contractor
-      // const { name, description, price, contractorPercentage } =
-      //   updatedMilestone
-      // const { _id, _homeowner } = await project
-      // const { _contractor } = await milestone
+      // Send email to contractor
+      const {
+        name,
+        description,
+        price,
+        contractorPercentage,
+        contractorPayoutAmount,
+      } = updatedMilestone
+      const { _id, collectionName, layout, _homeowner } = project
+      const { _contractor } = milestone
 
-      // if (_contractor) {
-      //   try {
-      //     const calculateContractorPayoutAmount = (
-      //       milestonePrice: number,
-      //       contractorPercentage: number
-      //     ) => {
-      //       return ((milestonePrice / 100) * contractorPercentage).toFixed(2)
-      //     }
+      if (_contractor) {
+        try {
+          const calculateContractorPayoutAmount = (
+            milestonePrice: number,
+            contractorPercentage: number
+          ) => {
+            return ((milestonePrice / 100) * contractorPercentage).toFixed(2)
+          }
 
-      //     const emailData = {
-      //       estimateId: _id,
-      //       milestoneName: name,
-      //       milestoneDescription: description,
-      //       milestonePrice: price,
-      //       homeownerEmail: _homeowner.email,
-      //       homeownerFirstName: _homeowner.firstName,
-      //       homeownerFullName: `${_homeowner.firstName} ${_homeowner.lastName}`,
-      //       contractorEmail: _contractor.email,
-      //       contractorFirstName: _contractor.firstName,
-      //       contractorFullName: `${_contractor.firstName} ${_contractor.lastName}`,
-      //       contractorPayoutAmount: calculateContractorPayoutAmount(
-      //         price,
-      //         contractorPercentage
-      //       ),
-      //     }
+          const emailData = {
+            project: collectionName ? `${collectionName} - ${layout}` : _id,
+            milestoneName: name,
+            milestoneDescription: description,
+            homeownerFullName: `${_homeowner.firstName} ${_homeowner.lastName}`,
+            contractorFirstName: _contractor.firstName,
+            contractorPayoutAmount: contractorPayoutAmount
+              ? contractorPayoutAmount
+              : calculateContractorPayoutAmount(price, contractorPercentage),
+          }
 
-      //     const EMAIL_URL = `${BASE_URL}/api/aws/email/milestone-approval-notification`
-      //     const emailRequest = await fetch(EMAIL_URL, {
-      //       method: 'POST',
-      //       body: JSON.stringify(emailData),
-      //     })
+          await client.sendEmailWithTemplate({
+            From: 'contractors@remodelmate.com',
+            To: _contractor.email,
+            TemplateAlias: 'milestone-payment-confirmation',
+            TemplateModel: emailData,
+          })
 
-      //     await emailRequest.json()
-      //   } catch (error) {
-      //     throw error
-      //   }
-      // }
+        } catch (error) {
+          console.error(error)
+        }
+      }
 
       return res
         .status(200)

@@ -80,7 +80,6 @@ export const Collection = ({ blok }: any) => {
     e.preventDefault()
     setOpenForm(!openForm)
   }
-  console.log(blok.name.toLowerCase())
 
   return (
     <>
