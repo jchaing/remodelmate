@@ -9,7 +9,7 @@ export const HomeCta = ({ blok }: any) => {
       className="relative bg-gray-50"
       {...storyblokEditable(blok)}
     >
-      <div className="bg-sky-700">
+      <div className="bg-sky-600">
         <div className="mx-auto max-w-2xl py-16 px-6 text-center sm:py-20 lg:px-8">
           <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
             <span className="block">{blok.heading}</span>

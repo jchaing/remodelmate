@@ -1,7 +1,7 @@
 import {
   CashIcon,
-  ClockIcon,
   LibraryIcon,
+  UserGroupIcon,
 } from '@heroicons/react/outline'
 import { storyblokEditable } from '@storyblok/react'
 
@@ -10,7 +10,7 @@ export const ContractorsBenefits = ({ blok }: any) => {
     {
       name: blok.benefit_1_name,
       description: blok.benefit_1_description,
-      icon: ClockIcon,
+      icon: UserGroupIcon,
     },
     {
       name: blok.benefit_2_name,
@@ -33,7 +33,7 @@ export const ContractorsBenefits = ({ blok }: any) => {
             {benefits.map((benefit) => (
               <div key={benefit.name}>
                 <dt>
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-sky-500 text-white">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-sky-600 text-white">
                     <benefit.icon className="h-8 w-8" aria-hidden="true" />
                   </div>
                   <p className="mt-6 text-lg font-semibold leading-8 tracking-tight text-gray-900">

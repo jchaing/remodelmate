@@ -78,7 +78,7 @@ export const ContractorsHero = ({ blok }: any) => {
                       href={CONTRACTOR_URL}
                       target="_blank"
                       rel="noreferrer"
-                      className="rounded-md bg-sky-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-sky-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-600"
+                      className="inline-block rounded-md border border-transparent bg-sky-600 py-3 px-8 text-center font-medium text-white hover:bg-sky-700"
                     >
                       {blok.button_text}
                     </Link>

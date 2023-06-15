@@ -1,5 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import {
+  ClockIcon,
+  CurrencyDollarIcon,
   InboxIcon,
   SparklesIcon,
 } from '@heroicons/react/outline'
@@ -17,7 +19,7 @@ export const ContractorsFeatures = ({ blok }: any) => {
               <div>
                 <div>
                   <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-sky-600">
-                    <InboxIcon
+                    <ClockIcon
                       className="h-8 w-8 text-white"
                       aria-hidden="true"
                     />
@@ -33,7 +35,7 @@ export const ContractorsFeatures = ({ blok }: any) => {
                   <div className="mt-6">
                     <Link
                       href={CONTRACTOR_URL}
-                      className="inline-flex rounded-lg bg-sky-600 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-sky-600 hover:bg-sky-700 hover:ring-sky-700"
+                      className="inline-block rounded-md border border-transparent bg-sky-600 py-3 px-8 text-center font-medium text-white hover:bg-sky-700"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -42,7 +44,7 @@ export const ContractorsFeatures = ({ blok }: any) => {
                   </div>
                 </div>
               </div>
-              <div className="mt-8 border-t border-gray-200 pt-6">
+              {/* <div className="mt-8 border-t border-gray-200 pt-6">
                 <blockquote>
                   <div>
                     <p className="text-base text-gray-500">
@@ -64,7 +66,7 @@ export const ContractorsFeatures = ({ blok }: any) => {
                     </div>
                   </footer>
                 </blockquote>
-              </div>
+              </div> */}
             </div>
             <div className="mt-12 sm:mt-16 lg:mt-0">
               <div className="-mr-48 pl-6 md:-mr-16 lg:relative lg:m-0 lg:h-full lg:px-0">
@@ -83,7 +85,7 @@ export const ContractorsFeatures = ({ blok }: any) => {
               <div>
                 <div>
                   <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-sky-600">
-                    <SparklesIcon
+                    <CurrencyDollarIcon
                       className="h-8 w-8 text-white"
                       aria-hidden="true"
                     />
@@ -99,7 +101,7 @@ export const ContractorsFeatures = ({ blok }: any) => {
                   <div className="mt-6">
                     <Link
                       href={CONTRACTOR_URL}
-                      className="inline-flex rounded-lg bg-sky-600 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-sky-600 hover:bg-sky-700 hover:ring-sky-700"
+                      className="inline-block rounded-md border border-transparent bg-sky-600 py-3 px-8 text-center font-medium text-white hover:bg-sky-700"
                       target="_blank"
                       rel="noopener noreferrer"
                     >

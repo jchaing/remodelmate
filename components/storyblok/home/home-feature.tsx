@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import { InboxIcon, SparklesIcon } from '@heroicons/react/outline'
+import { ClipboardCheckIcon, CreditCardIcon } from '@heroicons/react/outline'
 import { storyblokEditable } from '@storyblok/react'
 import { ROUTE_MAP } from '@utils/routes'
 import Link from 'next/link'
@@ -18,7 +18,7 @@ export const HomeFeature = ({ blok }: any) => {
               <div>
                 <div>
                   <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-sky-600">
-                    <InboxIcon
+                    <ClipboardCheckIcon
                       className="h-8 w-8 text-white"
                       aria-hidden="true"
                     />
@@ -34,7 +34,7 @@ export const HomeFeature = ({ blok }: any) => {
                   <div className="mt-6">
                     <Link
                       href={ROUTE_MAP.app.collections}
-                      className="inline-flex rounded-lg bg-sky-600 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-sky-600 hover:bg-sky-700 hover:ring-sky-700"
+                      className="inline-block rounded-md border border-transparent bg-sky-600 py-3 px-8 text-center font-medium text-white hover:bg-sky-700"
                     >
                       {blok.feature1_button_text}
                     </Link>
@@ -86,7 +86,7 @@ export const HomeFeature = ({ blok }: any) => {
               <div>
                 <div>
                   <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-sky-600">
-                    <SparklesIcon
+                    <CreditCardIcon
                       className="h-8 w-8 text-white"
                       aria-hidden="true"
                     />
@@ -102,7 +102,7 @@ export const HomeFeature = ({ blok }: any) => {
                   <div className="mt-6">
                     <Link
                       href={ROUTE_MAP.app.collections}
-                      className="inline-flex rounded-lg bg-sky-600 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-sky-600 hover:bg-sky-700 hover:ring-sky-700"
+                      className="inline-block rounded-md border border-transparent bg-sky-600 py-3 px-8 text-center font-medium text-white hover:bg-sky-700"
                     >
                       {blok.feature2_button_text}
                     </Link>

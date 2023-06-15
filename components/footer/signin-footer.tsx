@@ -6,7 +6,7 @@ export const SignInFooter = () => {
       <div className="mx-auto max-w-7xl px-6 py-12 md:flex md:items-center md:justify-between lg:px-8">
         <div className="md:order-1 ">
           <p className="text-center text-xs leading-5 text-gray-500">
-            &copy; 2020 remodelmate, Inc. All rights reserved.
+            &copy; 2023 remodelmate, Inc. All rights reserved.
           </p>
         </div>
         <div className="mt-8 flex justify-center space-x-6 md:order-2 md:mt-0">
