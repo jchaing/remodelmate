@@ -6,7 +6,7 @@ export default function Document() {
     <Html lang="en">
       <Head>
         {/* Start of Google Tag Manager (noscript) */}
-        <Script
+        {/* <Script
           id="gtm-script-remodelmate"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
@@ -18,26 +18,26 @@ export default function Document() {
                 })(window,document,'script','dataLayer','GTM-KMCV6WV');
                 `,
           }}
-        />
+        /> */}
         {/* End of Google Tag Manager (noscript) */}
 
         {/* Start Google Search Console Verification */}
-        <meta
+        {/* <meta
           name="google-site-verification"
           content="0tKLUvVGi_4fGRcqMiuqDxticWV8cmnqV8vQcOkOI-E"
-        />
+        /> */}
         {/* End Google Search Console Verification */}
       </Head>
       <body>
         {/* Start of Google Tag Manager (noscript) */}
-        <noscript
+        {/* <noscript
           dangerouslySetInnerHTML={{
             __html: `
                 <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KMCV6WV"
                 height="0" width="0" style="display:none;visibility:hidden"></iframe>
                 `,
           }}
-        />
+        /> */}
         {/* End of Google Tag Manager (noscript) */}
 
         <Main />
