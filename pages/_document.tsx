@@ -5,8 +5,23 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
+        {/* Google tag (gtag.js) */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-VDJX08BSYL"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){window.dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-VDJX08BSYL');
+        `}
+        </Script>
+
         {/* Start of Google Tag Manager (noscript) */}
-        {/* <Script
+        <Script
           id="gtm-script-remodelmate"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
@@ -15,29 +30,29 @@ export default function Document() {
                 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
                 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-                })(window,document,'script','dataLayer','GTM-KMCV6WV');
+                })(window,document,'script','dataLayer','GTM-N7CJ7ZH');
                 `,
           }}
-        /> */}
+        />
         {/* End of Google Tag Manager (noscript) */}
 
         {/* Start Google Search Console Verification */}
-        {/* <meta
+        <meta
           name="google-site-verification"
           content="0tKLUvVGi_4fGRcqMiuqDxticWV8cmnqV8vQcOkOI-E"
-        /> */}
+        />
         {/* End Google Search Console Verification */}
       </Head>
       <body>
         {/* Start of Google Tag Manager (noscript) */}
-        {/* <noscript
+        <noscript
           dangerouslySetInnerHTML={{
             __html: `
-                <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KMCV6WV"
+                <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N7CJ7ZH"
                 height="0" width="0" style="display:none;visibility:hidden"></iframe>
                 `,
           }}
-        /> */}
+        />
         {/* End of Google Tag Manager (noscript) */}
 
         <Main />
