@@ -1,11 +1,16 @@
 import clsx from 'clsx'
 import { FieldHookConfig, useField } from 'formik'
-import { HTMLProps } from 'react'
+import { DetailedHTMLProps, HTMLProps, TextareaHTMLAttributes } from 'react'
 
 export const GenericFormField = ({
   label,
   ...props
-}: HTMLProps<HTMLInputElement> & FieldHookConfig<string>) => {
+}: HTMLProps<HTMLInputElement> &
+  (DetailedHTMLProps<
+    TextareaHTMLAttributes<HTMLTextAreaElement>,
+    HTMLTextAreaElement
+  > &
+    FieldHookConfig<string>)) => {
   const [field, meta, _helpers] = useField(props.name)
 
   const hasError = meta.touched && meta.error
@@ -30,7 +35,11 @@ export const GenericFormField = ({
       ) : null}
 
       <div>
-        <input className={inputStyles} {...field} {...props} />
+        {props.name === 'message' ? (
+          <textarea className={inputStyles} {...field} {...props} />
+        ) : (
+          <input className={inputStyles} {...field} {...props} />
+        )}
       </div>
 
       <div className=" mt-2 block text-sm text-red-600">

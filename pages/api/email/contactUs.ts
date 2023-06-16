@@ -21,7 +21,7 @@ const handler = async (
     try {
       const contactUsRes = await client.sendEmailWithTemplate({
         From: 'support@remodelmate.com',
-        To: req.body.email,
+        To: 'support@remodelmate.com',
         TemplateAlias: 'contact-us',
         TemplateModel: req.body,
       })
