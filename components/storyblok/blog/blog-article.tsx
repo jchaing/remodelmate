@@ -20,7 +20,7 @@ export const BlogArticle = ({ blok }: any) => {
             {blok.subtitle}
           </h1>
 
-          <div className="mb-8 text-justify leading-relaxed">
+          <div className="my-8 text-justify leading-relaxed">
             {render(blok.content)}
           </div>
         </div>
