@@ -71,7 +71,7 @@ export const BlogPage = ({ blok }: any) => {
                       </p>
                     </Link>
                   </div>
-                  <div className="mt-6 flex items-center">
+                  {/* <div className="mt-6 flex items-center">
                     <div className="flex-shrink-0">
                       <a href="#">
                         <span className="sr-only">Michael Smith</span>
@@ -94,7 +94,7 @@ export const BlogPage = ({ blok }: any) => {
                         <span>6 min read</span>
                       </div>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             ))}

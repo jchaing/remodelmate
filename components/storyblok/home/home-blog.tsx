@@ -46,7 +46,7 @@ export const HomeBlog = ({ blok }: any) => {
                       </p>
                     </Link>
                   </div>
-                  <div className="mt-6 flex items-center">
+                  {/* <div className="mt-6 flex items-center">
                     <div className="flex-shrink-0">
                       <a href="#">
                         <span className="sr-only">Michael Smith</span>
@@ -65,7 +65,7 @@ export const HomeBlog = ({ blok }: any) => {
                         <time dateTime="2020-03-16">Mar 16, 2020</time>
                       </div>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             ))}
