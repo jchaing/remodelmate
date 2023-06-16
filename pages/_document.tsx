@@ -39,7 +39,7 @@ export default function Document() {
         {/* Start Google Search Console Verification */}
         <meta
           name="google-site-verification"
-          content="0tKLUvVGi_4fGRcqMiuqDxticWV8cmnqV8vQcOkOI-E"
+          content="ZnDvyYa_Dgih6ivhtGa-_cnRroGeVFqiox0Kgboa9FY"
         />
         {/* End Google Search Console Verification */}
       </Head>
