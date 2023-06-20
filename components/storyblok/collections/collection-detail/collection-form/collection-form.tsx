@@ -90,7 +90,7 @@ export const CollectionForm: FunctionComponent<CollectionFormProps> = ({
         milestones,
         totalCost,
         collectionName,
-        layout
+        layout,
       } = _data.estimate
 
       let milestoneString = ``
@@ -373,12 +373,9 @@ export const CollectionForm: FunctionComponent<CollectionFormProps> = ({
                                         id="powderRoom-description"
                                         className="text-gray-500"
                                       >
-                                        Lorem ipsum dolor sit amet consectetur,
-                                        adipisicing elit. Ratione totam, vero
-                                        vitae atque natus necessitatibus saepe
-                                        doloremque modi nam iure assumenda?
-                                        Provident aut magni pariatur dolor
-                                        asperiores obcaecati veniam aperiam!
+                                        Small, basic bathroom (3-4 ft x 6-8 ft)
+                                        with a toilet and single vanity or sink,
+                                        ideal for main floor common areas.
                                       </p>
                                     </div>
                                   </div>
@@ -405,13 +402,10 @@ export const CollectionForm: FunctionComponent<CollectionFormProps> = ({
                                           id="tubAndShowerCombo-description"
                                           className="text-gray-500"
                                         >
-                                          Lorem ipsum dolor sit amet,
-                                          consectetur adipisicing elit. Placeat,
-                                          fugiat sunt consectetur voluptate ex
-                                          quod inventore mollitia nihil facere
-                                          laboriosam maiores esse a eveniet,
-                                          iste magnam neque perferendis
-                                          repudiandae. Facere.
+                                          Full bathroom (5-10 ft x 8-11 ft) with
+                                          toilet, sink, bathtub, and shower,
+                                          typically located in private areas of
+                                          the home.
                                         </p>
                                       </div>
                                     </div>
@@ -439,13 +433,9 @@ export const CollectionForm: FunctionComponent<CollectionFormProps> = ({
                                           id="showerOnly-description"
                                           className="text-gray-500"
                                         >
-                                          Lorem ipsum dolor, sit amet
-                                          consectetur adipisicing elit. Dolore
-                                          officia aut fuga deleniti obcaecati
-                                          enim nam rem, explicabo vitae id
-                                          delectus provident iusto quibusdam
-                                          odit tempore sed quod perferendis?
-                                          Molestiae?
+                                          Bathroom (5 ft x 7-8 ft) with toilet,
+                                          sink, and shower, excluding the
+                                          bathtub.
                                         </p>
                                       </div>
                                     </div>
@@ -473,13 +463,10 @@ export const CollectionForm: FunctionComponent<CollectionFormProps> = ({
                                           id="separateTubAndShower-description"
                                           className="text-gray-500"
                                         >
-                                          Lorem ipsum dolor sit amet consectetur
-                                          adipisicing elit. Soluta sapiente
-                                          nobis placeat in debitis maiores
-                                          delectus doloremque tenetur beatae
-                                          inventore dolore atque expedita unde
-                                          officiis corporis iste eligendi, vero
-                                          magni.
+                                          Spacious, master bathroom (5 ft - 12+
+                                          ft x 9 ft - 13+ ft) with toilet, sink,
+                                          freestanding bathtub, and separate
+                                          walk-in shower.
                                         </p>
                                       </div>
                                     </div>
