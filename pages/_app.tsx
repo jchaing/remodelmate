@@ -113,7 +113,7 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
         />
         <link rel="icon" href="/favicon.ico" />
 
-        <title>{`remodelmate | Effortless Bathroom Renovations`}</title>
+        {/* <title>{`remodelmate | Effortless Bathroom Renovations`}</title> */}
       </Head>
 
       <QueryClientProvider client={queryClient}>
