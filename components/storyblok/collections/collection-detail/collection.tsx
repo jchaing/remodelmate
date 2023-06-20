@@ -5,6 +5,7 @@ import { useState } from 'react'
 import { MinusIcon, PlusIcon } from '@heroicons/react/outline'
 import { CollectionForm } from './collection-form'
 import Image from 'next/image'
+import Head from 'next/head'
 
 // const product = {
 //   name: 'Zip Tote Basket',
@@ -83,6 +84,9 @@ export const Collection = ({ blok }: any) => {
 
   return (
     <>
+      <Head>
+        <title>{`${blok.name} - Collections | Remodelmate`}</title>
+      </Head>
       <section {...storyblokEditable(blok)}>
         <div className="bg-white">
           <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
