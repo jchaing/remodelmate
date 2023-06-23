@@ -76,7 +76,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
         const applicationFeeAmount =
           milestonePrice -
           (contractorPayoutAmount
-            ? contractorPayoutAmount
+            ? formatAmountForStripe(contractorPayoutAmount)
             : contractorPayoutAmountOld)
 
         const paymentIntentOptions = {
