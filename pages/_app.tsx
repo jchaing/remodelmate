@@ -10,6 +10,7 @@ import {
   HomeCta,
   HomeFeature,
   HomeHero,
+  HomeTestimonials,
 } from '@components/storyblok/home'
 import { ComingSoon, Page } from '@components/storyblok'
 import { BlogArticle, BlogPage } from '@components/storyblok/blog'
@@ -52,6 +53,7 @@ const components = {
   'home-collections': HomeCollections,
   'home-feature': HomeFeature,
   'home-blog': HomeBlog,
+  'home-testimonials': HomeTestimonials,
   'home-cta': HomeCta,
   'collections-header': CollectionsHeader,
   'collections-grid': CollectionsGrid,
