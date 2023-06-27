@@ -18,7 +18,7 @@ export async function getStaticProps() {
 
   const sbParams: any = {
     version: process.env.NEXT_PUBLIC_STORYBLOK_VERSION,
-    resolve_relations: ['home-collections.collections', 'home-blog.articles'],
+    resolve_relations: ['home-collections.collections', 'home-blog.articles', 'home-testimonials.testimonials'],
   }
 
   const storyblokApi = getStoryblokApi()
@@ -28,7 +28,7 @@ export async function getStaticProps() {
     props: {
       story: data ? data.story : false,
     },
-    revalidate: 10,
+    revalidate: 3600,
   }
 }
 
