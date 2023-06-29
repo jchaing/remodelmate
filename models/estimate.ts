@@ -154,6 +154,11 @@ const estimateSchema = new Schema<Estimate>({
     required: true,
   },
 
+  referredBy: {
+    type: String,
+    trim: true,
+  },
+
   dateCreated: {
     type: Date,
     default: Date.now,
