@@ -21,6 +21,7 @@ export const ROUTE_MAP = {
     projectBook: '/dashboard/project/book',
     profile: '/dashboard/profile',
     payment: '/dashboard/payment',
+    referral: '/dashboard/referral',
   },
 }
 
