@@ -1,3 +1,4 @@
+import clsx from 'clsx'
 import { Form, Formik } from 'formik'
 import { useGenerateCode } from 'hooks/referral'
 import { useQueryClient } from 'react-query'
@@ -53,17 +54,14 @@ export const HomeownerReferral = ({ homeowner }) => {
                               Invite Code
                             </label>
                             <div className="mt-1 sm:col-span-2 sm:mt-0">
-                              <input
-                                disabled={true}
-                                name="referralCode"
-                                placeholder={
-                                  referralCode
-                                    ? referralCode
-                                    : 'REMODELMATE-XXXXXXXX'
-                                }
-                                type="text"
-                                className="block w-full max-w-lg rounded-md border-gray-300 text-center shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:max-w-xs sm:text-sm"
-                              />
+                              <div
+                                id="referralCode"
+                                className={clsx(referralCode ? null : "text-gray-300", "block w-full max-w-lg rounded-md border border-gray-200 text-center sm:mt-px sm:max-w-xs sm:py-2 sm:text-sm")}
+                              >
+                                {referralCode
+                                  ? referralCode
+                                  : 'REMODELMATE-XXXXXXXX'}
+                              </div>
                             </div>
                           </div>
                         </div>
