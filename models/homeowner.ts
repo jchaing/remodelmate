@@ -134,6 +134,7 @@ const homeownerSchema = new Schema<Homeowner>({
 
   referralCode: {
     type: String,
+    unique: true,
     trim: true,
   },
 

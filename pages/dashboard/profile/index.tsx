@@ -9,7 +9,7 @@ import { HomeownerProfile } from '@components/homeowner'
 // import { PROJECT_DETAILS_EVENTS_ENUM, trackEvent } from '@utils/mixpanel'
 
 const ProfilePage = () => {
-    const router = useRouter()
+  const router = useRouter()
 
   const {
     data: isLoggedIn,
@@ -35,8 +35,6 @@ const ProfilePage = () => {
     router.push(ROUTE_MAP.app.entry)
     return <></>
   }
-
-  const { firstName, lastName, email } = homeowner
 
   return (
     <DashboardNav>
