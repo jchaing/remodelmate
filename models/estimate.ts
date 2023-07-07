@@ -154,7 +154,12 @@ const estimateSchema = new Schema<Estimate>({
     required: true,
   },
 
-  referredBy: {
+  // referredBy: {
+  //   type: String,
+  //   trim: true,
+  // },
+ 
+  referralCode: {
     type: String,
     trim: true,
   },
