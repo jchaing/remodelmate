@@ -6,6 +6,7 @@ import { dbConnect } from '@utils/mongodb'
 import { Magic } from '@magic-sdk/admin'
 require('models/milestone')
 require('models/receipt')
+require('models/homeowner')
 
 const magic = new Magic(process.env.MAGIC_SECRET_KEY)
 
@@ -35,6 +36,10 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
         .populate({
           path: 'milestones',
           populate: [{ path: '_contractor' }, { path: 'receipt' }],
+        })
+        .populate({
+          path: '_referredBy',
+          select: 'firstName lastName',
         })
 
       const { _contractor } = project

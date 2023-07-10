@@ -3,7 +3,16 @@ import { FunctionComponent } from 'react'
 export const ProjectDetails: FunctionComponent<ProjectDetailsProps> = ({
   project,
 }) => {
-  const { _id, address, totalCost, milestones } = project
+  const {
+    _id,
+    address,
+    totalCost,
+    milestones,
+    collectionName,
+    layout,
+    _referredBy,
+    referralCode,
+  } = project
 
   return (
     <section id="project-details">
@@ -19,9 +28,11 @@ export const ProjectDetails: FunctionComponent<ProjectDetailsProps> = ({
           <div className="sm:flex lg:col-span-4">
             <div>
               <h3 className="text-bold font-medium text-gray-500">
-                <span>Project Id</span>
+                <span>{collectionName ? 'Project' : 'Project Id'}</span>
               </h3>
-              <p className="mt-2 mr-4 break-all text-gray-900">{_id}</p>
+              <p className="mt-2 mr-4 break-all text-gray-900">
+                {collectionName ? `${collectionName} - ${layout}` : _id}
+              </p>
             </div>
           </div>
 
@@ -59,6 +70,28 @@ export const ProjectDetails: FunctionComponent<ProjectDetailsProps> = ({
               <p className="mt-2 text-gray-900">{milestones?.length}</p>
             </div>
           </div>
+
+          {referralCode ? (
+            <div className="sm:flex lg:col-span-4 lg:mt-8">
+              <div className="mt-6 lg:mt-0">
+                <h3 className="text-bold font-medium text-gray-500">
+                  <span>Referred By</span>
+                </h3>
+                <p className="mt-2 text-gray-900">{`${_referredBy.firstName} ${_referredBy.lastName}`}</p>
+              </div>
+            </div>
+          ) : null}
+
+          {referralCode ? (
+            <div className="sm:flex lg:col-span-4 lg:mt-8">
+              <div className="mt-6 lg:mt-0">
+                <h3 className="text-bold font-medium text-gray-500">
+                  <span>Referral Code</span>
+                </h3>
+                <p className="mt-2 text-gray-900">{referralCode}</p>
+              </div>
+            </div>
+          ) : null}
         </div>
       </div>
     </section>
