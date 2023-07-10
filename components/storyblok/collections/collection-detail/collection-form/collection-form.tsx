@@ -115,6 +115,7 @@ export const CollectionForm: FunctionComponent<CollectionFormProps> = ({
         collectionName,
         layout,
         referralCode,
+        _referredBy,
       } = _data.estimate
 
       let milestoneString = ``
@@ -183,6 +184,10 @@ export const CollectionForm: FunctionComponent<CollectionFormProps> = ({
                 fields: [
                   {
                     type: 'mrkdwn',
+                    text: `*Referred By:* \n_${_referredBy.firstName} ${_referredBy.lastName}_`,
+                  },
+                  {
+                    type: 'mrkdwn',
                     text: `*Referral Code:* \n_${referralCode}_`,
                   },
                 ],
@@ -190,6 +195,10 @@ export const CollectionForm: FunctionComponent<CollectionFormProps> = ({
             : {
                 type: 'section',
                 fields: [
+                  {
+                    type: 'mrkdwn',
+                    text: `*Referred By:* \n_N/A_`,
+                  },
                   {
                     type: 'mrkdwn',
                     text: `*Referral Code:* \n_N/A_`,

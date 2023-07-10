@@ -90,8 +90,13 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
         estimate._referredBy = referrer._id
 
         // store estimate reference on referrer
-        await referrer.updateOne({$push: { referred: estimate._id }})
+        await referrer.updateOne({ $push: { referred: estimate._id } })
       }
+
+      await estimate.populate({
+        path: '_referredBy',
+        select: 'firstName lastName',
+      })
 
       await estimate.save()
       await homeowner.estimates.push(estimate)
