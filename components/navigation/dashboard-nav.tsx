@@ -3,6 +3,7 @@
 import { Loader } from '@components/shared'
 import {
   CreditCardIcon,
+  GiftIcon,
   HomeIcon,
   LogoutIcon,
   UserIcon,
@@ -19,21 +20,24 @@ const navigation = [
     key: 'dashboard',
     icon: HomeIcon,
     href: ROUTE_MAP.dashboard.entry,
-    current: true,
   },
   {
     name: 'Profile',
     key: 'profile',
     icon: UserIcon,
     href: ROUTE_MAP.dashboard.profile,
-    current: false,
   },
   {
     name: 'Payment',
     key: 'payment',
     icon: CreditCardIcon,
     href: ROUTE_MAP.dashboard.payment,
-    current: false,
+  },
+  {
+    name: 'Referral',
+    key: 'referral',
+    icon: GiftIcon,
+    href: ROUTE_MAP.dashboard.referral,
   },
 ]
 
@@ -46,6 +50,7 @@ export const DashboardNav = ({ children }) => {
     { id: 'dashboard', name: 'Dashboard', href: ROUTE_MAP.dashboard.entry },
     { id: 'profile', name: 'Profile', href: ROUTE_MAP.dashboard.profile },
     { id: 'payment', name: 'Payment', href: ROUTE_MAP.dashboard.payment },
+    { id: 'referral', name: 'Referral', href: ROUTE_MAP.dashboard.referral },
     { id: 'sign-out', name: 'Sign-out' },
   ]
 
@@ -76,6 +81,9 @@ export const DashboardNav = ({ children }) => {
         break
       case 'payment':
         router.push(ROUTE_MAP.dashboard.payment)
+        break
+      case 'referral':
+        router.push(ROUTE_MAP.dashboard.referral)
         break
       default:
         router.push(ROUTE_MAP.dashboard.entry)

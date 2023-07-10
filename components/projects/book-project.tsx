@@ -21,6 +21,8 @@ export const BookProject: FunctionComponent<BookProjectProps> = ({
     totalCost,
     address: { street, city, state, zip, additional } = {} as any,
     dateCreated,
+    _referredBy,
+    referralCode,
   } = project
 
   const quoteDate = new Date(dateCreated)
@@ -102,6 +104,22 @@ export const BookProject: FunctionComponent<BookProjectProps> = ({
                       </li>
                     </ul>
                   </div>
+
+                  {referralCode ? (
+                    <div>
+                      <div className="flex items-center justify-between border-t border-gray-300 pt-4">
+                        <dt className="flex text-sm text-gray-600">
+                          <span>Reservation</span>
+                        </dt>
+                      </div>
+                      <div className="prose-sm prose mt-4 text-gray-500">
+                        <ul role="list">
+                          <li>{`${_referredBy?.firstName} ${_referredBy?.lastName}`}</li>
+                          <li>{referralCode}</li>
+                        </ul>
+                      </div>
+                    </div>
+                  ) : null}
 
                   {paymentMethod && (
                     <dl className="mt-6 space-y-4">
@@ -295,10 +313,27 @@ export const BookProject: FunctionComponent<BookProjectProps> = ({
                     <ul role="list">
                       <li>Non-refundable order fee.</li>
                       <li>
-                        Includes warehousing and consolidated delivery for your {collectionName} Collection.
+                        Includes warehousing and consolidated delivery for your{' '}
+                        {collectionName} Collection.
                       </li>
                     </ul>
                   </div>
+
+                  {referralCode ? (
+                    <div>
+                      <div className="flex items-center justify-between border-t border-gray-300 pt-4">
+                        <dt className="flex text-sm text-gray-600">
+                          <span>Referral</span>
+                        </dt>
+                      </div>
+                      <div className="prose-sm prose mt-4 text-gray-500">
+                        <ul role="list">
+                          <li>{`${_referredBy?.firstName} ${_referredBy?.lastName}`}</li>
+                          <li>{referralCode}</li>
+                        </ul>
+                      </div>
+                    </div>
+                  ) : null}
 
                   {paymentMethod && (
                     <dl className="mt-6 space-y-4">
