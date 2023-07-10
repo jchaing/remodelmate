@@ -138,6 +138,13 @@ const homeownerSchema = new Schema<Homeowner>({
     trim: true,
   },
 
+  referred: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Estimate',
+    },
+  ],
+
   dateCreated: {
     type: Date,
     default: Date.now,
