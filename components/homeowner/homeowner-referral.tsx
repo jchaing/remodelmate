@@ -84,7 +84,6 @@ export const HomeownerReferral = ({ homeowner }) => {
                                   referralCode ? null : 'text-gray-300',
                                   'block w-full max-w-lg rounded-md border border-gray-200 text-center sm:mt-px sm:max-w-xs sm:py-2 sm:text-sm'
                                 )}
-                                className={clsx(referralCode ? null : "text-gray-300", "block w-full max-w-lg rounded-md border border-gray-200 text-center sm:mt-px sm:max-w-xs sm:py-2 sm:text-sm")}
                               >
                                 {referralCode
                                   ? referralCode
