@@ -48,6 +48,30 @@ export const HomeownerReferral = ({ homeowner }) => {
                         <div className="space-y-6 sm:space-y-5">
                           <div className="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
                             <label
+                              htmlFor="referralDescription"
+                              className="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
+                            >
+                              Refer a Friend
+                            </label>
+                            <div className="mt-1 sm:col-span-2 sm:mt-0">
+                              <div
+                                id="referralDescription"
+                                className="w-full max-w-lg rounded-md sm:mt-px sm:max-w-xs sm:py-2 sm:text-sm"
+                              >
+                                <p>GIVE $750, GET $250</p>
+                                <p className='mt-3'>
+                                  Give your friends up to $750 off their first
+                                  project and get $250 (cash) for each
+                                  successful referral
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="space-y-6 sm:space-y-5">
+                          <div className="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
+                            <label
                               htmlFor="referralCode"
                               className="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
                             >
@@ -56,7 +80,10 @@ export const HomeownerReferral = ({ homeowner }) => {
                             <div className="mt-1 sm:col-span-2 sm:mt-0">
                               <div
                                 id="referralCode"
-                                className={clsx(referralCode ? null : "text-gray-300", "block w-full max-w-lg rounded-md border border-gray-200 text-center sm:mt-px sm:max-w-xs sm:py-2 sm:text-sm")}
+                                className={clsx(
+                                  referralCode ? null : 'text-gray-300',
+                                  'block w-full max-w-lg rounded-md border border-gray-200 text-center sm:mt-px sm:max-w-xs sm:py-2 sm:text-sm'
+                                )}
                               >
                                 {referralCode
                                   ? referralCode
