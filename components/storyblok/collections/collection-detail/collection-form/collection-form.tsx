@@ -23,7 +23,7 @@ import * as yup from 'yup'
 import 'yup-phone-lite'
 import { ROUTE_MAP } from '@utils/routes'
 import { ADMIN_URL } from '@utils/links'
-import { Layout } from '@lib/layout'
+import { useValidateCode, useValidateOwnCode } from 'hooks/referral'
 
 const signupValidationSchema = () => {
   return yup.object().shape({
@@ -40,6 +40,7 @@ const signupValidationSchema = () => {
       .length(10)
       .required('Phone number is required'),
     additional: yup.string(),
+    referralCode: yup.string(),
   })
 }
 
@@ -57,6 +58,28 @@ export const CollectionForm: FunctionComponent<CollectionFormProps> = ({
 
   const { data: isLoggedIn } = useClientIsLoggedIn()
   const { data: homeowner }: { data: Homeowner } = useGetHomeowner()
+
+  const validateCodeMutation = useValidateCode({
+    onSuccess: async (_data: any) => {
+      console.log(_data)
+    },
+    onError: (error: any) => {
+      console.error('***ERROR***', error)
+      setField('referralCode')
+      setHomeownerErrorMsg('Invalid Referral Code')
+    },
+  })
+
+  const validateOwnCodeMutation = useValidateOwnCode({
+    onSuccess: async (_data: any) => {
+      console.log(_data)
+    },
+    onError: (error: any) => {
+      console.error('***ERROR***', error)
+      setField('referralCode')
+      setHomeownerErrorMsg('Personal referral codes are not valid')
+    },
+  })
 
   const addHomeownerMutation = useAddHomeowner({
     onSuccess: async (_data: any, variables: any) => {
@@ -91,6 +114,8 @@ export const CollectionForm: FunctionComponent<CollectionFormProps> = ({
         totalCost,
         collectionName,
         layout,
+        referralCode,
+        _referredBy,
       } = _data.estimate
 
       let milestoneString = ``
@@ -153,6 +178,33 @@ export const CollectionForm: FunctionComponent<CollectionFormProps> = ({
               },
             ],
           },
+          referralCode
+            ? {
+                type: 'section',
+                fields: [
+                  {
+                    type: 'mrkdwn',
+                    text: `*Referred By:* \n_${_referredBy.firstName} ${_referredBy.lastName}_`,
+                  },
+                  {
+                    type: 'mrkdwn',
+                    text: `*Referral Code:* \n_${referralCode}_`,
+                  },
+                ],
+              }
+            : {
+                type: 'section',
+                fields: [
+                  {
+                    type: 'mrkdwn',
+                    text: `*Referred By:* \n_N/A_`,
+                  },
+                  {
+                    type: 'mrkdwn',
+                    text: `*Referral Code:* \n_N/A_`,
+                  },
+                ],
+              },
           {
             type: 'divider',
           },
@@ -198,6 +250,7 @@ export const CollectionForm: FunctionComponent<CollectionFormProps> = ({
     phone: '',
     layout: 'powderRoom',
     additional: '',
+    referralCode: '',
   }
 
   return (
@@ -252,6 +305,12 @@ export const CollectionForm: FunctionComponent<CollectionFormProps> = ({
           )
         }
 
+        if (values.referralCode) {
+          await validateCodeMutation.mutateAsync(
+            values.referralCode.toUpperCase()
+          )
+        }
+
         if (!isLoggedIn) {
           const newHomeowner = await addHomeownerMutation.mutateAsync(
             homeownerBody
@@ -264,15 +323,21 @@ export const CollectionForm: FunctionComponent<CollectionFormProps> = ({
               layout,
               ...addressData,
               ...activeMarket,
+              referralCode: values.referralCode.toUpperCase(),
             })
           }
         } else {
+          await validateOwnCodeMutation.mutateAsync(
+            values.referralCode.toUpperCase()
+          )
+
           await createEstimateMutation.mutateAsync({
             phone: homeowner.phone,
             collectionName,
             layout,
             ...addressData,
             ...activeMarket,
+            referralCode: values.referralCode.toUpperCase(),
           })
         }
 
@@ -538,6 +603,25 @@ export const CollectionForm: FunctionComponent<CollectionFormProps> = ({
                                 </section>
                               ) : null}
 
+                              <section>
+                                <div className="py-2 pt-10 text-lg font-medium leading-6 text-gray-900">
+                                  Referral Code
+                                </div>
+                                <div className="mb-4 min-w-0 flex-1 uppercase">
+                                  <GenericFormField
+                                    name="referralCode"
+                                    placeholder="REMODELMATE-XXXXXXXX"
+                                    type="text"
+                                    style={{ textTransform: 'uppercase' }}
+                                  />
+                                  {field === 'referralCode' ? (
+                                    <p className="mt-1 block text-sm text-red-600">
+                                      {homeownerErrorMsg}
+                                    </p>
+                                  ) : null}
+                                </div>
+                              </section>
+
                               <div className="flex flex-shrink-0 justify-end py-12">
                                 <button
                                   disabled={isSubmitting}
@@ -567,62 +651,6 @@ export const CollectionForm: FunctionComponent<CollectionFormProps> = ({
                               action={onModalClick}
                               actionText={'Sign-in'}
                             />
-                            {/* <div>
-                          {formType === 'Personal' ? (
-                            <UpdatePersonal
-                            contractor={contractor}
-                            setOpenForm={setOpenForm}
-                            />
-                            ) : null}
-                            {formType === 'Company' ? (
-                              <UpdateCompany
-                              contractor={contractor}
-                              setOpenForm={setOpenForm}
-                              />
-                              ) : null}
-                              {formType === 'State License' ? (
-                            <StateLicenseForm
-                              contractor={contractor}
-                              setOpenForm={setOpenForm}
-                              isAddNew={true}
-                              />
-                              ) : null}
-                              {formType === 'Local License' ? (
-                                <LocalLicenseForm
-                                contractor={contractor}
-                                setOpenForm={setOpenForm}
-                                isAddNew={true}
-                                />
-                                ) : null}
-                                {formType === 'Insurance Policy' ? (
-                            <InsurancePolicyForm
-                              contractor={contractor}
-                              setOpenForm={setOpenForm}
-                              isAddNew={true}
-                              />
-                              ) : null}
-                              {formType === 'Update State License' ? (
-                                <UpdateStateLicense
-                              contractor={contractor}
-                              setOpenForm={setOpenForm}
-                              document={document}
-                              />
-                              ) : null}
-                              {formType === 'Update Local License' ? (
-                            <UpdateLocalLicense
-                              contractor={contractor}
-                              setOpenForm={setOpenForm}
-                              document={document}
-                              />
-                              ) : null}
-                              {formType === 'Update Insurance Policy' ? (
-                                <UpdateInsurancePolicy
-                                contractor={contractor}
-                                setOpenForm={setOpenForm}
-                                document={document}
-                                />
-                                ) : null}
-                              </div> */}
                             {/* <pre>{JSON.stringify(finalValues, null, 2)}</pre> */}
                           </div>
                         </div>
@@ -640,18 +668,7 @@ export const CollectionForm: FunctionComponent<CollectionFormProps> = ({
 }
 
 interface CollectionFormProps {
-  // contractor: Contractor
   openForm: boolean
   setOpenForm: Dispatch<SetStateAction<boolean>>
   collectionName: string
-  // formType:
-  //   | 'Personal'
-  //   | 'Company'
-  //   | 'State License'
-  //   | 'Local License'
-  //   | 'Insurance Policy'
-  //   | 'Update State License'
-  //   | 'Update Local License'
-  //   | 'Update Insurance Policy'
-  // document: Record<string, string>
 }

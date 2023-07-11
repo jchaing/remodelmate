@@ -8,7 +8,7 @@ import { Layout } from '@lib/layout'
 
 // INFO: This route doesn't need to be authenticated
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
-  const { method, body } = req
+  const { method } = req
   const {
     phone,
     street,
@@ -21,6 +21,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     collectionName,
     layout,
     market,
+    referralCode,
   } = req.body
 
   const materialsPricing = {
@@ -68,6 +69,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
     try {
       const homeowner = await Homeowner.findOne({ phone: phone })
+      const referrer = await Homeowner.findOne({ referralCode: referralCode })
+
       const estimate = new Estimate({
         _homeowner: homeowner._id,
         collectionName,
@@ -75,11 +78,25 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
         address: { street, city, state, zip, additional, place_id, url },
         totalCost: calculateTotalCost(pricingBundle),
         remainingBalance: calculateTotalCost(pricingBundle),
+        referralCode,
       })
 
       estimate.milestones = createMilestones(pricingBundle, estimate._id)
 
       const { firstName, lastName, email } = homeowner
+
+      if (referralCode) {
+        // store referrer as reference on estimate
+        estimate._referredBy = referrer._id
+
+        // store estimate reference on referrer
+        await referrer.updateOne({ $push: { referred: estimate._id } })
+      }
+
+      await estimate.populate({
+        path: '_referredBy',
+        select: 'firstName lastName',
+      })
 
       await estimate.save()
       await homeowner.estimates.push(estimate)

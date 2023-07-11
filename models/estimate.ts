@@ -154,6 +154,16 @@ const estimateSchema = new Schema<Estimate>({
     required: true,
   },
 
+  _referredBy: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Homeowner',
+  },
+
+  referralCode: {
+    type: String,
+    trim: true,
+  },
+
   dateCreated: {
     type: Date,
     default: Date.now,

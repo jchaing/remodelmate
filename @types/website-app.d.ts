@@ -13,6 +13,8 @@ interface Estimate {
   remainingBalance: number
   dateCreated: Date
   contractors: Contractor[]
+  _referredBy: Homeowner
+  referralCode: string
 }
 
 interface Milestone {
@@ -48,6 +50,8 @@ interface Homeowner {
   phone: string
   stripeCustomerId: string
   estimates: [] // ref
+  referred: Estimate[] // ref
+  referralCode: string
   dateCreated: Date
 }
 

@@ -1,14 +1,13 @@
+import { HomeownerReferral } from '@components/homeowner'
 import { Layout } from '@components/layout'
-import { useClientIsLoggedIn } from '@utils/magic'
-import { useRouter } from 'next/router'
-import { Loader } from '@components/shared'
-import { ROUTE_MAP } from '@utils/routes'
 import { DashboardNav } from '@components/navigation'
+import { Loader } from '@components/shared'
+import { useClientIsLoggedIn } from '@utils/magic'
+import { ROUTE_MAP } from '@utils/routes'
 import { useGetHomeowner } from 'hooks/homeowner'
-import { HomeownerProfile } from '@components/homeowner'
-// import { PROJECT_DETAILS_EVENTS_ENUM, trackEvent } from '@utils/mixpanel'
+import { useRouter } from 'next/router'
 
-const ProfilePage = () => {
+const ReferralPage = () => {
   const router = useRouter()
 
   const {
@@ -38,13 +37,13 @@ const ProfilePage = () => {
 
   return (
     <DashboardNav>
-      <HomeownerProfile homeowner={homeowner} />
+      <HomeownerReferral homeowner={homeowner} />
     </DashboardNav>
   )
 }
 
-ProfilePage.getLayout = (page: any) => {
+ReferralPage.getLayout = (page: any) => {
   return <Layout>{page}</Layout>
 }
 
-export default ProfilePage
+export default ReferralPage

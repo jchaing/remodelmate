@@ -12,6 +12,7 @@ export const createEstimate = async ({
   collectionName,
   layout,
   market,
+  referralCode, 
 }: createEstimateRequest) => {
   const body = JSON.stringify({
     phone,
@@ -25,6 +26,7 @@ export const createEstimate = async ({
     collectionName,
     layout,
     market,
+    referralCode,
   })
 
   const response = await fetch('/api/estimate/createEstimate', {
@@ -64,4 +66,5 @@ interface createEstimateRequest {
   collectionName: string
   layout: string
   market: string
+  referralCode: string
 }
