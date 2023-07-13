@@ -2,6 +2,16 @@ import clsx from 'clsx'
 import { Form, Formik } from 'formik'
 import { useGenerateCode } from 'hooks/referral'
 import { useQueryClient } from 'react-query'
+import {
+  TwitterShareButton,
+  TwitterIcon,
+  EmailShareButton,
+  EmailIcon,
+  FacebookShareButton,
+  FacebookIcon,
+  LinkedinShareButton,
+  LinkedinIcon,
+} from 'react-share'
 
 export const HomeownerReferral = ({ homeowner }) => {
   const initialValues = {
@@ -49,17 +59,17 @@ export const HomeownerReferral = ({ homeowner }) => {
                           <div className="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
                             <label
                               htmlFor="referralDescription"
-                              className="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
+                              className="block text-sm font-bold text-gray-700 sm:mt-px sm:pt-2 sm:font-medium"
                             >
                               Refer a Friend
                             </label>
-                            <div className="mt-1 sm:col-span-2 sm:mt-0">
+                            <div className="mt-4 sm:col-span-2 sm:mt-0">
                               <div
                                 id="referralDescription"
                                 className="w-full max-w-lg rounded-md sm:mt-px sm:max-w-xs sm:py-2 sm:text-sm"
                               >
                                 <p>GIVE $750, GET $250</p>
-                                <p className='mt-3'>
+                                <p className="mt-3">
                                   Give your friends up to $750 off their first
                                   project and get $250 (cash) for each
                                   successful referral
@@ -73,16 +83,16 @@ export const HomeownerReferral = ({ homeowner }) => {
                           <div className="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
                             <label
                               htmlFor="referralCode"
-                              className="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
+                              className="block text-sm font-bold text-gray-700 sm:mt-px sm:pt-2 sm:font-medium"
                             >
                               Invite Code
                             </label>
-                            <div className="mt-1 sm:col-span-2 sm:mt-0">
+                            <div className="mt-4 sm:col-span-2 sm:mt-0">
                               <div
                                 id="referralCode"
                                 className={clsx(
                                   referralCode ? null : 'text-gray-300',
-                                  'block w-full max-w-lg rounded-md border border-gray-200 text-center sm:mt-px sm:max-w-xs sm:py-2 sm:text-sm'
+                                  'block w-full max-w-lg rounded-md border border-gray-200 py-2 text-center sm:mt-px sm:max-w-xs sm:text-sm'
                                 )}
                               >
                                 {referralCode
@@ -94,8 +104,8 @@ export const HomeownerReferral = ({ homeowner }) => {
                         </div>
                       </div>
                     </div>
-                    <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:text-right">
-                      {!referralCode ? (
+                    {!referralCode ? (
+                      <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:text-right">
                         <button
                           disabled={isSubmitting || referralCode}
                           type="submit"
@@ -105,15 +115,53 @@ export const HomeownerReferral = ({ homeowner }) => {
                             ? 'Generating...'
                             : 'Generate'}
                         </button>
-                      ) : (
-                        <button
-                          disabled
-                          className="btn inline-flex w-full justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:w-52"
-                        >
-                          Generate
-                        </button>
-                      )}
-                    </div>
+                      </div>
+                    ) : (
+                      <div className="space-y-6 bg-gray-50 px-4 py-5 sm:space-y-5 sm:p-6">
+                        <div className="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-gray-200">
+                          <label
+                            htmlFor="socialMedia"
+                            className="block text-sm font-bold text-gray-700 sm:mt-px sm:pt-2 sm:font-medium"
+                          >
+                            Share via
+                          </label>
+                          <div
+                            id="socialMedia"
+                            className="mt-4 space-x-4 text-center sm:col-span-2 sm:mt-0 sm:text-left"
+                          >
+                            <TwitterShareButton
+                              url={`https://remodelmate.com`}
+                              title={`Remodelmate is the easiest way to get a bathroom renovation project done. Use my referral code ${referralCode} to get $750 off your first project. - `}
+                              via="remodelmate"
+                            >
+                              <TwitterIcon size={32} round />
+                            </TwitterShareButton>
+                            <EmailShareButton
+                              url={`https://remodelmate.com`}
+                              subject={`Remodelmate - $750 off your first project`}
+                              body={`Remodelmate is the easiest way to get a bathroom renovation project done. Use my referral code ${referralCode} to get $750 off your first project.`}
+                            >
+                              <EmailIcon size={32} round />
+                            </EmailShareButton>
+                            {/* <FacebookShareButton
+                              url={`https://remodelmate.com/?ref=${referralCode}`}
+                              quote={`Remodelmate is the easiest way to get a home renovation project done. Use my referral code ${referralCode} to get $750 off your first project.`}
+                              hashtag="#remodelmate"
+                            >
+                              <FacebookIcon size={32} round />
+                            </FacebookShareButton>
+                            <LinkedinShareButton
+                              url={`https://remodelmate.com/`}
+                              title={`Remodelmate is the easiest way to get a home renovation project done. Use my referral code ${referralCode} to get $750 off your first project.`}
+                              summary={`Remodelmate is the easiest way to get a home renovation project done. Use my referral code ${referralCode} to get $750 off your first project.`}
+                              source="remodelmate.com"
+                            >
+                              <LinkedinIcon size={32} round />
+                            </LinkedinShareButton> */}
+                          </div>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </Form>
               </div>
