@@ -200,6 +200,7 @@ export const BookProject: FunctionComponent<BookProjectProps> = ({
                 )}
               </section>
 
+              {/* // MOBILE VIEW: ENTER PAYMENT DETAIL */}
               {(!stripeCustomerId || !paymentMethod) &&
                 firstName &&
                 lastName &&
@@ -415,6 +416,7 @@ export const BookProject: FunctionComponent<BookProjectProps> = ({
                 )}
               </section>
 
+              {/* // DESKTOP VIEW: ENTER PAYMENT DETAIL */}
               {(!stripeCustomerId || !paymentMethod) &&
                 firstName &&
                 lastName &&

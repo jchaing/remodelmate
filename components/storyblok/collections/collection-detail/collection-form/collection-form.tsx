@@ -378,7 +378,8 @@ export const CollectionForm: FunctionComponent<CollectionFormProps> = ({
                             <div className="flex items-start justify-between">
                               <Dialog.Title className="text-lg font-medium text-white">
                                 {/* {FormTypeTitles[formType]} */}
-                                {collectionName} Estimate
+                                {/* {collectionName} Estimate */}
+                                Get Quote
                               </Dialog.Title>
                               <div className="ml-3 flex h-7 items-center">
                                 <button
@@ -641,7 +642,7 @@ export const CollectionForm: FunctionComponent<CollectionFormProps> = ({
                                   type="submit"
                                   className="ml-4 inline-flex justify-center rounded-md border border-transparent bg-sky-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2"
                                 >
-                                  {isSubmitting ? 'Submitting...' : 'Submit'}
+                                  {isSubmitting ? 'Retrieving...' : 'Get Quote'}
                                 </button>
                               </div>
                             </Form>
