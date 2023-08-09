@@ -122,14 +122,14 @@ export function SignUpForm({ firstName, lastName, email, projectId }) {
 
   return (
     <>
-      <h2 id="summary-heading" className="text-xl font-semibold text-gray-900">
-        Enter Payment Details
+      <h2 id="summary-heading" className="text-xl font-semibold text-gray-900 pb-2">
+        Payment
       </h2>
 
-      <div className="mt-6">
+      <div className="mt-2">
         <form onSubmit={handleSubmit}>
           <div className="space-y-6 sm:space-y-5">
-            <div className="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:pt-5 lg:flex lg:flex-col lg:gap-1">
+            <div className="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 lg:flex lg:flex-col lg:gap-1">
               <label
                 htmlFor="firstName"
                 className="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
@@ -150,7 +150,7 @@ export function SignUpForm({ firstName, lastName, email, projectId }) {
               </div>
             </div>
 
-            <div className="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5 lg:flex lg:flex-col lg:gap-1">
+            <div className="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 lg:flex lg:flex-col lg:gap-1">
               <label
                 htmlFor="lastName"
                 className="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
@@ -171,7 +171,7 @@ export function SignUpForm({ firstName, lastName, email, projectId }) {
               </div>
             </div>
 
-            <div className="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5 lg:flex lg:flex-col lg:gap-1">
+            <div className="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 lg:flex lg:flex-col lg:gap-1">
               <label
                 htmlFor="cardDetails"
                 className="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"

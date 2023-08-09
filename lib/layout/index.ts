@@ -4,3 +4,10 @@ export enum Layout {
   showerOnly = 'Shower Only',
   separateTubAndShower = 'Separate Tub and Shower',
 }
+
+export enum LayoutReversed {
+  'Powder Room' = 'powderRoom',
+  'Tub and Shower Combo' = 'tubAndShowerCombo',
+  'Shower Only' = 'showerOnly',
+  'Separate Tub and Shower' = 'separateTubAndShower',
+}
