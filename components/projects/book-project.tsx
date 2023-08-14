@@ -47,13 +47,14 @@ export const BookProject: FunctionComponent<BookProjectProps> = ({
   expirationDate.setHours(23, 59, 59, 0)
 
   const expirationDateUserTimezone = new Date(expirationDate.toLocaleString())
-  // const quoteExpired = expirationDateUserTimezone > currentDate
   const quoteExpired = currentDate > expirationDateUserTimezone
 
   const expirationDateString = expirationDateUserTimezone.toLocaleString(
     'en-US',
     { month: 'long', day: 'numeric', year: 'numeric' }
   )
+
+  const constructionList = [...milestones].splice(2)
 
   return (
     <>
@@ -191,7 +192,7 @@ export const BookProject: FunctionComponent<BookProjectProps> = ({
                           className="prose-sm prose py-6"
                         >
                           <ul role="list">
-                            {milestones.map((milestone: any) => (
+                            {constructionList.map((milestone: any) => (
                               <Fragment key={milestone.name}>
                                 <li className="font-semibold">
                                   {milestone.name}
