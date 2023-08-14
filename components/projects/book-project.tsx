@@ -55,8 +55,6 @@ export const BookProject: FunctionComponent<BookProjectProps> = ({
     { month: 'long', day: 'numeric', year: 'numeric' }
   )
 
-  console.log('PROJECT', project)
-
   return (
     <>
       {project && milestones && (
@@ -79,8 +77,8 @@ export const BookProject: FunctionComponent<BookProjectProps> = ({
                       src={collectionImages[collectionName][0]}
                       alt={`${collectionName} Image 1`}
                       className="object-cover object-center group-hover:opacity-75"
-                      width={2250}
-                      height={3000}
+                      width={562.5}
+                      height={750}
                       priority
                     />
                   </div>
@@ -89,8 +87,8 @@ export const BookProject: FunctionComponent<BookProjectProps> = ({
                       src={collectionImages[collectionName][1]}
                       alt={`${collectionName} Image 2`}
                       className="object-cover object-center group-hover:opacity-75 sm:absolute sm:inset-0 sm:h-full sm:w-full"
-                      width={2250}
-                      height={3000}
+                      width={562.5}
+                      height={750}
                       priority
                     />
                   </div>
@@ -99,8 +97,8 @@ export const BookProject: FunctionComponent<BookProjectProps> = ({
                       src={collectionImages[collectionName][2]}
                       alt={`${collectionName} Image 3`}
                       className="object-cover object-center group-hover:opacity-75 sm:absolute sm:inset-0 sm:h-full sm:w-full"
-                      width={2250}
-                      height={3000}
+                      width={562.5}
+                      height={750}
                       priority
                     />
                   </div>
@@ -110,7 +108,7 @@ export const BookProject: FunctionComponent<BookProjectProps> = ({
               {/**Collection Detail */}
               <div
                 aria-labelledby="renovation-summary"
-                className="my-8 rounded-lg bg-gray-100 px-4 py-6 sm:p-6 lg:col-span-5 lg:p-8"
+                className="my-8 rounded-lg bg-gray-50 px-4 py-6 sm:p-6 lg:col-span-5 lg:p-8"
               >
                 <dl className="space-y-4">
                   <h2
@@ -151,7 +149,7 @@ export const BookProject: FunctionComponent<BookProjectProps> = ({
               {/**Construction and Materials Info */}
               <div
                 aria-labelledby="renovation-summary"
-                className="my-8 rounded-lg bg-gray-100 px-4 py-6 sm:p-6 lg:col-span-5 lg:p-8"
+                className="my-8 rounded-lg bg-gray-50 px-4 py-6 sm:p-6 lg:col-span-5 lg:p-8"
               >
                 <dl className="space-y-4">
                   <h2
@@ -266,7 +264,7 @@ export const BookProject: FunctionComponent<BookProjectProps> = ({
               <div className="lg:hidden">
                 <section
                   aria-labelledby="renovation-summary"
-                  className="mb-8 rounded-lg bg-gray-100 px-4 py-6 sm:p-6 lg:col-span-5 lg:-mt-4 lg:p-8"
+                  className="mb-8 rounded-lg bg-gray-50 px-4 py-6 sm:p-6 lg:col-span-5 lg:-mt-4 lg:p-8"
                 >
                   <h2
                     id="summary-heading"
@@ -429,7 +427,7 @@ export const BookProject: FunctionComponent<BookProjectProps> = ({
                   !quoteExpired && (
                     <section
                       aria-labelledby="summary-heading"
-                      className="my-8 rounded-lg bg-gray-100 px-4 py-6 sm:p-6 lg:col-span-5 lg:p-8"
+                      className="my-8 rounded-lg bg-gray-50 px-4 py-6 sm:p-6 lg:col-span-5 lg:p-8"
                     >
                       <Elements stripe={getStripe()}>
                         <SignUpForm
@@ -446,7 +444,7 @@ export const BookProject: FunctionComponent<BookProjectProps> = ({
 
             {/* // INFO: DESKTOP RENOVATION SUMMARY */}
             <div className="hidden lg:col-span-6 lg:block xl:col-span-5">
-              <section className="rounded-lg bg-gray-100 px-4 py-6 sm:p-6 lg:col-span-5 lg:p-8">
+              <section className="rounded-lg bg-gray-50 px-4 py-6 sm:p-6 lg:col-span-5 lg:p-8">
                 <h2
                   id="summary-heading"
                   className="text-xl font-semibold text-gray-900"
