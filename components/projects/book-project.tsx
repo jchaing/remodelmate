@@ -197,7 +197,7 @@ export const BookProject: FunctionComponent<BookProjectProps> = ({
                                 <li className="font-semibold">
                                   {milestone.name}
                                 </li>
-                                <div className="ml-4 lg:ml-6">
+                                <div className="ml-4">
                                   {milestone.description}
                                 </div>
                               </Fragment>
@@ -248,7 +248,7 @@ export const BookProject: FunctionComponent<BookProjectProps> = ({
                                 <li className="font-semibold">
                                   {milestone.name}
                                 </li>
-                                <div className="ml-4 lg:ml-6">
+                                <div className="ml-4">
                                   {milestone.description}
                                 </div>
                               </Fragment>
