@@ -124,103 +124,103 @@ export const CollectionForm: FunctionComponent<CollectionFormProps> = ({
           (milestoneString += `* _${milestone.name} $${milestone.price}_\n`)
       )
 
-      const slackMessageBody = {
-        blocks: [
-          {
-            type: 'divider',
-          },
-          {
-            type: 'section',
-            text: {
-              type: 'mrkdwn',
-              text: `<${ADMIN_URL}/estimates/${_id}|*🎉 New Estimate Built*>`,
-            },
-          },
-          {
-            type: 'divider',
-          },
-          {
-            type: 'section',
-            fields: [
-              {
-                type: 'mrkdwn',
-                text: `*Homeowner:* \n_${firstName} ${lastName}_\n`,
-              },
-              {
-                type: 'mrkdwn',
-                text: `*Email:* \n_${email}_\n`,
-              },
-            ],
-          },
-          {
-            type: 'section',
-            fields: [
-              {
-                type: 'mrkdwn',
-                text: `\n*Address:* \n_${street} ${additional}_ \n_${city}, ${state} ${zip}_`,
-              },
-              {
-                type: 'mrkdwn',
-                text: `\n*Phone:* \n_${phone}_\n`,
-              },
-            ],
-          },
-          {
-            type: 'section',
-            fields: [
-              {
-                type: 'mrkdwn',
-                text: `_*${collectionName} - ${layout}:*_ \n${milestoneString}`,
-              },
-              {
-                type: 'mrkdwn',
-                text: `*Estimate Total:* \n_$${totalCost}_`,
-              },
-            ],
-          },
-          referralCode
-            ? {
-                type: 'section',
-                fields: [
-                  {
-                    type: 'mrkdwn',
-                    text: `*Referred By:* \n_${_referredBy.firstName} ${_referredBy.lastName}_`,
-                  },
-                  {
-                    type: 'mrkdwn',
-                    text: `*Referral Code:* \n_${referralCode}_`,
-                  },
-                ],
-              }
-            : {
-                type: 'section',
-                fields: [
-                  {
-                    type: 'mrkdwn',
-                    text: `*Referred By:* \n_N/A_`,
-                  },
-                  {
-                    type: 'mrkdwn',
-                    text: `*Referral Code:* \n_N/A_`,
-                  },
-                ],
-              },
-          {
-            type: 'divider',
-          },
-        ],
-      }
+      // const slackMessageBody = {
+      //   blocks: [
+      //     {
+      //       type: 'divider',
+      //     },
+      //     {
+      //       type: 'section',
+      //       text: {
+      //         type: 'mrkdwn',
+      //         text: `<${ADMIN_URL}/estimates/${_id}|*🎉 New Estimate Built*>`,
+      //       },
+      //     },
+      //     {
+      //       type: 'divider',
+      //     },
+      //     {
+      //       type: 'section',
+      //       fields: [
+      //         {
+      //           type: 'mrkdwn',
+      //           text: `*Homeowner:* \n_${firstName} ${lastName}_\n`,
+      //         },
+      //         {
+      //           type: 'mrkdwn',
+      //           text: `*Email:* \n_${email}_\n`,
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       type: 'section',
+      //       fields: [
+      //         {
+      //           type: 'mrkdwn',
+      //           text: `\n*Address:* \n_${street} ${additional}_ \n_${city}, ${state} ${zip}_`,
+      //         },
+      //         {
+      //           type: 'mrkdwn',
+      //           text: `\n*Phone:* \n_${phone}_\n`,
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       type: 'section',
+      //       fields: [
+      //         {
+      //           type: 'mrkdwn',
+      //           text: `_*${collectionName} - ${layout}:*_ \n${milestoneString}`,
+      //         },
+      //         {
+      //           type: 'mrkdwn',
+      //           text: `*Estimate Total:* \n_$${totalCost}_`,
+      //         },
+      //       ],
+      //     },
+      //     referralCode
+      //       ? {
+      //           type: 'section',
+      //           fields: [
+      //             {
+      //               type: 'mrkdwn',
+      //               text: `*Referred By:* \n_${_referredBy.firstName} ${_referredBy.lastName}_`,
+      //             },
+      //             {
+      //               type: 'mrkdwn',
+      //               text: `*Referral Code:* \n_${referralCode}_`,
+      //             },
+      //           ],
+      //         }
+      //       : {
+      //           type: 'section',
+      //           fields: [
+      //             {
+      //               type: 'mrkdwn',
+      //               text: `*Referred By:* \n_N/A_`,
+      //             },
+      //             {
+      //               type: 'mrkdwn',
+      //               text: `*Referral Code:* \n_N/A_`,
+      //             },
+      //           ],
+      //         },
+      //     {
+      //       type: 'divider',
+      //     },
+      //   ],
+      // }
 
-      try {
-        const sendSlackMessage = await fetch('/api/slack/newEstimate', {
-          method: 'POST',
-          mode: 'no-cors',
-          body: JSON.stringify(slackMessageBody),
-        })
-        await sendSlackMessage.json()
-      } catch (error) {
-        new Error(error)
-      }
+      // try {
+      //   const sendSlackMessage = await fetch('/api/slack/newEstimate', {
+      //     method: 'POST',
+      //     mode: 'no-cors',
+      //     body: JSON.stringify(slackMessageBody),
+      //   })
+      //   await sendSlackMessage.json()
+      // } catch (error) {
+      //   new Error(error)
+      // }
 
       if (isLoggedIn) {
         setOpenForm(false)
