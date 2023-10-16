@@ -299,11 +299,12 @@ export const CollectionForm: FunctionComponent<CollectionFormProps> = ({
           additional,
         }
 
-        if (!activeZipCodesSet.has(Number(addressData.zip))) {
-          return setAddressError(
-            `Market for Zip Code ${addressData.zip} is currently not available`
-          )
-        }
+        // TODO: removing zip code validation for demo purposes
+        // if (!activeZipCodesSet.has(Number(addressData.zip))) {
+        //   return setAddressError(
+        //     `Market for Zip Code ${addressData.zip} is currently not available`
+        //   )
+        // }
 
         if (values.referralCode) {
           await validateCodeMutation.mutateAsync(
