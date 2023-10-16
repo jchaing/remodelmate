@@ -24,22 +24,27 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     referralCode,
   } = req.body
 
+  // TODO: Remove this once we have a way to select market
+  let anyMarket = 'WASHINGTON_DC'
+
   const materialsPricing = {
     _category: 'materials',
     name: 'Materials',
     description: `${collectionName} materials for the ${Layout[layout]} project.`,
     price:
-      ACTIVE_BUNDLES[market].materialsCollectionPricing[collectionName][layout],
+      ACTIVE_BUNDLES[anyMarket].materialsCollectionPricing[collectionName][
+        layout
+      ],
     contractorPayoutAmount: 0,
   }
 
   const pricingBundle = [
     // Fees due at booking
-    ACTIVE_BUNDLES[market].reservationFee,
+    ACTIVE_BUNDLES[anyMarket].reservationFee,
     // Materials pricing depending on collection and layout
     materialsPricing,
     // Construction pricing
-    ...ACTIVE_BUNDLES[market].pricingBundles[layout],
+    ...ACTIVE_BUNDLES[anyMarket].pricingBundles[layout],
   ]
 
   function createMilestones(bundle: any, projectId: any) {
