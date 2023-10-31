@@ -22,3 +22,5 @@ https://remodelmate-website.vercel.app/ (formerly Remodelmate.com)
   - MongoDB
   - Storyblok CMS
   - Stripe
+  - Vercel
+  - Magic Auth
