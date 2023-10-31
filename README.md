@@ -7,8 +7,9 @@ A client-facing web platform for homeowners to shop for bathroom designs and ren
 ## Stack
   - TypeScript
   - React
+  - React-Query
   - Next.js
-  - Tailwind
+  - Tailwind CSS
   - MongoDB
-  - Storyblok
+  - Storyblok CMS
   - Stripe
