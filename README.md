@@ -9,9 +9,9 @@ A client-facing web platform for homeowners to shop for bathroom designs and ren
 https://remodelmate-website.vercel.app/ (formerly Remodelmate.com)
 
 ## Test Credit Card
-Number: 4242 4242 4242 4242
-Zip Code: 42424
-CVV: 424
+  - Number: 4242 4242 4242 4242
+  - Zip Code: 42424
+  - CVV: 424
 
 # Stack
   - TypeScript
